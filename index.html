@@ -236,7 +236,7 @@ function App() {
   );
 }
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-setTimeout(()=>{const logo=(window.__resources&&window.__resources.logo)||"assets/logo-mark.png";document.querySelectorAll('img').forEach(img=>{if(img.getAttribute('src')==="../../assets/logo-mark.png")img.src=logo;});},0);
+(function(){const logo=(window.__resources&&window.__resources.logo)||"assets/logo-mark.png";function fix(){document.querySelectorAll('img[src="../../assets/logo-mark.png"],img[src="../assets/logo-mark.png"]').forEach(img=>{img.src=logo;});}fix();new MutationObserver(fix).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});})();
 </script>
 <script>(function(){function mark(){document.querySelectorAll('footer a').forEach(a=>{if(/linkedin/i.test(a.textContent)){a.classList.add('fx-li');a.href="https://www.linkedin.com/in/aisha-momand/";a.target="_blank";a.rel="noopener";}});}setTimeout(mark,300);setTimeout(mark,1200);})();</script>
 </body>
