@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Aisha Momand</title>
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/colors.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/typography.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/motion.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/_ds_bundle.js"></script>
+<script src="image-slot.js"></script>
+<meta name="ext-resource-dependency" content="assets/logo-mark.png" data-resource-id="logo" />
+<style>body{margin:0;background:var(--surface-page)}
+.reveal{opacity:0;transform:translateY(48px) scale(0.98);transition:opacity 800ms cubic-bezier(0.16,1,0.3,1),transform 800ms cubic-bezier(0.16,1,0.3,1)}
+.scroll-cue-text{font:600 11px/1.3 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted,#62748e);transition:color 240ms cubic-bezier(0.16,1,0.3,1)}
+a:hover .scroll-cue-text{color:var(--text-accent-on-light)}
+.scroll-line-left{position:relative;width:32px;height:1px;background:var(--text-accent-on-light);transition:width 360ms cubic-bezier(0.16,1,0.3,1)}
+.scroll-line-left::after{content:"";position:absolute;left:0;top:50%;width:6px;height:6px;border-left:1.5px solid var(--text-accent-on-light);border-bottom:1.5px solid var(--text-accent-on-light);transform:translateY(-50%) rotate(45deg)}
+.scroll-line{position:relative;width:32px;height:1px;background:var(--text-accent-on-light);transition:width 360ms cubic-bezier(0.16,1,0.3,1)}
+.scroll-line::after{content:"";position:absolute;right:0;top:50%;width:6px;height:6px;border-right:1.5px solid var(--text-accent-on-light);border-top:1.5px solid var(--text-accent-on-light);transform:translateY(-50%) rotate(45deg)}
+.scroll-link:hover .scroll-line-left,.scroll-link:hover .scroll-line{width:48px}
+.reveal.in-view{opacity:1;transform:translateY(0) scale(1)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}a{color:var(--text-accent-on-light)}a:hover{color:var(--coral-600)}.skip-link{position:absolute;left:-9999px;top:0;background:var(--navy-900);color:var(--cream-50);padding:12px 20px;z-index:100;font:700 16px var(--font-body)}.skip-link:focus{left:16px;top:16px}@keyframes blinkCursor{0%,49%{opacity:1}50%,100%{opacity:0}}button{border-radius:8px !important}}button{border-radius:10px !important}}footer{position:relative}footer>div>div:nth-child(1){gap:24px !important;margin-top:8px}footer a.fx-li,footer a[href^="mailto:"]{text-decoration:none !important;position:relative;display:inline-flex !important;align-items:center;gap:14px;font:600 13px/1.3 Inter,sans-serif !important;letter-spacing:1.5px;text-transform:uppercase;transition:gap 320ms cubic-bezier(0.16,1,0.3,1),color 320ms cubic-bezier(0.16,1,0.3,1);width:fit-content}footer a.fx-li svg,footer a[href^="mailto:"] svg{display:none}footer a.fx-li::before,footer a[href^="mailto:"]::before{content:"";width:18px;height:18px;flex-shrink:0;background-color:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/%3E%3Crect x='2' y='9' width='4' height='12'/%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/%3E%3Crect x='2' y='9' width='4' height='12'/%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/svg%3E") center/contain no-repeat}footer a[href^="mailto:"]::before{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E") center/contain no-repeat}footer a.fx-li:hover,footer a[href^="mailto:"]:hover{gap:20px;color:var(--text-inverse) !important}footer{position:relative;overflow:hidden}footer a{position:relative}footer span+span::after{content:"|";display:inline-block;margin-left:2px;animation:blinkCursor 1s step-end infinite}footer a svg{transition:transform 320ms cubic-bezier(0.16,1,0.3,1)}footer a:hover svg{transform:translate(3px,-3px)}}a{color:var(--text-accent-on-light)}a:hover{color:var(--coral-600)}.navbar-noise::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.logo-link{display:inline-flex;text-decoration:none;position:relative}.logo-link img{transition:filter 420ms cubic-bezier(0.16,1,0.3,1),transform 420ms cubic-bezier(0.16,1,0.3,1)}.logo-link::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--text-accent-on-light);transform:scaleX(0);transform-origin:left;transition:transform 420ms cubic-bezier(0.16,1,0.3,1)}.logo-link:hover img{transform:scale(1.04);filter:drop-shadow(0 4px 10px rgba(20,30,50,0.18))}.logo-link:hover::after{transform:scaleX(1)}.logo-link:active img{transform:scale(0.98)}nav a[href]:not(.toc-inline-link):hover{color:var(--coral-700) !important}.cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--text-accent-on-light);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:width 220ms cubic-bezier(0.16,1,0.3,1),height 220ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease}.cursor-dot.active{opacity:1}.cursor-ring{position:fixed;top:0;left:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-divider);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:width 280ms cubic-bezier(0.16,1,0.3,1),height 280ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease,border-color 280ms cubic-bezier(0.16,1,0.3,1)}.cursor-ring.active{opacity:1}.cursor-dot.hovering{width:6px;height:6px}.cursor-ring.hovering{width:44px;height:44px;border-color:var(--text-accent-on-light)}@media (hover:none){.cursor-dot,.cursor-ring{display:none}</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div id="root"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<script>(function(){const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');if(!dot||!ring||window.matchMedia('(hover:none)').matches)return;let rx=0,ry=0,tx=0,ty=0;window.addEventListener('mousemove',e=>{dot.classList.add('active');ring.classList.add('active');dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';tx=e.clientX;ty=e.clientY;const el=document.elementFromPoint(e.clientX,e.clientY);const hovering=!!(el&&el.closest('a,button'));dot.classList.toggle('hovering',hovering);ring.classList.toggle('hovering',hovering);});function loop(){rx+=(tx-rx)*0.18;ry+=(ty-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);}loop();})();</script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" data-bg-color="#FDF8F2"><rect width="100" height="100" fill="#FDF8F2"></rect><text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="600" fill="#F0634C">A</text></svg></template>
+<script type="text/babel" data-presets="react">
+const { Logo, Link, Tag, Button, Footer } = window.AishaMomandDesignSystem_ae6873;
+
+function useIsMobile() {
+  const [mobile, setMobile] = React.useState(window.innerWidth < 1000);
+  React.useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1000px)");
+    const onChange = () => setMobile(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return mobile;
+}
+
+function MenuIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy-900)" strokeWidth="2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+  );
+}
+
+function Navbar() {
+  const mobile = useIsMobile();
+  const [open, setOpen] = React.useState(false);
+  if (mobile) {
+    return (
+      <div className="navbar-noise" style={{position:"sticky",top:0,zIndex:10,background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",overflow:"hidden"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 20px"}}>
+          <a href="index.html" className="logo-link"><Logo size={36} /></a>
+          <button aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(o=>!o)} style={{background:"none",border:"none",padding:10,cursor:"pointer",minHeight:44,minWidth:44,display:"inline-flex",alignItems:"center",justifyContent:"center"}}><MenuIcon /></button>
+        </div>
+        {open && (
+          <nav style={{display:"flex",flexDirection:"column",padding:"0 20px 16px",gap:4}}>
+            <Link href="index.html">Work</Link>
+            <Link href="about.html" active>About</Link>
+            <Link href="resume.html">Resume</Link>
+            <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+            <div style={{paddingTop:8}}><Button variant="primary" size="sm" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button></div>
+          </nav>
+        )}
+      </div>
+    );
+  }
+  return (
+    <div style={{position:"sticky",top:0,zIndex:10}}>
+      <div className="navbar-noise" style={{position:"relative",background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",display:"flex",justifyContent:"center",padding:"20px 80px",overflow:"hidden"}}>
+        <div style={{maxWidth:"var(--container-max)",width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <a href="index.html" className="logo-link"><Logo size={46} /></a>
+          <nav style={{display:"flex",gap:40,alignItems:"center"}}>
+            <Link href="index.html">Work</Link>
+            <Link href="about.html" active>About</Link>
+            <Link href="resume.html">Resume</Link>
+            <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+            <Button variant="primary" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button>
+          </nav>
+        </div>
+      </div>
+      <div style={{height:32,marginTop:-1,background:"linear-gradient(to bottom, color-mix(in oklch, var(--surface-page) 55%, transparent), transparent)",backdropFilter:"blur(6px)",WebkitBackdropFilter:"blur(6px)",maskImage:"linear-gradient(to bottom, black, transparent)",WebkitMaskImage:"linear-gradient(to bottom, black, transparent)",pointerEvents:"none"}}></div>
+    </div>
+  );
+}
+
+const container = {maxWidth:"var(--container-max)",margin:"0 auto",padding:"0 80px 60px"};
+const hr = <hr style={{border:"none",borderTop:"1px solid var(--border-divider)",margin:"88px 0"}} />;
+const h2Style = {font:"var(--text-display-md)",fontSize:44,letterSpacing:"-0.02em",color:"var(--navy-900)",margin:"0 0 40px"};
+const bodyStyle = {margin:0,font:"var(--text-body-lg)",color:"var(--text-body)",maxWidth:"70ch"};
+const cardTitleStyle = {font:"var(--text-display-sm)",fontSize:22,color:"var(--navy-900)"};
+const cardBodyStyle = {margin:0,font:"400 16px/1.6 Inter,sans-serif",color:"var(--text-muted,#62748e)"};
+const labelStyle = {font:"700 12px/1.3 Inter,sans-serif",letterSpacing:1,textTransform:"uppercase",color:"var(--text-accent-on-light)"};
+const captionStyle = {textAlign:"center",font:"italic 400 16px/1.8 Inter,sans-serif",color:"var(--text-muted,#62748e)",margin:"16px 0 0"};
+
+const ARTWORKS = ["gallery-2","gallery-1","gallery-3","gallery-4"];
+function ArtworkCarousel({ mobile }) {
+  const [i, setI] = React.useState(0);
+  const go = (d) => setI((i + d + ARTWORKS.length) % ARTWORKS.length);
+  return (
+    <div style={{display:"flex",flexDirection:"column",alignItems: mobile ? "center" : "flex-start",gap:16}}>
+      <div style={{position:"relative",width:"min(520px,100%)",maxWidth:"100%",aspectRatio:"4/5",borderRadius:"var(--radius-card)",overflow:"hidden",border:"0.56px solid rgba(255,255,255,0.4)",boxShadow:"0 16px 32px rgba(20,30,50,0.12)"}} onMouseEnter={e=>e.currentTarget.querySelectorAll(".carousel-arrow").forEach(b=>b.style.opacity=1)} onMouseLeave={e=>e.currentTarget.querySelectorAll(".carousel-arrow").forEach(b=>b.style.opacity=0)}>
+        <image-slot key={ARTWORKS[i]} id={ARTWORKS[i]} shape="rounded" radius="var(--radius-card)" placeholder="Drop artwork" src={`assets/${ARTWORKS[i]}.png`}></image-slot>
+        <button aria-label="Previous artwork" onClick={()=>go(-1)} style={{position:"absolute",left:0,top:0,bottom:0,width:64,border:"none",background:"linear-gradient(to right, rgba(20,30,50,0.16), transparent)",color:"#fff",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"flex-start",paddingLeft:14,fontSize:22,opacity:0,transition:"opacity 200ms ease"}} className="carousel-arrow">‹</button>
+        <button aria-label="Next artwork" onClick={()=>go(1)} style={{position:"absolute",right:0,top:0,bottom:0,width:64,border:"none",background:"linear-gradient(to left, rgba(20,30,50,0.16), transparent)",color:"#fff",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"flex-end",paddingRight:14,fontSize:22,opacity:0,transition:"opacity 200ms ease"}} className="carousel-arrow">›</button>
+      </div>
+      <div style={{display:"flex",gap:8,alignItems:"center",justifyContent: mobile ? "center" : "flex-start",width: mobile ? undefined : "min(520px,100%)"}}>
+        {ARTWORKS.map((id,idx)=>(
+          <button key={id} aria-label={`Go to artwork ${idx+1}`} onClick={()=>setI(idx)} style={{width:idx===i?20:8,height:8,borderRadius:4,border:"none",padding:0,cursor:"pointer",background:idx===i?"var(--text-accent-on-light)":"var(--border-divider)",transition:"width 240ms cubic-bezier(0.16,1,0.3,1),background 240ms ease"}}></button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const mobile = useIsMobile();
+  return (
+    <React.Fragment>
+      <Navbar />
+      <main id="main">
+        <div style={{...container,paddingTop:60}}>
+          <div className="hero-reveal" style={{display:"flex",gap:60,alignItems:"center",flexWrap:"wrap",marginBottom:60}}>
+            <div style={{flex:"1 1 420px",minWidth:0}}>
+              <span style={{...labelStyle,display:"block",marginBottom:20}}>About Me</span>
+              <h1 style={{font:"var(--text-hero)",fontStyle:"normal",fontWeight:500,fontSize:"clamp(44px,6.5vw,88px)",letterSpacing:"-0.05em",lineHeight:1.05,color:"var(--navy-900)",margin:"0 0 24px"}}>I design order in places most people find overwhelming.</h1>
+              <div style={{display:"flex",flexWrap:"wrap",gap:20,marginBottom:32,font:"600 15px/1.4 Inter,sans-serif"}}>
+                <a href="mailto:aisha.momand1@gmail.com" style={{textDecoration:"none"}}>aisha.momand1@gmail.com</a>
+                <a href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener" style={{textDecoration:"none"}}>linkedin.com/in/aisha-momand</a>
+              </div>
+              <p style={{...bodyStyle,maxWidth:"none",marginBottom:20}}><span style={{float:"left",font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:72,lineHeight:0.72,color:"var(--coral-500)",padding:"6px 10px 0 0"}}>H</span>ello, I'm Aisha. I'm a UX/Product Designer based in the GTA, currently on the Digital Solutions team at Stantec, where I design tools that help engineers and infrastructure teams make sense of huge amounts of data.</p>
+              <p style={{...bodyStyle,maxWidth:"none"}}>I start with old-fashioned research, then use AI to move faster once I know what I'm building. Either way, the goal is the same: take something genuinely complicated and make it feel obvious.</p>
+              <div style={{display:"flex",flexWrap:"wrap",gap:12,marginTop:24}}>
+                {["Figma","Figma Make","FigJam","Claude Design","Claude Code","Lovable","MAXQDA"].map((t,i)=><Tag key={i}>{t}</Tag>)}
+              </div>
+            </div>
+            <div style={{flex:"0 1 340px",width:"min(340px, 100%)",maxWidth:340,height:410,borderRadius:"var(--radius-card)",overflow:"hidden",border:"0.56px solid rgba(255,255,255,0.4)",boxShadow:"0 16px 32px rgba(20,30,50,0.12)"}}>
+              <image-slot id="about-portrait" shape="rounded" radius="var(--radius-card)" placeholder="Drop a portrait" src="assets/aisha-portrait.png"></image-slot>
+            </div>
+          </div>
+          {hr}
+          <h2 style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}} className="reveal"><span style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>01</span>What I've Built</h2>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:40,marginBottom:40}} className="reveal">
+            <div>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>Enterprise &amp; Data Systems</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none"}}>I've designed tools for pavement management, solar farm planning, mapping software (GIS), and AirLogic, an app that tracks emissions and helped Blue Sky Resources become a Google Cloud partner. I've also designed 3D interfaces used inside Unreal Engine, a game-development tool, for an interactive facility simulation.</p>
+            </div>
+            <div>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>Research &amp; Design Systems</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none"}}>At Stantec, I've led user research, helped build a shared design system so our products look and feel consistent, and designed tools built on Power Apps and Power BI (Microsoft's business software), including for the US Marines.</p>
+            </div>
+            <div>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>Fixing How Teams Work</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none"}}>Right now I'm researching how internal rules and approvals actually work across the company, so we can turn that into one clear, guided tool instead of a maze of policies. Alongside that, I'm looking at how teams find and reuse existing resources, so we can bring scattered tools together into one place.</p>
+            </div>
+            <div>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>Solar Design Tooling</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none"}}>I designed the interface and ran usability testing for a tool that automates layout design for one of Canada's largest solar facilities.</p>
+            </div>
+          </div>
+          {hr}
+          <h2 style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}} className="reveal"><span style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>02</span>How I Work</h2>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:40,marginBottom:40}} className="reveal">
+            <div>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>Structure First</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none"}}>I start with structure, not screens. Before I design anything, I want to understand where people actually get stuck, through research, interviews, and watching how they really move through a system. Confusion is usually just a sign I haven't found the structure yet.</p>
+              <p style={{...cardBodyStyle,maxWidth:"none",marginTop:16}}>In practice, that means using a method from human-computer interaction (HCI): I break a system down into the real tasks people are trying to get done, not the screens or features already on a roadmap, and map what information each task needs and where it tends to break down. That keeps the design honest to how the work actually happens, so what I build fits people's jobs instead of forcing them to adapt to it.</p>
+            </div>
+            <div>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>AI as Acceleration</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none"}}>I use AI to move faster, not to think for me. It helps me get through synthesis and iteration more quickly, but I still make the calls, the same way I'd push a design through a few rough drafts before landing on the right one.</p>
+            </div>
+            <div>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>The Process Matters Too</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none"}}>A great-looking screen inside a broken process doesn't actually fix anything. So I try to fix both: the process behind the scenes and what people actually see. That way it holds up once it's out in the real world, not just in a design file.</p>
+            </div>
+          </div>
+          {hr}
+          <h2 style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}} className="reveal"><span style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>03</span>Off the Clock</h2>
+          <div style={{display:"flex",gap:48,alignItems:"flex-start",flexWrap:"wrap",marginBottom:40}} className="reveal">
+            <div style={{flex:"1 1 340px"}}>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>Origins in Play</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none",marginBottom:24}}>Honestly, this started with a lot of questionable late-night decisions: unpaid art director for my Piczo page, surgeon on Tumblr themes, and way too many hours of "user research" in video games. Turns out that same obsession with tinkering just grew up into a career.</p>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>Outside of Work</h3>
+              <p style={{...cardBodyStyle,maxWidth:"none",marginBottom:24}}>I care a lot about humane technology and thinking through where AI actually belongs in a design process versus where a person needs to stay in charge. Outside of that, you'll find me weightlifting, playing video games, reading, tinkering on side projects, or falling down a rabbit hole about tech and human behaviour. My cat Ora is usually nearby, pretending she's my project manager (mostly she just wants naps and snacks).</p>
+              <h3 style={{...cardTitleStyle,marginBottom:12}}>Places I've Travelled</h3>
+              <div style={{display:"flex",flexWrap:"wrap",gap:10}}>
+                {[["🇨🇦","Canada"],["🇩🇪","Germany"],["🇩🇰","Denmark"],["🇳🇴","Norway"],["🇪🇸","Spain"],["🇮🇹","Italy"]].map(([flag,name])=>(
+                  <span key={name} style={{display:"inline-flex",alignItems:"center",gap:8,font:"400 14px/1.3 Inter,sans-serif",color:"var(--text-body)",border:"1px solid var(--border-divider)",borderRadius:"var(--radius-badge, 4px)",padding:"6px 12px"}}><span aria-hidden="true" style={{fontSize:16}}>{flag}</span>{name}</span>
+                ))}
+              </div>
+            </div>
+            <div style={{flex:"0 1 320px",width:"min(320px, 100%)",maxWidth:320,height:320,borderRadius:"var(--radius-card)",overflow:"hidden",border:"0.56px solid rgba(255,255,255,0.4)"}}>
+              <image-slot id="cat-photo" shape="rounded" radius="18" placeholder="Drop a cat photo" src="assets/cat-photo.png"></image-slot>
+            </div>
+          </div>
+          <span style={{...labelStyle,display:"block",marginBottom:20}} className="reveal">Some Things I've Made for Fun</span>
+          <p style={{...cardBodyStyle,maxWidth:"72ch",marginBottom:32}} className="reveal">Design isn't the only thing I make. I also create digital art, mostly for fun and to keep the same experimental muscle warm. Here are a few pieces.</p>
+          <div className="reveal"><ArtworkCarousel mobile={mobile} /></div>
+          {hr}
+          <div className="reveal" style={{display:"flex",gap:40,flexWrap:"wrap"}}>
+            <a href="index.html" className="scroll-link" style={{display:"inline-flex",alignItems:"center",gap:12,textDecoration:"none"}}>
+              <span aria-hidden="true" className="scroll-line-left"></span>
+              <span className="scroll-cue-text">See my work</span>
+            </a>
+            <a href="resume.html" className="scroll-link" style={{display:"inline-flex",alignItems:"center",gap:12,textDecoration:"none"}}>
+              <span className="scroll-cue-text">View my resume</span>
+              <span aria-hidden="true" className="scroll-line"></span>
+            </a>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+(function(){const logo=(window.__resources&&window.__resources.logo)||"assets/logo-mark.png";function fix(){document.querySelectorAll('img[src="../../assets/logo-mark.png"],img[src="../assets/logo-mark.png"]').forEach(img=>{img.src=logo;});}fix();new MutationObserver(fix).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});})();
+</script>
+<script>(function(){function mark(){document.querySelectorAll('footer a').forEach(a=>{if(/linkedin/i.test(a.textContent)){a.classList.add('fx-li');a.href="https://www.linkedin.com/in/aisha-momand/";a.target="_blank";a.rel="noopener";}});}setTimeout(mark,300);setTimeout(mark,1200);})();</script>
+<script>(function(){function initReveal(){const main=document.getElementById("main");if(!main||main.dataset.revealInit)return;main.dataset.revealInit="1";const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{e.target.classList.toggle("in-view",e.isIntersecting);});},{threshold:0.2,rootMargin:"0px 0px -120px 0px"});main.querySelectorAll(".reveal").forEach(el=>io.observe(el));const heroEls=main.querySelectorAll(".hero-reveal");heroEls.forEach(el=>el.classList.add("reveal"));const heroIo=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add("in-view"),i*100);heroIo.unobserve(e.target);}});},{threshold:0.1});heroEls.forEach(el=>heroIo.observe(el));}setTimeout(initReveal,400);setTimeout(initReveal,1200);})();</script>
+</body>
+</html>
