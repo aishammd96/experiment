@@ -58,7 +58,16 @@
 <script>(function(){const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');if(!dot||!ring||window.matchMedia('(hover:none)').matches)return;let rx=0,ry=0,tx=0,ty=0;window.addEventListener('mousemove',e=>{dot.classList.add('active');ring.classList.add('active');dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';tx=e.clientX;ty=e.clientY;const el=document.elementFromPoint(e.clientX,e.clientY);const hovering=!!(el&&el.closest('a,button'));dot.classList.toggle('hovering',hovering);ring.classList.toggle('hovering',hovering);});function loop(){rx+=(tx-rx)*0.18;ry+=(ty-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);}loop();})();</script>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" data-bg-color="#FDF8F2"><rect width="100" height="100" fill="#FDF8F2"></rect><text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="600" fill="#F0634C">K</text></svg></template>
 <script type="text/babel" data-presets="react">
-const { Logo, Link, Tag, Button, Footer } = window.AishaMomandDesignSystem_ae6873;
+const { Link, Tag, Button, Footer } = window.AishaMomandDesignSystem_ae6873;
+function SiteLogo({ size = 40 }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 10 }}>
+      <img src="assets/logo-mark.png" alt="" style={{ width: size, height: size, flexShrink: 0, borderRadius: "50%" }} />
+      <span style={{ font: "var(--text-name)", color: "var(--navy-900)", whiteSpace: "nowrap" }}>Aisha Momand</span>
+    </div>
+  );
+}
+
 
 function useIsMobile() {
   const [mobile, setMobile] = React.useState(window.innerWidth < 1000);
@@ -84,7 +93,7 @@ function Navbar() {
     return (
       <div style={{position:"sticky",top:0,zIndex:10,background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)"}} className="navbar-noise">
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 20px"}}>
-          <a href="index.html" className="logo-link"><Logo size={36} /></a>
+          <a href="index.html" className="logo-link"><SiteLogo size={36} /></a>
           <button aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(o=>!o)} style={{background:"none",border:"none",padding:10,cursor:"pointer",minHeight:44,minWidth:44,display:"inline-flex",alignItems:"center",justifyContent:"center"}}><MenuIcon /></button>
         </div>
         {open && (
@@ -104,7 +113,7 @@ function Navbar() {
     <div style={{position:"sticky",top:0,zIndex:10,background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)"}} className="navbar-noise">
       <div style={{display:"flex",justifyContent:"center",padding:"20px 80px"}}>
         <div style={{maxWidth:"var(--container-max)",width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-          <a href="index.html" className="logo-link"><Logo size={46} /></a>
+          <a href="index.html" className="logo-link"><SiteLogo size={46} /></a>
           <nav style={{display:"flex",gap:28,alignItems:"center"}}>
             <Link href="index.html" active>Work</Link>
             <Link href="about.html">About</Link>
@@ -408,7 +417,7 @@ function App() {
 }
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 setTimeout(()=>{document.querySelectorAll('image-slot[id^="bda-slot"]').forEach(s=>{if(!s.shadowRoot)return;const st=document.createElement('style');const fit=s.id==='bda-slot-1-2-1'?'contain':'cover';st.textContent='.frame{background:#0d2428!important}.frame img{object-fit:'+fit+'!important;height:100%!important;width:100%!important;object-position:top center!important}';if(s.id==='bda-slot-1-2-1'){const im=s.shadowRoot.querySelector('img');if(im&&im.naturalWidth)s.style.aspectRatio=im.naturalWidth+'/'+im.naturalHeight}s.shadowRoot.appendChild(st)})},600);
-(function(){const logo=(window.__resources&&window.__resources.logo)||"assets/logo-mark.png";function fix(){document.querySelectorAll('img[src="../../assets/logo-mark.png"],img[src="../assets/logo-mark.png"]').forEach(img=>{img.src=logo;});}fix();new MutationObserver(fix).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});})();
+
 </script>
 <script>(function(){function fit(){document.querySelectorAll('.bda-slot').forEach(function(s){var im=s.shadowRoot&&s.shadowRoot.querySelector('img');if(im&&im.naturalWidth){s.style.aspectRatio=im.naturalWidth+'/'+im.naturalHeight;s.style.height='auto'}})}new MutationObserver(fit).observe(document.documentElement,{subtree:true,childList:true,attributes:true});setInterval(fit,600);setTimeout(fit,300)})()</script><script>(function(){function mark(){document.querySelectorAll('footer a').forEach(a=>{if(/linkedin/i.test(a.textContent)){a.classList.add('fx-li');a.href="https://www.linkedin.com/in/aisha-momand/";a.target="_blank";a.rel="noopener";}});}setTimeout(mark,300);setTimeout(mark,1200);})();</script>
 <script>(function(){function initReveal(){const main=document.getElementById("main");if(!main||main.dataset.revealInit)return;main.dataset.revealInit="1";const targets=main.querySelectorAll("h2[id^='sec-'], main > div > div > p, .media-noise, figure, blockquote");targets.forEach(el=>{if(el.closest(".toc-index-link")||el.closest("nav"))return;el.classList.add("reveal");});
