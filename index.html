@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/colors.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/typography.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/motion.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/_ds_bundle.js"></script>
+<meta name="ext-resource-dependency" content="assets/hero-illustration.png" data-resource-id="hero" />
+<meta name="ext-resource-dependency" content="assets/logo-mark.png" data-resource-id="logo" />
+<meta name="ext-resource-dependency" content="assets/kindex-preview.png" data-resource-id="kindex" />
+<style>body{margin:0;background:var(--surface-page)}a{color:var(--text-accent-on-light)}a:hover{color:var(--coral-600)}.skip-link{position:absolute;left:-9999px;top:0;background:var(--navy-900);color:var(--cream-50);padding:12px 20px;z-index:100;font:700 16px var(--font-body)}.skip-link:focus{left:16px;top:16px}.work-card{transition:transform var(--dur-fast,240ms) var(--ease-out,ease-out)}.work-media{position:relative;overflow:hidden;transition:transform 480ms cubic-bezier(0.16,1,0.3,1),box-shadow 480ms cubic-bezier(0.16,1,0.3,1)}.work-card:hover .work-media,.work-card:focus-visible .work-media{transform:translateY(-8px);box-shadow:0 24px 48px rgba(20,30,50,0.2)}.work-title{position:relative;color:var(--navy-900);transition:color 380ms cubic-bezier(0.16,1,0.3,1)}.work-card:hover .work-title{color:var(--text-accent-on-light)}.work-title::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 420ms cubic-bezier(0.16,1,0.3,1)}.work-card:hover .work-title::after{transform:scaleX(1)}h2[id="work"]{scroll-margin-top:120px}@keyframes fadeUp{from{opacity:0;filter:blur(6px);transform:translateY(36px) scale(0.985)}to{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}}.hero-anim>*{opacity:0;animation:fadeUp 900ms cubic-bezier(0.16,1,0.3,1) forwards}.hero-anim>*:nth-child(1){animation-delay:0ms}.hero-anim>*:nth-child(2){animation-delay:160ms}.hero-anim>*:nth-child(3){animation-delay:320ms}.reveal{opacity:0;filter:blur(4px);transform:translateY(28px);transition:opacity 720ms cubic-bezier(0.16,1,0.3,1),transform 720ms cubic-bezier(0.16,1,0.3,1),filter 720ms cubic-bezier(0.16,1,0.3,1)}.reveal.in{opacity:1;filter:blur(0);transform:translateY(0)}.tag-pop{transition:transform 260ms cubic-bezier(0.16,1,0.3,1)}a:hover .tag-pop{transform:translateY(-2px)}.scroll-cue{width:26px;height:44px;border:1.5px solid var(--border-divider);border-radius:14px;position:relative;overflow:hidden;display:block;transition:border-color 240ms cubic-bezier(0.16,1,0.3,1)}a:hover .scroll-cue{border-color:var(--text-accent-on-light)}.scroll-cue::after{content:"";position:absolute;top:6px;left:50%;width:4px;height:8px;border-radius:2px;background:var(--text-accent-on-light);transform:translateX(-50%);animation:scrollCue 1.6s cubic-bezier(0.16,1,0.3,1) infinite}@keyframes scrollCue{0%{top:6px;opacity:1}70%{opacity:1}100%{top:26px;opacity:0}}.scroll-cue-text{font:600 11px/1.3 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted,#62748e);transition:color 240ms cubic-bezier(0.16,1,0.3,1)}a:hover .scroll-cue-text{color:var(--text-accent-on-light)}.scroll-cue-arrow{font-size:16px;color:var(--text-accent-on-light);animation:scrollArrow 1.6s cubic-bezier(0.16,1,0.3,1) infinite}@keyframes scrollArrow{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}.scroll-line{position:relative;width:32px;height:1px;background:var(--text-accent-on-light);transition:width 360ms cubic-bezier(0.16,1,0.3,1)}.scroll-line::after{content:"";position:absolute;right:0;top:50%;width:6px;height:6px;border-right:1.5px solid var(--text-accent-on-light);border-top:1.5px solid var(--text-accent-on-light);transform:translateY(-50%) rotate(45deg)}.scroll-link:hover .scroll-line{width:48px}.scroll-cue-arrow-h{animation:scrollArrowH 1.6s cubic-bezier(0.16,1,0.3,1) infinite}@keyframes scrollArrowH{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}.hero-illustration{will-change:transform}.hero-complexity{position:relative;display:inline-block;font-weight:500;color:var(--coral-500);cursor:default}.hero-complexity span{display:inline-block;animation:unscatter 1200ms cubic-bezier(0.16,1,0.3,1) both}.hero-complexity span:nth-child(1){--tx:-0.115em;--ty:-0.140em;--tr:-6.5deg;animation-delay:500ms}.hero-complexity span:nth-child(2){--tx:0.121em;--ty:0.134em;--tr:5.6deg;animation-delay:560ms}.hero-complexity span:nth-child(3){--tx:-0.101em;--ty:-0.118em;--tr:7.5deg;animation-delay:620ms}.hero-complexity span:nth-child(4){--tx:0.110em;--ty:0.140em;--tr:-7.0deg;animation-delay:680ms}.hero-complexity span:nth-child(5){--tx:-0.126em;--ty:-0.129em;--tr:5.9deg;animation-delay:740ms}.hero-complexity span:nth-child(6){--tx:0.092em;--ty:0.112em;--tr:-5.1deg;animation-delay:800ms}.hero-complexity span:nth-child(7){--tx:-0.110em;--ty:-0.123em;--tr:4.4deg;animation-delay:860ms}.hero-complexity span:nth-child(8){--tx:0.126em;--ty:0.140em;--tr:-6.8deg;animation-delay:920ms}.hero-complexity span:nth-child(9){--tx:-0.086em;--ty:-0.106em;--tr:7.4deg;animation-delay:980ms}.hero-complexity span:nth-child(10){--tx:0.115em;--ty:0.129em;--tr:-5.2deg;animation-delay:1040ms}.hero-complexity span:nth-child(11){--tx:-0.097em;--ty:-0.112em;--tr:4.0deg;animation-delay:1100ms}@keyframes unscatter{from{transform:translateX(var(--tx)) translateY(var(--ty)) rotate(var(--tr))}to{transform:translateX(0) translateY(0) rotate(0deg)}}button{border-radius:8px !important}@keyframes blinkCursor{0%,49%{opacity:1}50%,100%{opacity:0}}.navbar-noise::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.logo-link{display:inline-flex;text-decoration:none;position:relative}.logo-link img{transition:filter 420ms cubic-bezier(0.16,1,0.3,1),transform 420ms cubic-bezier(0.16,1,0.3,1)}.logo-link::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--text-accent-on-light);transform:scaleX(0);transform-origin:left;transition:transform 420ms cubic-bezier(0.16,1,0.3,1)}.logo-link:hover img{transform:scale(1.04);filter:drop-shadow(0 4px 10px rgba(20,30,50,0.18))}.logo-link:hover::after{transform:scaleX(1)}.logo-link:active img{transform:scale(0.98)}nav a[href]:not(.toc-inline-link):hover{color:var(--coral-700) !important}.cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--text-accent-on-light);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:width 220ms cubic-bezier(0.16,1,0.3,1),height 220ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease}.cursor-dot.active{opacity:1}.cursor-ring{position:fixed;top:0;left:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-divider);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:width 280ms cubic-bezier(0.16,1,0.3,1),height 280ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease,border-color 280ms cubic-bezier(0.16,1,0.3,1)}.cursor-ring.active{opacity:1}.cursor-dot.hovering{width:6px;height:6px}.cursor-ring.hovering{width:44px;height:44px;border-color:var(--text-accent-on-light)}@media (hover:none){.cursor-dot,.cursor-ring{display:none}}button{border-radius:10px !important}@media (max-width:1050px){.scroll-link-wrap{display:flex;justify-content:center}.scroll-link-wrap .scroll-link{width:fit-content}}}footer{position:relative}footer>div>div:nth-child(1){gap:24px !important;margin-top:8px}footer a.fx-li,footer a[href^="mailto:"]{text-decoration:none !important;position:relative;display:inline-flex !important;align-items:center;gap:14px;font:600 13px/1.3 Inter,sans-serif !important;letter-spacing:1.5px;text-transform:uppercase;transition:gap 320ms cubic-bezier(0.16,1,0.3,1),color 320ms cubic-bezier(0.16,1,0.3,1);width:fit-content}footer a.fx-li svg,footer a[href^="mailto:"] svg{display:none}footer a.fx-li::before,footer a[href^="mailto:"]::before{content:"";width:18px;height:18px;flex-shrink:0;background-color:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/%3E%3Crect x='2' y='9' width='4' height='12'/%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/%3E%3Crect x='2' y='9' width='4' height='12'/%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/svg%3E") center/contain no-repeat}footer a[href^="mailto:"]::before{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E") center/contain no-repeat}footer a.fx-li:hover,footer a[href^="mailto:"]:hover{gap:20px;color:var(--text-inverse) !important}footer{position:relative;overflow:hidden}footer a{position:relative}footer span+span::after{content:"|";display:inline-block;margin-left:2px;animation:blinkCursor 1s step-end infinite}footer a svg{transition:transform 320ms cubic-bezier(0.16,1,0.3,1)}footer a:hover svg{transform:translate(3px,-3px)}</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div id="root"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<script>(function(){const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');if(!dot||!ring||window.matchMedia('(hover:none)').matches)return;let rx=0,ry=0,tx=0,ty=0;window.addEventListener('mousemove',e=>{dot.classList.add('active');ring.classList.add('active');dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';tx=e.clientX;ty=e.clientY;const el=document.elementFromPoint(e.clientX,e.clientY);const hovering=!!(el&&el.closest('a,button'));dot.classList.toggle('hovering',hovering);ring.classList.toggle('hovering',hovering);});function loop(){rx+=(tx-rx)*0.18;ry+=(ty-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);}loop();})();</script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" data-bg-color="#FDF8F2"><rect width="100" height="100" fill="#FDF8F2"></rect><text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="600" fill="#F0634C">AM</text></svg></template>
+<script type="text/babel" data-presets="react">
+const { Logo, Link, Tag, Button, ProjectCard, Footer } = window.AishaMomandDesignSystem_ae6873;
+
+function useIsMobile() {
+  const [mobile, setMobile] = React.useState(window.innerWidth < 1000);
+  React.useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1000px)");
+    const onChange = () => setMobile(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return mobile;
+}
+
+function useReveal() {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return ref;
+}
+
+function MenuIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy-900)" strokeWidth="2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+  );
+}
+
+const PROJECTS = [
+  { title: "Kindex — a 2nd-place AI networking assistant, built at TechTO's hackathon", tags: ["case study","AI CONCEPT","HACKATHON","2025"], href: "kindex.html" },
+];
+
+function Navbar({ mobile }) {
+  const [open, setOpen] = React.useState(false);
+  if (mobile) {
+    return (
+      <div className="navbar-noise" style={{position:"sticky",top:0,zIndex:10,background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",overflow:"hidden"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 20px"}}>
+          <a href="index.html" className="logo-link"><Logo size={36} /></a>
+          <button aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(o=>!o)} style={{background:"none",border:"none",padding:10,cursor:"pointer",minHeight:44,minWidth:44,display:"inline-flex",alignItems:"center",justifyContent:"center"}}><MenuIcon /></button>
+        </div>
+        {open && (
+          <nav style={{display:"flex",flexDirection:"column",padding:"0 20px 16px",gap:4}}>
+            <Link active>Work</Link>
+            <Link href="about.html">About</Link>
+            <Link href="resume.html">Resume</Link>
+            <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+            <div style={{paddingTop:8}}><Button variant="primary" size="sm" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button></div>
+          </nav>
+        )}
+      </div>
+    );
+  }
+  return (
+    <div style={{position:"sticky",top:0,zIndex:10}}>
+      <div className="navbar-noise" style={{position:"relative",background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",display:"flex",justifyContent:"center",padding:"20px 80px",overflow:"hidden"}}>
+        <div style={{maxWidth:"var(--container-max)",width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <a href="index.html" className="logo-link"><Logo size={46} /></a>
+          <nav style={{display:"flex",gap:40,alignItems:"center"}}>
+            <Link active>Work</Link>
+            <Link href="about.html">About</Link>
+            <Link href="resume.html">Resume</Link>
+            <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+            <Button variant="primary" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button>
+          </nav>
+        </div>
+      </div>
+      <div style={{height:32,marginTop:-1,background:"linear-gradient(to bottom, color-mix(in oklch, var(--surface-page) 55%, transparent), transparent)",backdropFilter:"blur(6px)",WebkitBackdropFilter:"blur(6px)",maskImage:"linear-gradient(to bottom, black, transparent)",WebkitMaskImage:"linear-gradient(to bottom, black, transparent)",pointerEvents:"none"}}></div>
+    </div>
+  );
+}
+
+function Hero({ mobile }) {
+  const heroImg = (window.__resources&&window.__resources.hero)||"assets/hero-illustration.png";
+  const heroRef = React.useRef(null);
+  const [text, setText] = React.useState("");
+  const [wordIdx, setWordIdx] = React.useState(0);
+  const [caretOn, setCaretOn] = React.useState(true);
+  const [done, setDone] = React.useState(false);
+  React.useEffect(() => {
+    const words = ["Hello, I'm Aisha.", "I cut the complexity.", "build clarity."];
+    const splitAt = [11, 10, 0];
+    let cancelled = false;
+    const sleep = (ms) => new Promise(r=>setTimeout(r,ms));
+    async function run() {
+      await sleep(600);
+      for (let w=0; w<words.length; w++) {
+        setWordIdx(w);
+        const word = words[w];
+        const startLen = w===2 ? 0 : 0;
+        for (let i=1; i<=word.length; i++) {
+          if (cancelled) return;
+          setText(word.slice(0,i));
+          await sleep(65);
+        }
+        if (w===words.length-1) setDone(true);
+        await sleep(w===words.length-1 ? 99999 : 1300);
+        if (w<words.length-1) {
+          const backTo = w===1 ? 2 : 0;
+          for (let i=word.length; i>=backTo; i--) {
+            if (cancelled) return;
+            setText(word.slice(0,i));
+            await sleep(32);
+          }
+          await sleep(250);
+        }
+      }
+    }
+    run();
+    const blink = setInterval(()=>setCaretOn(c=>!c), 500);
+    return () => { cancelled = true; clearInterval(blink); };
+  }, []);
+  const [tilt, setTilt] = React.useState({x:0,y:0});
+  const onMove = (e) => {
+    if (mobile) return;
+    const el = heroRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    requestAnimationFrame(() => setTilt({ x: px * 14, y: py * -10 }));
+  };
+  const onLeave = () => setTilt({ x: 0, y: 0 });
+  if (mobile) {
+    return (
+      <React.Fragment>
+      <div className="hero-anim" style={{display:"flex",flexDirection:"column",gap:24,padding:"32px 20px 0",alignItems:"center",textAlign:"center"}}>
+        <h1 style={{font:"var(--text-hero)",fontSize:"clamp(40px, 14vw, 64px)",letterSpacing:"-0.05em",margin:0,lineHeight:1.3,minHeight:"calc(1.3 * clamp(40px, 14vw, 64px) * 2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span>{wordIdx===0 ? <React.Fragment><span style={{color:"var(--navy-900)",fontStyle:"normal",fontWeight:500}}>{text.slice(0,Math.min(text.length,11))}</span><span style={{color:"var(--coral-500)",fontStyle:"italic",fontWeight:500}}>{text.slice(11)}</span></React.Fragment> : wordIdx===1 ? <React.Fragment><span style={{color:"var(--navy-900)",fontStyle:"normal",fontWeight:500}}>{text.slice(0,Math.min(text.length,10))}</span><span style={{color:"var(--coral-500)",fontStyle:"italic",fontWeight:500}}>{text.slice(10)}</span></React.Fragment> : <React.Fragment><span style={{color:"var(--navy-900)",fontStyle:"normal",fontWeight:500}}>{"I "+text.slice(0,Math.min(text.length,6))}</span><span style={{color:"var(--coral-500)",fontStyle:"italic",fontWeight:500}}>{text.slice(6)}</span></React.Fragment>}{!done && <span style={{opacity:caretOn?1:0,color:"var(--navy-900)"}}>|</span>}</span></h1>
+        <div style={{display:"flex",flexDirection:"column",gap:20}}>
+          <h2 style={{font:"var(--text-display-md)",fontSize:28,margin:0}}><span style={{color:"var(--text-body)"}}>I work where people, data, and complexity meet</span>—<span style={{color:"var(--text-body)"}}>designing systems people can rely on.</span></h2>
+        </div>
+        <div style={{display:"flex",flexWrap:"wrap",gap:12,justifyContent:"center"}}>
+          {["product/ux design","enterprise + data","systems design","research"].map((t,i)=><Tag key={i}>{t}</Tag>)}
+        </div>
+        <img src={heroImg} alt="Illustration of a woman cutting through tangled complexity with scissors" style={{width:"min(240px, 65vw)",margin:"0 auto",display:"block"}} />
+      </div>
+      <div style={{display:"flex",justifyContent:"center"}}>
+      <a href="#work" aria-label="Scroll to selected works" className="scroll-link" style={{display:"inline-flex",alignItems:"center",gap:12,padding:"32px 0 0",textDecoration:"none",width:"fit-content"}}>
+        <span className="scroll-cue-text" style={{whiteSpace:"nowrap"}}>See the work</span>
+        <span className="scroll-line"></span>
+      </a>
+      </div>
+      </React.Fragment>
+    );
+  }
+  return (
+    <React.Fragment>
+    <div style={{display:"flex",gap:64,alignItems:"center",flexWrap:"wrap",maxWidth:"var(--container-max)",margin:"0 auto",padding:"64px 80px 0"}}>
+      <div className="hero-anim" style={{display:"flex",flexDirection:"column",gap:40,flex:"1 1 520px",minWidth:0}}>
+        <span style={{font:"700 12px/1.3 Inter,sans-serif",letterSpacing:2,textTransform:"uppercase",color:"var(--text-accent-on-light)"}}>Product/UX Designer for Complex Systems</span>
+        <h1 style={{font:"var(--text-hero)",fontSize:"clamp(40px, 6vw, 132px)",letterSpacing:"-0.055em",margin:0,lineHeight:1.3,whiteSpace:"nowrap"}}>{wordIdx===0 ? <React.Fragment><span style={{color:"var(--navy-900)",fontStyle:"normal",fontWeight:500}}>{text.slice(0,Math.min(text.length,11))}</span><span style={{color:"var(--coral-500)",fontStyle:"italic",fontWeight:500}}>{text.slice(11)}</span></React.Fragment> : wordIdx===1 ? <React.Fragment><span style={{color:"var(--navy-900)",fontStyle:"normal",fontWeight:500}}>{text.slice(0,Math.min(text.length,10))}</span><span style={{color:"var(--coral-500)",fontStyle:"italic",fontWeight:500}}>{text.slice(10)}</span></React.Fragment> : <React.Fragment><span style={{color:"var(--navy-900)",fontStyle:"normal",fontWeight:500}}>{"I "+text.slice(0,Math.min(text.length,6))}</span><span style={{color:"var(--coral-500)",fontStyle:"italic",fontWeight:500}}>{text.slice(6)}</span></React.Fragment>}{!done && <span style={{opacity:caretOn?1:0,color:"var(--navy-900)"}}>|</span>}</h1>
+        <div style={{display:"flex",flexDirection:"column",gap:40}}>
+          <h2 style={{font:"var(--text-display-md)",margin:0}}><span style={{color:"var(--text-body)"}}>I work where people, data, and complexity meet</span>—<span style={{color:"var(--text-body)"}}>designing systems people can rely on.</span></h2>
+        </div>
+        <div style={{display:"flex",flexWrap:"wrap",gap:16}}>
+          {["product/ux design","enterprise + data","systems design","research"].map((t,i)=><Tag key={i}>{t}</Tag>)}
+        </div>
+      </div>
+      <img ref={heroRef} src={heroImg} alt="Illustration of a woman cutting through tangled complexity with scissors" className="hero-illustration" style={{width:"clamp(260px, 28vw, 420px)",flexShrink:0,margin:"0 auto"}} />
+    </div>
+    <div className="scroll-link-wrap" style={{maxWidth:"var(--container-max)",margin:"0 auto",padding:"0 80px"}}>
+    <a href="#work" aria-label="Scroll to selected works" className="scroll-link" style={{display:"inline-flex",alignItems:"center",gap:12,padding:"48px 0 0",textDecoration:"none",width:"fit-content"}}>
+      <span className="scroll-cue-text" style={{whiteSpace:"nowrap"}}>See the work</span>
+      <span className="scroll-line"></span>
+    </a>
+    </div>
+    </React.Fragment>
+  );
+}
+
+function WorkCard({ p, i, mobile }) {
+  const ref = useReveal();
+  return (
+    <a ref={ref} href={p.href || "#"} className="work-card reveal" style={{display:"flex",flexDirection:"column",gap: mobile ? 12 : 20,textDecoration:"none",transitionDelay:`${i*80}ms`}}>
+      <div className="work-media" style={{aspectRatio:"2560/1558",borderRadius:"var(--radius-card)",background: p.href==="kindex.html" ? `url(${(window.__resources&&window.__resources.kindex)||"assets/kindex-preview.png"}) center/cover` : "var(--surface-media-placeholder)",border:"0.56px solid rgba(255,255,255,0.4)"}}></div>
+      <span className="work-title" style={{font:"var(--text-display-sm)",fontSize: mobile ? 20 : 22,transition:"color var(--dur-fast,240ms) var(--ease-out,ease-out)"}}>{p.title}</span>
+      <div className="tag-pop" style={{display:"flex",gap: mobile ? 12 : 24,flexWrap:"wrap"}}>{p.tags.map((t,j)=><Tag key={j}>{t}</Tag>)}</div>
+    </a>
+  );
+}
+
+function Works({ mobile }) {
+  return (
+    <div style={{maxWidth:"var(--container-max)",margin:"0 auto",padding: mobile ? "48px 20px 64px" : "96px 80px 80px"}}>
+      <div style={{borderTop:"1px solid var(--border-divider)",marginBottom: mobile ? 32 : 72}}></div>
+      <h2 id="work" style={{font:"var(--text-display-md)",fontSize: mobile ? 28 : 44,letterSpacing: mobile ? undefined : "-0.02em",color:"var(--navy-900)",margin: mobile ? "0 0 24px" : "0 0 60px",display:"flex",alignItems:"baseline",gap:16}}><span style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize: mobile ? 22 : 32,lineHeight:1,color:"var(--coral-500)"}}>01</span>Selected Works</h2>
+      <div style={{display: mobile ? "flex" : "grid",flexDirection: mobile ? "column" : undefined,gridTemplateColumns: mobile ? undefined : "1fr 1fr",gap: mobile ? 48 : 60}}>
+        {PROJECTS.map((p,i)=><WorkCard key={i} p={p} i={i} mobile={mobile} />)}
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const mobile = useIsMobile();
+  return (
+    <React.Fragment>
+      <Navbar mobile={mobile} />
+      <main id="main">
+        <Hero mobile={mobile} />
+        <Works mobile={mobile} />
+      </main>
+      <Footer />
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+setTimeout(()=>{const logo=(window.__resources&&window.__resources.logo)||"assets/logo-mark.png";document.querySelectorAll('img').forEach(img=>{if(img.getAttribute('src')==="../../assets/logo-mark.png")img.src=logo;});},0);
+</script>
+<script>(function(){function mark(){document.querySelectorAll('footer a').forEach(a=>{if(/linkedin/i.test(a.textContent)){a.classList.add('fx-li');a.href="https://www.linkedin.com/in/aisha-momand/";a.target="_blank";a.rel="noopener";}});}setTimeout(mark,300);setTimeout(mark,1200);})();</script>
+</body>
+</html>

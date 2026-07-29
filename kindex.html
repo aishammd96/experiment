@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindex — Aisha Momand</title>
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/colors.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/typography.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/motion.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="image-slot.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/_ds_bundle.js"></script>
+<meta name="ext-resource-dependency" content="assets/logo-mark.png" data-resource-id="logo" />
+<meta name="ext-resource-dependency" content="assets/kindex-preview.png" data-resource-id="kindex" />
+<meta name="ext-resource-dependency" content="assets/mapping-brainstorm.png" data-resource-id="mapping" />
+<meta name="ext-resource-dependency" content="assets/wanda-illustration.png" data-resource-id="wanda" />
+<meta name="ext-resource-dependency" content="assets/before-event-illustration.png" data-resource-id="beforeEvent" />
+<meta name="ext-resource-dependency" content="assets/during-event-illustration.png" data-resource-id="duringEvent" />
+<meta name="ext-resource-dependency" content="assets/results-illustration.png" data-resource-id="resultsIllo" />
+<meta name="ext-resource-dependency" content="assets/after-event-illustration.png" data-resource-id="afterEvent" />
+<style>body{margin:0;background:var(--surface-page)}a{color:var(--text-accent-on-light)}a:hover{color:var(--coral-600)}.skip-link{position:absolute;left:-9999px;top:0;background:var(--navy-900);color:var(--cream-50);padding:12px 20px;z-index:100;font:700 16px var(--font-body)}.skip-link:focus{left:16px;top:16px}.media-noise{position:relative;background-color:#fbfaf7;padding:24px}.media-noise::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.14;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");border-radius:inherit}.scroll-cue-text{font:600 11px/1.3 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted,#62748e);transition:color 240ms cubic-bezier(0.16,1,0.3,1)}a:hover .scroll-cue-text{color:var(--text-accent-on-light)}.scroll-line-left{position:relative;width:32px;height:1px;background:var(--text-accent-on-light);transition:width 360ms cubic-bezier(0.16,1,0.3,1)}.scroll-line-left::after{content:"";position:absolute;left:0;top:50%;width:6px;height:6px;border-left:1.5px solid var(--text-accent-on-light);border-bottom:1.5px solid var(--text-accent-on-light);transform:translateY(-50%) rotate(45deg)}.scroll-link:hover .scroll-line-left{width:48px}h2[id^="sec-"]{scroll-margin-top:180px}.toc-inline-link span:last-child{transition:color 240ms cubic-bezier(0.16,1,0.3,1)}.toc-inline-link:hover span:last-child{color:var(--text-accent-on-light)}.toc-index-link span:first-child{transition:transform 320ms cubic-bezier(0.16,1,0.3,1)}.toc-index-link:hover span:first-child{transform:translateX(6px)}a[href="index.html#work"].toc-inline-link:hover span:first-child{transform:translateX(-4px)}.toc-wrap{position:relative}button{border-radius:8px !important}@keyframes blinkCursor{0%,49%{opacity:1}50%,100%{opacity:0}}}button{border-radius:10px !important}.bda-slot{background:#0d2428;border-radius:20px;overflow:hidden}}footer{position:relative}footer>div>div:nth-child(1){gap:24px !important;margin-top:8px}footer a.fx-li,footer a[href^="mailto:"]{text-decoration:none !important;position:relative;display:inline-flex !important;align-items:center;gap:14px;font:600 13px/1.3 Inter,sans-serif !important;letter-spacing:1.5px;text-transform:uppercase;transition:gap 320ms cubic-bezier(0.16,1,0.3,1),color 320ms cubic-bezier(0.16,1,0.3,1);width:fit-content}footer a.fx-li svg,footer a[href^="mailto:"] svg{display:none}footer a.fx-li::before,footer a[href^="mailto:"]::before{content:"";width:18px;height:18px;flex-shrink:0;background-color:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/%3E%3Crect x='2' y='9' width='4' height='12'/%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/%3E%3Crect x='2' y='9' width='4' height='12'/%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/svg%3E") center/contain no-repeat}footer a[href^="mailto:"]::before{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E") center/contain no-repeat}footer a.fx-li:hover,footer a[href^="mailto:"]:hover{gap:20px;color:var(--text-inverse) !important}footer{position:relative;overflow:hidden}footer a{position:relative}footer span+span::after{content:"|";display:inline-block;margin-left:2px;animation:blinkCursor 1s step-end infinite}footer a svg{transition:transform 320ms cubic-bezier(0.16,1,0.3,1)}footer a:hover svg{transform:translate(3px,-3px)}}a{color:var(--text-accent-on-light)}a:hover{color:var(--coral-600)}.navbar-noise::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.logo-link{display:inline-flex;text-decoration:none;position:relative}.logo-link img{transition:filter 420ms cubic-bezier(0.16,1,0.3,1),transform 420ms cubic-bezier(0.16,1,0.3,1)}.logo-link::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--text-accent-on-light);transform:scaleX(0);transform-origin:left;transition:transform 420ms cubic-bezier(0.16,1,0.3,1)}.logo-link:hover img{transform:scale(1.04);filter:drop-shadow(0 4px 10px rgba(20,30,50,0.18))}.logo-link:hover::after{transform:scaleX(1)}.logo-link:active img{transform:scale(0.98)}nav a[href]:not(.toc-inline-link):hover{color:var(--coral-700) !important}.cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--text-accent-on-light);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:width 220ms cubic-bezier(0.16,1,0.3,1),height 220ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease}.cursor-dot.active{opacity:1}.cursor-ring{position:fixed;top:0;left:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-divider);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:width 280ms cubic-bezier(0.16,1,0.3,1),height 280ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease,border-color 280ms cubic-bezier(0.16,1,0.3,1)}.cursor-ring.active{opacity:1}.cursor-dot.hovering{width:6px;height:6px}.cursor-ring.hovering{width:44px;height:44px;border-color:var(--text-accent-on-light)}@media (hover:none){.cursor-dot,.cursor-ring{display:none}}}}}.toc-bar{position:sticky;top:var(--nav-h,56px);z-index:11;background:color-mix(in oklch, var(--surface-page) 92%, transparent);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%)}
+.reveal{opacity:0;transform:translateY(48px) scale(0.98);transition:opacity 800ms cubic-bezier(0.16,1,0.3,1),transform 800ms cubic-bezier(0.16,1,0.3,1)}
+.reveal.in-view{opacity:1;transform:translateY(0) scale(1)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.toc-index-link{position:relative}
+.toc-index-link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--text-accent-on-light);transform:scaleX(0);transform-origin:left;transition:transform 420ms cubic-bezier(0.16,1,0.3,1)}
+.toc-index-link:hover::after{transform:scaleX(1)}
+.toc-bar-trigger{display:inline-flex;align-items:center;gap:12px;background:none;border:none;padding:4px 0;cursor:pointer;font:inherit;color:inherit;min-height:32px}
+.toc-bar-num{font:var(--text-hero);font-style:italic;font-weight:500;font-size:17px;line-height:1;color:var(--text-accent-on-light)}
+.toc-bar-label{font:600 11px/1.3 Inter,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--navy-900);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toc-bar-chev{width:8px;height:8px;border-right:1.5px solid var(--text-muted,#62748e);border-bottom:1.5px solid var(--text-muted,#62748e);transform:rotate(45deg) translateY(-2px);transition:transform 240ms cubic-bezier(0.16,1,0.3,1)}
+.toc-bar-trigger[aria-expanded="true"] .toc-bar-chev{transform:rotate(-135deg) translateY(-2px)}
+.toc-bar-trigger:hover .toc-bar-label{color:var(--coral-700)}
+.toc-bar-count{font:600 11px/1.3 Inter,sans-serif;color:var(--text-muted,#62748e);flex-shrink:0;letter-spacing:0.4px}
+.toc-bar-track{height:2px;background:var(--border-divider)}
+.toc-bar-fill{height:100%;background:var(--text-accent-on-light);transition:width 120ms linear}
+.toc-menu{position:absolute;top:calc(100% + 6px);left:80px;min-width:280px;background:var(--surface-page);border:1px solid var(--border-divider);border-radius:14px;box-shadow:0 18px 44px rgba(20,30,50,0.14);padding:8px;display:flex;flex-direction:column;z-index:20}
+.toc-menu-item{display:flex;align-items:baseline;gap:14px;padding:10px 14px;border-radius:9px;text-decoration:none;font:600 11px/1.3 Inter,sans-serif;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy-900);transition:background 200ms ease,color 200ms ease}
+.toc-menu-num{font:var(--text-hero);font-style:italic;font-weight:500;font-size:16px;line-height:1;color:var(--coral-500);flex-shrink:0}
+.toc-menu-item:hover{background:color-mix(in oklch, var(--text-accent-on-light) 8%, transparent)}
+.toc-menu-item.active{color:var(--text-accent-on-light)}
+.toc-bar-inner{position:relative;max-width:var(--container-max);margin:0 auto;padding:8px 80px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+@media (max-width:1100px){.toc-bar-inner{padding:8px 20px}.toc-menu{left:20px;right:20px;min-width:0}}
+@media (max-width:768px){.s04-grid{grid-template-columns:1fr !important}.s04-col{padding:32px 24px !important}.s04-grid .media-noise{padding:32px 24px !important}
+.sec-num{font-size:24px !important}
+.s04-quote{font-size:21px !important}}</style>
+<style>.toc-bar{position:relative !important;top:auto !important;z-index:auto !important;background:transparent !important;border-bottom:none;box-shadow:none}</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div id="root"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<script>(function(){const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');if(!dot||!ring||window.matchMedia('(hover:none)').matches)return;let rx=0,ry=0,tx=0,ty=0;window.addEventListener('mousemove',e=>{dot.classList.add('active');ring.classList.add('active');dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';tx=e.clientX;ty=e.clientY;const el=document.elementFromPoint(e.clientX,e.clientY);const hovering=!!(el&&el.closest('a,button'));dot.classList.toggle('hovering',hovering);ring.classList.toggle('hovering',hovering);});function loop(){rx+=(tx-rx)*0.18;ry+=(ty-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);}loop();})();</script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" data-bg-color="#FDF8F2"><rect width="100" height="100" fill="#FDF8F2"></rect><text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="600" fill="#F0634C">K</text></svg></template>
+<script type="text/babel" data-presets="react">
+const { Logo, Link, Tag, Button, Footer } = window.AishaMomandDesignSystem_ae6873;
+
+function useIsMobile() {
+  const [mobile, setMobile] = React.useState(window.innerWidth < 1000);
+  React.useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1000px)");
+    const onChange = () => setMobile(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return mobile;
+}
+
+function MenuIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy-900)" strokeWidth="2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+  );
+}
+
+function Navbar() {
+  const mobile = useIsMobile();
+  const [open, setOpen] = React.useState(false);
+  if (mobile) {
+    return (
+      <div style={{position:"sticky",top:0,zIndex:10,background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)"}} className="navbar-noise">
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 20px"}}>
+          <a href="index.html" className="logo-link"><Logo size={36} /></a>
+          <button aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(o=>!o)} style={{background:"none",border:"none",padding:10,cursor:"pointer",minHeight:44,minWidth:44,display:"inline-flex",alignItems:"center",justifyContent:"center"}}><MenuIcon /></button>
+        </div>
+        {open && (
+          <nav style={{display:"flex",flexDirection:"column",padding:"0 20px 16px",gap:4}}>
+            <Link href="index.html" active>Work</Link>
+            <Link href="about.html">About</Link>
+            <Link href="resume.html">Resume</Link>
+            <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+            <div style={{paddingTop:8}}><Button variant="primary" size="sm" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button></div>
+          </nav>
+        )}
+        <TableOfContents />
+      </div>
+    );
+  }
+  return (
+    <div style={{position:"sticky",top:0,zIndex:10,background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)"}} className="navbar-noise">
+      <div style={{display:"flex",justifyContent:"center",padding:"20px 80px"}}>
+        <div style={{maxWidth:"var(--container-max)",width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <a href="index.html" className="logo-link"><Logo size={46} /></a>
+          <nav style={{display:"flex",gap:28,alignItems:"center"}}>
+            <Link href="index.html" active>Work</Link>
+            <Link href="about.html">About</Link>
+            <Link href="resume.html">Resume</Link>
+            <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+            <Button variant="primary" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button>
+          </nav>
+        </div>
+      </div>
+      <TableOfContents />
+    </div>
+  );
+}
+
+const container = {maxWidth:"var(--container-max)",margin:"0 auto",padding:"0 80px 60px"};
+const hr = <hr style={{border:"none",borderTop:"1px solid var(--border-divider)",margin:"88px 0"}} />;
+const h2Style = {font:"var(--text-display-md)",fontSize:44,letterSpacing:"-0.02em",color:"var(--navy-900)",margin:"0 0 40px"};
+const h3Style = {font:"var(--text-display-sm)",fontSize:26,color:"var(--navy-900)",margin:"0 0 16px"};
+const numLabel = (n) => <span className="sec-num" style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>{n}</span>;
+const h2WithNum = (n, text) => <h2 style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}}>{numLabel(n)}{text}</h2>;
+const bodyStyle = {margin:0,font:"var(--text-body-lg)",color:"var(--text-body)",maxWidth:"70ch"};
+const cardTitleStyle = {font:"var(--text-display-sm)",fontSize:22,color:"var(--navy-900)"};
+const cardBodyStyle = {margin:0,font:"400 16px/1.6 Inter,sans-serif",color:"var(--text-muted,#62748e)"};
+const labelStyle = {font:"700 12px/1.3 Inter,sans-serif",letterSpacing:1,textTransform:"uppercase",color:"var(--text-accent-on-light)"};
+const captionStyle = {textAlign:"center",font:"italic 400 16px/1.8 Inter,sans-serif",color:"var(--text-muted,#62748e)",margin:0};
+const phoneShotStyle = {width:260,display:"block",borderRadius:20,boxShadow:"0 24px 48px rgba(20,30,50,0.16)"};
+const phoneSlotStyle = {width:260,aspectRatio:"300/546",boxShadow:"0 24px 48px rgba(20,30,50,0.14)"};
+const phoneCaptionStyle = {font:"italic 400 15px/1.5 Inter,sans-serif",color:"var(--text-muted,#62748e)",maxWidth:260,margin:0,textAlign:"center"};
+
+const SECTIONS = [
+  ["01","The Problem / The Solution","sec-01"],
+  ["02","Results & Future Direction","sec-02"],
+  ["03","Mapping the Experience","sec-03"],
+  ["04","Grounding Design Decisions","sec-04"],
+  ["05","Designing with AI","sec-05"],
+  ["06","Before, During & After","sec-06"],
+  ["07","Reflection","sec-07"],
+];
+
+function TableOfContents() {
+  const [activeIdx, setActiveIdx] = React.useState(0);
+  const [hoverIdx, setHoverIdx] = React.useState(null);
+  const [progress, setProgress] = React.useState(0);
+  const [segFill, setSegFill] = React.useState(0);
+  const [open, setOpen] = React.useState(false);
+  React.useEffect(()=>{const onDoc=e=>{if(!e.target.closest(".toc-bar-inner"))setOpen(false);};document.addEventListener("click",onDoc);return()=>document.removeEventListener("click",onDoc);},[]);
+  React.useEffect(() => {
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      setProgress(scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0);
+      const positions = SECTIONS.map(([,,id]) => {
+        const el = document.getElementById(id);
+        return el ? el.getBoundingClientRect().top : Infinity;
+      });
+      let idx = 0;
+      positions.forEach((top, i) => { if (top - 220 <= 0) idx = i; });
+      setActiveIdx(idx);
+      const start = positions[idx];
+      const next = positions[idx+1];
+      if (next !== undefined && isFinite(next)) {
+        const span = next - start;
+        setSegFill(span > 0 ? Math.min(1, Math.max(0, (220 - start) / span)) : 1);
+      } else { setSegFill(1); }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <div className="toc-bar">
+      <div className="toc-bar-inner">
+        <button className="toc-bar-trigger" aria-expanded={open} aria-haspopup="true" onClick={()=>setOpen(o=>!o)}>
+          <span className="toc-bar-num">{SECTIONS[activeIdx][0]}</span>
+          <span className="toc-bar-label">{SECTIONS[activeIdx][1]}</span>
+          <span className="toc-bar-chev" aria-hidden="true"></span>
+        </button>
+        <span className="toc-bar-count">{activeIdx+1}/{SECTIONS.length}</span>
+        {open && (
+          <div className="toc-menu" role="menu">
+            {SECTIONS.map(([num,label,id],i)=>(
+              <a key={id} href={`#${id}`} role="menuitem" className={`toc-menu-item${i===activeIdx?" active":""}`} onClick={()=>setOpen(false)}>
+                <span className="toc-menu-num">{num}</span><span>{label}</span>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="toc-bar-track" role="progressbar" aria-label="Reading progress" aria-valuenow={Math.round(progress*100)} aria-valuemin={0} aria-valuemax={100}><div className="toc-bar-fill" style={{width:`${progress*100}%`}}></div></div>
+    </div>
+  );
+}
+
+function App() {
+  const [lightbox, setLightbox] = React.useState(null);
+  React.useEffect(()=>{ if(!lightbox) return; const onKey=e=>{ if(e.key==="Escape")setLightbox(null); }; document.addEventListener("keydown",onKey); return ()=>document.removeEventListener("keydown",onKey); },[lightbox]);
+  return (
+    <React.Fragment>
+      <Navbar />
+      <main id="main">
+        <div style={{...container,paddingTop:60}}>
+          <nav aria-label="Breadcrumb" style={{display:"flex",alignItems:"center",gap:10,marginBottom:24,font:"400 14px/1.14 Inter,sans-serif",letterSpacing:"0.6px",textTransform:"uppercase"}}>
+            <a href="index.html" style={{color:"var(--text-muted,#62748e)",textDecoration:"none"}}>Work</a>
+            <span aria-hidden="true" style={{color:"var(--text-muted,#62748e)"}}>/</span>
+            <span aria-current="page" style={{color:"var(--navy-900)",fontWeight:600}}>Kindex</span>
+          </nav>
+          <div className="hero-reveal" style={{display:"flex",gap:16,flexWrap:"wrap",marginBottom:40}}>
+            {["case study","AI Concept","Hackathon","2nd Place","2025"].map((t,i)=><Tag key={i}>{t}</Tag>)}
+          </div>
+          <h1 className="hero-reveal" style={{font:"var(--text-hero)",fontStyle:"normal",fontWeight:500,fontSize:"clamp(56px,8vw,110px)",letterSpacing:"-0.05em",color:"var(--navy-900)",margin:"0 0 24px"}}>Kindex</h1>
+          <h2 className="hero-reveal" style={{font:"var(--text-display-md)",fontWeight:500,fontSize:"clamp(24px,3vw,34px)",lineHeight:1.15,color:"var(--slate-500)",margin:"0 0 60px"}}>2nd-place AI assistant that helps professionals navigate events with clarity—before, during, and after.</h2>
+          <div className="hero-reveal" style={{display:"flex",gap:60,marginBottom:60,flexWrap:"wrap"}}>
+            <p style={{flex:"1 1 380px",...bodyStyle,maxWidth:"none"}}>Built at Toronto Tech Week's TechTO Hackathon, which challenged teams to build AI agents for real-world connection. Our team, Sidekicks, designed Kindex to help professionals build meaningful relationships before, during, and after events.</p>
+            <div style={{flex:"1 1 380px",display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:24}}>
+              {[["role","UX/UI Designer"],["constraints","8 hour hackathon"],["focus","Research, systems thinking, AI-assisted prototyping"],["team","Sidekicks"],["timeline","June 2025"]].map(([l,v])=>(
+                <div key={l} style={{display:"flex",flexDirection:"column",gap:10}}>
+                  <span style={{...labelStyle,color:"var(--navy-900)"}}>{l}</span>
+                  <span style={{margin:0,font:"400 18px/1.6 Inter,sans-serif",color:"var(--text-body)"}}>{v}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="hero-reveal" style={{aspectRatio:"2560/1558",width:"100%",borderRadius:"var(--radius-card)",background:`url(${(window.__resources&&window.__resources.kindex)||"assets/kindex-preview.png"}) center/cover`,marginBottom:24,border:"0.56px solid rgba(255,255,255,0.4)"}}></div>
+          <p style={captionStyle}>The Kindex mobile experience: AI concierge, real-time connection matching, and post-event follow-up.</p>
+          <nav aria-label="Table of contents" style={{marginTop:60,marginBottom:0,paddingTop:40,borderTop:"1px solid var(--border-divider)"}}>
+            <span style={{...labelStyle,display:"block",marginBottom:28}}>On This Page</span>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",columnGap:40,rowGap:0}}>
+              {SECTIONS.map(([num,label,id])=>(
+                <a key={id} href={`#${id}`} className="toc-inline-link toc-index-link" style={{display:"flex",alignItems:"center",gap:18,textDecoration:"none",padding:"14px 0",minHeight:64}}>
+                  <span style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:36,lineHeight:1,color:"var(--coral-500)",flexShrink:0}}>{num}</span>
+                  <span style={{font:"600 13px/1.4 Inter,sans-serif",letterSpacing:1.5,textTransform:"uppercase",color:"var(--navy-900)"}}>{label}</span>
+                </a>
+              ))}
+            </div>
+          </nav>
+          <hr style={{border:"none",borderTop:"1px solid var(--border-divider)",margin:"28px 0 88px"}} />
+          <h2 id="sec-01" style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}}><span className="sec-num" style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>01</span>The Problem / The Solution</h2>
+          <div style={{display:"flex",gap:60,marginBottom:60,flexWrap:"wrap"}}>
+            <div style={{flex:"1 1 340px"}}>
+              <h3 style={h3Style}>The Problem</h3>
+              <p style={bodyStyle}>The professional events industry has a networking problem: it wastes over $50 billion a year on events that don't deliver real value, and 80% of business cards collected are thrown away.</p>
+            </div>
+            <div style={{flex:"1 1 340px"}}>
+              <h3 style={h3Style}>The Solution</h3>
+              <p style={bodyStyle}>We designed and prototyped Kindex, an AI-powered app that helps people network at events—before, during, and after—so fewer good connections get lost and more of them turn into real relationships.</p>
+            </div>
+          </div>
+          {hr}
+          <h2 id="sec-02" style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}}><span className="sec-num" style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>02</span>Results &amp; Future Direction</h2>
+          <div style={{display:"flex",gap:56,alignItems:"center",flexWrap:"wrap",marginBottom:60}}>
+            <img src="assets/results-illustration.png" alt="Illustration of a professional at an event, connected to icons for chat, people, location, ideas and celebration" style={{width:"min(280px,45vw)",height:"auto",display:"block",flex:"0 0 auto"}} />
+            <div style={{display:"flex",flexDirection:"column",gap:32,flex:"1 1 320px",minWidth:280}}>
+              {[
+                ["A","Award-Winning Concept","Kindex placed 2nd at the TechTO Hackathon, proof that we'd found a real, common networking problem."],
+                ["B","Rapid Prototyping","Lovable, an AI development tool, let the team build a working, polished prototype fast, within the hackathon's tight time limit."],
+                ["C","Future Vision","Future versions could explore AR/VR (augmented and virtual reality) to blend in-person and digital networking at hybrid events."],
+              ].map(([num,title,blurb],i)=>(
+                <div key={i} style={{display:"flex",gap:20,alignItems:"flex-start",paddingBottom:i<2?28:0,borderBottom:i<2?"1px solid var(--border-divider)":"none"}}>
+                  <span style={{font:"var(--text-display-sm)",fontSize:20,color:"var(--text-accent-on-light)",flexShrink:0,lineHeight:1.4}}>{num}</span>
+                  <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                    <span style={cardTitleStyle}>{title}</span>
+                    <p style={cardBodyStyle}>{blurb}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {hr}
+          <h2 id="sec-03" style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}}><span className="sec-num" style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>03</span>Mapping the Experience to Reveal Opportunity</h2>
+          <p style={{...bodyStyle,maxWidth:"72ch",marginBottom:40}}>As UX/UI Designer, I led a workshop mapping out the full event experience, from start to finish, to find exactly where and why connections were falling through.</p>
+          <div className="media-noise" style={{borderRadius:"var(--radius-card)",marginBottom:24,border:"0.56px solid rgba(255,255,255,0.4)",boxSizing:"border-box"}}>
+            <div onClick={()=>setLightbox("assets/mapping-brainstorm.png")} style={{aspectRatio:"2560/1864",width:"100%",borderRadius:"calc(var(--radius-card) - 12px)",backgroundImage:`url(${(window.__resources&&window.__resources.mapping)||"assets/mapping-brainstorm.png"})`,backgroundSize:"cover",backgroundPosition:"center",position:"relative",cursor:"zoom-in"}}></div>
+          </div>
+          <p style={captionStyle}>Early-stage workshop artifact: mapping event experiences and connection opportunities.</p>
+          {hr}
+          <h2 id="sec-04" style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}}><span className="sec-num" style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>04</span>Grounding Design Decisions Through Persona Work</h2>
+          <div style={{display:"flex",gap:48,alignItems:"center",flexWrap:"wrap",marginBottom:40}}>
+            <p style={{...bodyStyle,maxWidth:"none",flex:"1 1 380px",margin:0}}>A workshop where we sketched out likely attendee types revealed three key moments where people lose connections, brought to life in <strong>Wanda Room</strong>—a skilled but anxious professional who values networking but dreads approaching strangers. Here's how her experience unfolds across the event.</p>
+            <div style={{flex:"0 0 260px",width:260,borderRadius:"var(--radius-card)",overflow:"hidden",background:"var(--surface-page)"}}>
+              <img src={(window.__resources&&window.__resources.wanda)||"assets/wanda-illustration.png"} alt="Illustration of Wanda Room, a thoughtful professional in a navy blazer" style={{width:"100%",height:"auto",display:"block",objectFit:"contain"}} />
+            </div>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:32,marginBottom:24}}>
+            {[
+              ["Before the Event","Lack of Insight","\u201cMy anxiety is already high before I even leave the house. I wish I had a way to know if this event is even worth it, or who will be there.\u201d"],
+              ["During the Event","Aimless Wandering","\u201cOnce I'm there, I just wander aimlessly, trying to look like I belong. I need a plan\u2014a way to find the right people without the awkwardness.\u201d"],
+              ["After the Event","Connections Fade","\u201cEven if I do manage to talk to someone interesting, my brain is so fried afterwards that I forget the important details.\u201d"],
+            ].map(([stage,title,quote],i)=>(
+              <div key={i} style={{display:"flex",flexDirection:"column",gap:16,border:"1px solid var(--border-divider)",borderRadius:"var(--radius-card)",padding:32}}>
+                {stage==="Before the Event" && <div style={{height:290,display:"flex",alignItems:"flex-end",justifyContent:"center",marginBottom:8}}><img src={(window.__resources&&window.__resources.beforeEvent)||"assets/before-event-illustration.png"} alt="Before the event illustration" style={{maxHeight:"100%",maxWidth:"100%",objectFit:"contain"}} /></div>}
+                                {stage==="During the Event" && <div style={{height:290,display:"flex",alignItems:"flex-end",justifyContent:"center",marginBottom:8}}><img src={(window.__resources&&window.__resources.duringEvent)||"assets/during-event-illustration.png"} alt="During the event illustration" style={{maxHeight:"100%",maxWidth:"100%",objectFit:"contain"}} /></div>}
+                {stage==="After the Event" && <div style={{height:290,display:"flex",alignItems:"flex-end",justifyContent:"center",marginBottom:8}}><img src={(window.__resources&&window.__resources.afterEvent)||"assets/after-event-illustration.png"} alt="After the event illustration" style={{maxHeight:"100%",maxWidth:"100%",objectFit:"contain"}} /></div>}
+                <span style={labelStyle}>{stage}</span>
+                <span style={cardTitleStyle}>{title}</span>
+                <p style={cardBodyStyle}>{quote}</p>
+              </div>
+            ))}
+          </div>
+          {hr}
+          <h2 id="sec-05" style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}}><span className="sec-num" style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>05</span>Designing with AI as a Creative Partner</h2>
+          <blockquote style={{margin:"0 0 48px",padding:"28px 0 28px 32px",maxWidth:"62ch",borderLeft:"2px solid var(--text-accent-on-light)"}}>
+            <p className="s04-quote" style={{margin:"0 0 16px",font:"var(--text-display-sm)",fontStyle:"italic",fontWeight:500,fontSize:29,lineHeight:1.45,color:"var(--navy-900)"}}>AI accelerated production, not creativity. It executed our decisions faster—it never made them for us.</p>
+            <footer style={{font:"600 13px/1.3 Inter,sans-serif",letterSpacing:0.4,color:"var(--text-muted,#62748e)"}}>Team Sidekicks, on designing with AI as a creative partner</footer>
+          </blockquote>
+          <div className="s04-grid" style={{display:"grid",gridTemplateColumns:"1.1fr 0.9fr",gap:0,marginBottom:60,borderRadius:"var(--radius-card)",overflow:"hidden",border:"0.56px solid rgba(255,255,255,0.4)"}}>
+            <div className="s04-col" style={{padding:"48px 48px 48px 0",display:"flex",flexDirection:"column",gap:36}}>
+              <p style={{...bodyStyle,maxWidth:"none"}}>To meet the hackathon's tight timeline, we used Lovable, an AI tool that builds working software from a design, to quickly turn our design into a polished, working prototype.</p>
+              {[
+                ["A","Design Foundations","We created three sample screens in Figma first, to nail down the look, feel, and layout before any building started."],
+                ["B","Working With AI","AI acted like a collaborative assistant: we translated our design decisions into clear instructions it could build from."],
+                ["C","Execution & Impact","Tight feedback loops kept iteration fast while preserving design intent and fidelity to the original designs."],
+              ].map(([num,title,blurb],i)=>(
+                <div key={i} style={{display:"flex",gap:20,alignItems:"flex-start",paddingBottom:i<2?28:0,borderBottom:i<2?"1px solid var(--border-divider)":"none"}}>
+                  <span style={{font:"var(--text-display-sm)",fontSize:20,color:"var(--text-accent-on-light)",flexShrink:0,lineHeight:1.4}}>{num}</span>
+                  <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                    <span style={cardTitleStyle}>{title}</span>
+                    <p style={cardBodyStyle}>{blurb}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="media-noise" style={{padding:48,display:"flex",flexDirection:"column",gap:18,borderRadius:14}}>
+              <span style={{...labelStyle,letterSpacing:1.5,position:"relative"}}>Excerpt of Prompt Used</span>
+              <div style={{position:"relative",fontFamily:"'Courier New',monospace",fontSize:14,lineHeight:1.7,color:"var(--navy-900)",display:"flex",flexDirection:"column",gap:16}}>
+                <p style={{margin:0,fontWeight:700}}>Create a pixel-perfect, high-fidelity web prototype from my Figma mobile design, prioritizing a futuristic, dark-mode glassmorphism UI.</p>
+                <p style={{margin:0,fontStyle:"italic",color:"var(--text-muted,#62748e)",fontFamily:"Inter,sans-serif"}}>(Sets fidelity as the primary constraint.)</p>
+                <p style={{margin:0,fontWeight:700}}>Background</p>
+                <p style={{margin:0}}>Dark green/teal gradient (#1a3a3a → #102a2a) with an abstract SVG map (symbolic, not geographic)…</p>
+                <p style={{margin:0}}>Faint hollow circles = zones, thin connecting lines…</p>
+                <p style={{margin:0,fontStyle:"italic",color:"var(--text-muted,#62748e)",fontFamily:"Inter,sans-serif"}}>(Controls visual structure while avoiding literal interpretation.)</p>
+                <p style={{margin:0,fontWeight:700}}>Attendees</p>
+                <p style={{margin:0}}>Small glowing purple/magenta dots overlaid on the SVG…</p>
+                <p style={{margin:0}}>CSS glow via box-shadow; positioned using mock data (cx/cy or absolute)…</p>
+                <p style={{margin:0,fontStyle:"italic",color:"var(--text-muted,#62748e)",fontFamily:"Inter,sans-serif"}}>(Ensures clarity, contrast, and repeatability)</p>
+                <p style={{margin:0,fontWeight:700}}>Primary Interaction</p>
+                <p style={{margin:0}}>Click a dot → centered floating profile card…</p>
+                <p style={{margin:0}}>Glass styling: rgba(255,255,255,0.1), backdrop-filter: blur(20px)…</p>
+                <p style={{margin:0,fontStyle:"italic",color:"var(--text-muted,#62748e)",fontFamily:"Inter,sans-serif"}}>(Locks in focus, depth, and glassmorphism)</p>
+              </div>
+            </div>
+          </div>
+          {hr}
+          <h2 id="sec-06" style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}}><span className="sec-num" style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>06</span>Designing for Before, During &amp; After</h2>
+          <div style={{display:"flex",flexDirection:"column",gap:60,marginBottom:60}}>
+            {[
+              ["Before the event",[
+                ["AI Concierge","An intuitive chat interface that provides personalized event recommendations based on a user's goals, interests, and networking style—directly addressing pre-event anxiety.",[["assets/before-event-screenshot.png","AI Concierge chat interface","Personalized event matches through conversation."],["assets/before-event-screenshot-2.png","AI Concierge event recommendations","Recommendations ranked by compatibility."]]],
+              ]],
+              ["During the event",[
+                ["Real-time Connection Matching","A live map shows how compatible you are with people nearby in the moment, replacing aimless wandering with a clear sense of who to talk to.",[["assets/kindex-mockup-matching-1.webp","Real-time connection matching map","Compatibility scores surfaced on the live map."],["assets/kindex-mockup-matching-2.webp","Match profile view","Tapping a match opens their profile and shared interests."]]],
+                ["Gamification Elements","A points and rewards system that makes networking feel more like a game and less intimidating.",[["assets/kindex-mockup-gamification.webp","Gamification points and rewards screen","Points and rewards tracked as users engage."]]],
+                ["AI Concierge & Contextual Conversation Starters","The AI Concierge logs conversations in real time and surfaces AI-generated icebreakers based on shared interests—lowering the barrier to starting conversations.",[["assets/kindex-mockup-concierge-1.webp","AI Concierge conversation log","The AI Concierge logs conversations in real time."],["assets/kindex-mockup-concierge-2.webp","AI-generated icebreaker suggestions","Icebreakers suggested based on shared interests."]]],
+              ]],
+              ["After the event",[
+                ["Conversation Summaries & Follow-up Tools","AI-powered summaries let users revisit key details from each conversation after the event ends.",[["assets/kindex-mockup-summary-1.webp","Conversation summary screen","A summarized recap of each conversation."],["assets/kindex-mockup-summary-2.webp","Follow-up tools screen","Key details saved for easy follow-up."]]],
+              ]],
+            ].map(([phase,items],pi)=>(
+              <div key={pi} style={{display:"flex",flexDirection:"column",gap:32,paddingBottom:pi<2?40:0,borderBottom:pi<2?"1px solid var(--border-divider)":"none"}}>
+                <span style={labelStyle}>{phase}</span>
+                {items.map(([title,blurb,shots],i)=>(
+                  <div key={i} style={{display:"flex",flexDirection:"column",gap:16}}>
+                    <span style={cardTitleStyle}>{title}</span>
+                    <p style={{...cardBodyStyle,fontSize:18,maxWidth:640}}>{blurb}</p>
+                    <div style={{display:"flex",gap:32,flexWrap:"wrap"}}>
+                      {shots.map((shot,si)=>(
+                        <figure key={si} style={{display:"flex",flexDirection:"column",gap:10,margin:0}}>
+                          {shot && shot[0]
+                            ? <img src={shot[0]} alt={shot[1]} style={phoneShotStyle} />
+                            : <image-slot class="bda-slot" id={`bda-slot-${pi}-${i}-${si}`} shape="rounded" radius="20" placeholder="App screen" style={pi===1&&i===2&&si===1?{...phoneSlotStyle,aspectRatio:"300/316"}:phoneSlotStyle}></image-slot>}
+                          <figcaption style={phoneCaptionStyle}>{shot ? shot[shot.length-1] : "Caption for this screen"}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          {hr}
+          <h2 id="sec-07" style={{...h2Style,display:"flex",alignItems:"baseline",gap:16}}><span className="sec-num" style={{font:"var(--text-hero)",fontStyle:"italic",fontWeight:500,fontSize:32,lineHeight:1,color:"var(--coral-500)"}}>07</span>Reflection</h2>
+          <div style={{marginBottom:60,display:"flex",flexDirection:"column",gap:20}}>
+            <p style={{...cardBodyStyle,fontSize:19,lineHeight:1.7,maxWidth:"none"}}>This project highlighted the need to balance visibility and user comfort in social contexts, where even opt-in features can create pressure.</p>
+            <p style={{...cardBodyStyle,fontSize:19,lineHeight:1.7,maxWidth:"none"}}>It also reinforced that AI-assisted prototyping is most effective when prompts are precise, helping preserve design intent and accelerate decision-making.</p>
+          </div>
+          {hr}
+          <a href="index.html#work" style={{display:"inline-flex",alignItems:"center",gap:12,textDecoration:"none"}} className="toc-inline-link scroll-link">
+            <span aria-hidden="true" className="scroll-line-left"></span>
+            <span className="scroll-cue-text">See more work</span>
+          </a>
+        </div>
+      </main>
+      <Footer />
+      {lightbox && ReactDOM.createPortal(
+        <div role="dialog" aria-modal="true" aria-label="Artifact viewer" style={{position:"fixed",inset:0,zIndex:1000,background:"rgba(20,20,24,0.92)",display:"flex",alignItems:"center",justifyContent:"center",padding:40}} onClick={()=>setLightbox(null)}>
+          <button aria-label="Close" onClick={()=>setLightbox(null)} style={{position:"absolute",top:24,right:28,width:44,height:44,borderRadius:"50%",border:"none",background:"rgba(255,255,255,0.12)",color:"#fff",fontSize:22,cursor:"pointer"}}>×</button>
+          <img src={lightbox} alt="" style={{maxWidth:"92vw",maxHeight:"88vh",borderRadius:"var(--radius-card)",boxShadow:"0 24px 60px rgba(0,0,0,0.4)"}} onClick={(e)=>e.stopPropagation()} />
+        </div>, document.body
+      )}
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+setTimeout(()=>{document.querySelectorAll('image-slot[id^="bda-slot"]').forEach(s=>{if(!s.shadowRoot)return;const st=document.createElement('style');const fit=s.id==='bda-slot-1-2-1'?'contain':'cover';st.textContent='.frame{background:#0d2428!important}.frame img{object-fit:'+fit+'!important;height:100%!important;width:100%!important;object-position:top center!important}';if(s.id==='bda-slot-1-2-1'){const im=s.shadowRoot.querySelector('img');if(im&&im.naturalWidth)s.style.aspectRatio=im.naturalWidth+'/'+im.naturalHeight}s.shadowRoot.appendChild(st)})},600);
+setTimeout(()=>{const logo=(window.__resources&&window.__resources.logo)||"assets/logo-mark.png";document.querySelectorAll('img').forEach(img=>{if(img.getAttribute('src')==="../../assets/logo-mark.png")img.src=logo;});},0);
+</script>
+<script>(function(){function fit(){document.querySelectorAll('.bda-slot').forEach(function(s){var im=s.shadowRoot&&s.shadowRoot.querySelector('img');if(im&&im.naturalWidth){s.style.aspectRatio=im.naturalWidth+'/'+im.naturalHeight;s.style.height='auto'}})}new MutationObserver(fit).observe(document.documentElement,{subtree:true,childList:true,attributes:true});setInterval(fit,600);setTimeout(fit,300)})()</script><script>(function(){function mark(){document.querySelectorAll('footer a').forEach(a=>{if(/linkedin/i.test(a.textContent)){a.classList.add('fx-li');a.href="https://www.linkedin.com/in/aisha-momand/";a.target="_blank";a.rel="noopener";}});}setTimeout(mark,300);setTimeout(mark,1200);})();</script>
+<script>(function(){function initReveal(){const main=document.getElementById("main");if(!main||main.dataset.revealInit)return;main.dataset.revealInit="1";const targets=main.querySelectorAll("h2[id^='sec-'], main > div > div > p, .media-noise, figure, blockquote");targets.forEach(el=>{if(el.closest(".toc-index-link")||el.closest("nav"))return;el.classList.add("reveal");});
+const heroEls=main.querySelectorAll(".hero-reveal");heroEls.forEach((el,idx)=>{el.classList.add("reveal");});
+const heroIo=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add("in-view"),i*100);heroIo.unobserve(e.target);}});},{threshold:0.1});
+heroEls.forEach(el=>heroIo.observe(el));const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{e.target.classList.toggle("in-view",e.isIntersecting);});},{threshold:0.2,rootMargin:"0px 0px -120px 0px"});main.querySelectorAll(".reveal").forEach(el=>io.observe(el));}setTimeout(initReveal,400);setTimeout(initReveal,1200);})();</script>
+</body>
+</html>

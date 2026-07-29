@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume — Aisha Momand</title>
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/colors.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/typography.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/motion.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/_ds_bundle.js"></script>
+<style>}
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;background:var(--surface-page)}
+#site-nav{display:contents}
+@media screen{doc-page{background:var(--surface-page)}}
+
+.name,h1,h2,h3{font-family:var(--font-display,"Cormorant Garamond",serif);color:var(--navy-900);margin:0}
+p,li,td,th{font-family:var(--font-body,"Inter",sans-serif)}
+a{color:var(--text-accent-on-light)}
+a:hover{color:var(--coral-600)}
+.resume-header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:2px solid var(--navy-900);padding-bottom:10px;margin-bottom:16px;flex-wrap:wrap}
+.name{font-size:28px;font-weight:600;letter-spacing:-0.01em}
+.title{font:italic 400 12.5px/1.3 var(--font-display,"Cormorant Garamond",serif);color:var(--text-body,#334155);margin-top:4px;max-width:60ch}
+.contact{text-align:right;font:400 11px/1.6 Inter,sans-serif;color:var(--text-body,#334155)}
+.contact a{text-decoration:none;white-space:nowrap}
+.contact a:hover{text-decoration:underline}
+.resume-body{display:grid;grid-template-columns:150px 1px 1fr;column-gap:24px}
+.rule-col{background:var(--border-divider,#e3d9cb)}
+.sidebar{display:flex;flex-direction:column;gap:14px}
+.main-col{display:flex;flex-direction:column}
+section{margin-bottom:12px;break-inside:avoid-page}
+h2.section-title{font:700 9.5px/1 Inter,sans-serif;letter-spacing:1.3px;text-transform:uppercase;color:var(--text-accent-on-light,#d9503f);margin-bottom:7px}
+.summary{font:400 12px/1.5 Inter,sans-serif;color:var(--text-body,#334155);margin:0}
+.skills-group{margin-bottom:10px}
+.skills-group:last-child{margin-bottom:0}
+.skills-group-label{font:700 10px/1.3 Inter,sans-serif;color:var(--navy-900);margin-bottom:3px}
+.skills-group-list{font:400 11px/1.5 Inter,sans-serif;color:var(--text-body,#334155)}
+.entry{margin-bottom:9px;break-inside:avoid-page}
+.entry:last-child{margin-bottom:0}
+.entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.entry-role{font:600 12.5px/1.2 Inter,sans-serif;color:var(--navy-900)}
+.entry-org{font:italic 400 12px/1.2 var(--font-display,"Cormorant Garamond",serif);color:var(--text-body,#334155)}
+.entry-meta{font:400 10.5px/1.2 Inter,sans-serif;color:var(--text-muted,#7a8699);white-space:nowrap}
+.entry ul{margin:3px 0 0;padding-left:15px}
+.entry li{font:400 11px/1.4 Inter,sans-serif;color:var(--text-body,#334155);margin-bottom:2px}
+.edu-entry{margin-bottom:8px}
+.edu-degree{font:600 11.5px/1.3 Inter,sans-serif;color:var(--navy-900)}
+.edu-school{font:italic 400 11px/1.3 var(--font-display,"Cormorant Garamond",serif);color:var(--text-body,#334155)}
+.tag-list{display:flex;flex-direction:column;gap:3px;font:400 11px/1.4 Inter,sans-serif;color:var(--text-body,#334155);margin:0;padding:0}
+.tag-list li{list-style:none}
+}footer{position:relative}footer>div>div:nth-child(1){gap:24px !important;margin-top:8px}footer a.fx-li,footer a[href^="mailto:"]{text-decoration:none !important;position:relative;display:inline-flex !important;align-items:center;gap:14px;font:600 13px/1.3 Inter,sans-serif !important;letter-spacing:1.5px;text-transform:uppercase;transition:gap 320ms cubic-bezier(0.16,1,0.3,1),color 320ms cubic-bezier(0.16,1,0.3,1);width:fit-content}footer a.fx-li svg,footer a[href^="mailto:"] svg{display:none}footer a.fx-li::before,footer a[href^="mailto:"]::before{content:"";width:18px;height:18px;flex-shrink:0;background-color:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/%3E%3Crect x='2' y='9' width='4' height='12'/%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'/%3E%3Crect x='2' y='9' width='4' height='12'/%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/svg%3E") center/contain no-repeat}footer a[href^="mailto:"]::before{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 6-10 7L2 6'/%3E%3C/svg%3E") center/contain no-repeat}footer a.fx-li:hover,footer a[href^="mailto:"]:hover{gap:20px;color:var(--text-inverse) !important}footer{position:relative;overflow:hidden}footer a{position:relative}footer span+span::after{content:"|";display:inline-block;margin-left:2px;animation:blinkCursor 1s step-end infinite}footer a svg{transition:transform 320ms cubic-bezier(0.16,1,0.3,1)}footer a:hover svg{transform:translate(3px,-3px)}}a{color:var(--text-accent-on-light)}a:hover{color:var(--coral-600)}.navbar-noise::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.logo-link{display:inline-flex;text-decoration:none;position:relative}.logo-link img{transition:filter 420ms cubic-bezier(0.16,1,0.3,1),transform 420ms cubic-bezier(0.16,1,0.3,1)}.logo-link::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--text-accent-on-light);transform:scaleX(0);transform-origin:left;transition:transform 420ms cubic-bezier(0.16,1,0.3,1)}.logo-link:hover img{transform:scale(1.04);filter:drop-shadow(0 4px 10px rgba(20,30,50,0.18))}.logo-link:hover::after{transform:scaleX(1)}.logo-link:active img{transform:scale(0.98)}nav a[href]:not(.toc-inline-link):hover{color:var(--coral-700) !important}.cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--text-accent-on-light);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:width 220ms cubic-bezier(0.16,1,0.3,1),height 220ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease}.cursor-dot.active{opacity:1}.cursor-ring{position:fixed;top:0;left:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-divider);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:width 280ms cubic-bezier(0.16,1,0.3,1),height 280ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease,border-color 280ms cubic-bezier(0.16,1,0.3,1)}.cursor-ring.active{opacity:1}.cursor-dot.hovering{width:6px;height:6px}.cursor-ring.hovering{width:44px;height:44px;border-color:var(--text-accent-on-light)}@media (hover:none){.cursor-dot,.cursor-ring{display:none}</style>
+</head>
+<body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<script>(function(){const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');if(!dot||!ring||window.matchMedia('(hover:none)').matches)return;let rx=0,ry=0,tx=0,ty=0;window.addEventListener('mousemove',e=>{dot.classList.add('active');ring.classList.add('active');dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';tx=e.clientX;ty=e.clientY;const el=document.elementFromPoint(e.clientX,e.clientY);const hovering=!!(el&&el.closest('a,button'));dot.classList.toggle('hovering',hovering);ring.classList.toggle('hovering',hovering);});function loop(){rx+=(tx-rx)*0.18;ry+=(ty-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);}loop();})();</script>
+<div id="site-nav"></div>
+<doc-page margin="0.5in">
+<div class="resume-header">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="assets/logo-mark-resume.png" alt="" width="56" height="56" style="border-radius:50%;flex-shrink:0;object-fit:cover">
+<div>
+<div class="name">Aisha Momand</div>
+<div class="title">UX/Product Designer — Enterprise Systems &amp; Data Platforms · HCI and AI · Designing clarity and structure for complex technical workflows</div>
+</div>
+</div>
+<div class="contact">
+Greater Toronto Area, Canada<br>
+<a href="mailto:aisha.momand1@gmail.com">aisha.momand1@gmail.com</a><br>
+<a href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">linkedin.com/in/aisha-momand</a>
+</div>
+</div>
+
+<section>
+<h2 class="section-title">Summary</h2>
+<p class="summary">UX/Product Designer turning chaotic, technical workflows into interfaces that feel obvious. Four-plus years designing enterprise engineering tools, data platforms, GIS workflows, and simulation systems — grounded in research, sharpened with AI.</p>
+</section>
+
+<div class="resume-body">
+<div class="sidebar">
+<section>
+<h2 class="section-title">Skills</h2>
+<div class="skills-group">
+<div class="skills-group-label">Design</div>
+<div class="skills-group-list">Interaction Design · UI Design · Design Systems · Prototyping (mid–hi-fi) · Service Blueprinting · Functional Decomposition · Task &amp; Data Inventories · Designing for Unreal Engine (3D GUI) · Designing for Power Apps/Power BI</div>
+</div>
+<div class="skills-group">
+<div class="skills-group-label">Research</div>
+<div class="skills-group-list">Discovery Research · Qual/Quant Methods · Stakeholder Interviews · Usability Testing · Journey Mapping · GOMS Analysis · Qualitative Coding (MAXQDA) · Opportunity Synthesis (HMW) · Prioritization Frameworks</div>
+</div>
+<div class="skills-group">
+<div class="skills-group-label">Tools</div>
+<div class="skills-group-list">Figma · Figma Make · FigJam · Claude Design · Claude Code · Lovable · MAXQDA</div>
+</div>
+</section>
+<section>
+<h2 class="section-title">Education</h2>
+<div class="edu-entry">
+<div class="edu-degree">M.Info, User Experience Design</div>
+<div class="edu-school">University of Toronto · 2021–2023</div>
+</div>
+<div class="edu-entry">
+<div class="edu-degree">BA (Hons), Psychology</div>
+<div class="edu-school">York University · 2014–2019</div>
+</div>
+</section>
+<section>
+<h2 class="section-title">Certifications &amp; Honors</h2>
+<ul class="tag-list">
+<li>AI Fundamentals for UX</li>
+<li>Quantitative Methods</li>
+<li>Qualitative Research Methods</li>
+<li>Enhancing UX Workflow with AI</li>
+<li>Golden Key International Honour Society</li>
+</ul>
+</section>
+</div>
+<div class="rule-col"></div>
+<div class="main-col">
+<section>
+<h2 class="section-title">Experience</h2>
+
+<div class="entry">
+<div class="entry-head">
+<div><span class="entry-role">UI/UX Designer — Digital Solutions (Stantec.io)</span><br><span class="entry-org">Stantec</span></div>
+<div class="entry-meta">June 2024 – Present · Toronto, ON</div>
+</div>
+<ul>
+<li>Lead UX design for data-intensive engineering and infrastructure tools, running GOMS analysis, stakeholder interviews, and usability testing to ground designs in real technical workflows.</li>
+<li>Led discovery research for an internal SDLC governance tool — 22 stakeholder interviews synthesized into personas and insights that shaped requirements for risk-scoring, role-aware routing, and staged approvals.</li>
+<li>Researched how teams discover, reuse, and consolidate internal digital assets and practice guidance, driving unification of scattered tools into single solutions.</li>
+<li>Consolidated legacy systems into a unified pavement management software platform; created the functional decomposition map, task inventory, and data inventory.</li>
+<li>Designed the UI and led usability testing for an automated design application used on one of Canada's largest solar facilities.</li>
+</ul>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<div><span class="entry-role">UI/UX Designer — Digital Technology Innovation Office</span><br><span class="entry-org">Stantec</span></div>
+<div class="entry-meta">May 2023 – May 2024 · Toronto, ON</div>
+</div>
+<ul>
+<li>Founding member of Stantec's first UI/UX team; built a design system to unify components and improve scalability across projects.</li>
+<li>Designed the GUI for a 3D interactive Unreal Engine facility-layout tool, and custom Power Apps/Power BI applications for the US Marines.</li>
+<li>Designed AirLogic, an emissions-tracking platform that helped Blue Sky Resources attain Google Cloud Partner status.</li>
+</ul>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<div><span class="entry-role">UI/UX Designer</span><br><span class="entry-org">University of Toronto Mississauga</span></div>
+<div class="entry-meta">Jan 2023 – Apr 2023 · Mississauga, ON</div>
+</div>
+<ul>
+<li>Refined the UTM Career Centre website's UI and information architecture through student experience research and hi-fi prototyping.</li>
+</ul>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<div><span class="entry-role">UI/UX Designer, Co-Op</span><br><span class="entry-org">Stantec</span></div>
+<div class="entry-meta">May 2022 – Dec 2022 · Toronto, ON</div>
+</div>
+<ul>
+<li>Built an analytics program surfacing site emissions and air quality insights for Blue Sky Resources, contributing to its Google Partner status and a subsequent full-time offer.</li>
+</ul>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<div><span class="entry-role">Market Research Assistant — NOESIS Lab</span><br><span class="entry-org">Schulich School of Business, York University</span></div>
+<div class="entry-meta">Sep 2019 – Mar 2020 · Toronto, ON</div>
+</div>
+<ul>
+<li>Administered surveys and product design tests, and contributed to research methodology at a leading behavior and product-testing lab.</li>
+</ul>
+</div>
+</section>
+</div>
+</div>
+</doc-page>
+<div id="site-footer"></div>
+<script src="doc-page.js"></script>
+<script type="text/babel" data-presets="react">
+const { Logo, Link, Button, Footer } = window.AishaMomandDesignSystem_ae6873;
+function useIsMobile(){const[m,setM]=React.useState(window.innerWidth<1000);React.useEffect(()=>{const mq=window.matchMedia("(max-width: 1000px)");const f=()=>setM(mq.matches);mq.addEventListener("change",f);return()=>mq.removeEventListener("change",f);},[]);return m;}
+function MenuIcon(){return(<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy-900)" strokeWidth="2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>);}
+function Navbar(){
+  const mobile=useIsMobile();const[open,setOpen]=React.useState(false);
+  if(mobile){return(<div className="navbar-noise" style={{position:"sticky",top:0,zIndex:10,background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",overflow:"hidden"}}>
+    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 20px"}}>
+      <a href="index.html" className="logo-link"><Logo size={36} /></a>
+      <button aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(o=>!o)} style={{background:"none",border:"none",padding:10,cursor:"pointer",minHeight:44,minWidth:44,display:"inline-flex",alignItems:"center",justifyContent:"center"}}><MenuIcon /></button>
+    </div>
+    {open&&(<nav style={{display:"flex",flexDirection:"column",padding:"0 20px 16px",gap:4}}>
+      <Link href="index.html">Work</Link>
+      <Link href="about.html">About</Link>
+      <Link href="resume.html" active>Resume</Link>
+      <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+      <div style={{paddingTop:8,display:"flex",gap:8,flexWrap:"wrap"}}><Button variant="secondary" size="sm" onClick={()=>window.print()}><span style={{whiteSpace:"nowrap"}}>Download PDF</span></Button><Button variant="primary" size="sm" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button></div>
+    </nav>)}
+  </div>);}
+  return(<div style={{position:"sticky",top:0,zIndex:10}}>
+    <div className="navbar-noise" style={{position:"relative",background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",display:"flex",justifyContent:"center",padding:"20px 80px",overflow:"hidden"}}>
+      <div style={{maxWidth:"var(--container-max)",width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+        <a href="index.html" className="logo-link"><Logo size={46} /></a>
+        <nav style={{display:"flex",gap:28,alignItems:"center"}}>
+          <Link href="index.html">Work</Link>
+          <Link href="about.html">About</Link>
+          <Link href="resume.html" active>Resume</Link>
+          <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+          <Button variant="secondary" onClick={()=>window.print()}><span style={{whiteSpace:"nowrap"}}>Download PDF</span></Button>
+          <Button variant="primary" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button>
+        </nav>
+      </div>
+    </div>
+    <div style={{height:32,marginTop:-1,background:"linear-gradient(to bottom, color-mix(in oklch, var(--surface-page) 55%, transparent), transparent)",backdropFilter:"blur(6px)",WebkitBackdropFilter:"blur(6px)",maskImage:"linear-gradient(to bottom, black, transparent)",WebkitMaskImage:"linear-gradient(to bottom, black, transparent)",pointerEvents:"none",position:"absolute",left:0,right:0}}></div>
+  </div>);
+}
+ReactDOM.createRoot(document.getElementById("site-nav")).render(<Navbar />);
+ReactDOM.createRoot(document.getElementById("site-footer")).render(<Footer />);
+setTimeout(()=>{const logo=(window.__resources&&window.__resources.logo)||"assets/logo-mark.png";document.querySelectorAll('img').forEach(img=>{if(img.getAttribute('src')==="../../assets/logo-mark.png")img.src=logo;});},0);
+</script>
+<script>(function(){function mark(){document.querySelectorAll('footer a').forEach(a=>{if(/linkedin/i.test(a.textContent)){a.classList.add('fx-li');a.href="https://www.linkedin.com/in/aisha-momand/";a.target="_blank";a.rel="noopener";}});}setTimeout(mark,300);setTimeout(mark,1200);})();</script>
+</body>
+</html>

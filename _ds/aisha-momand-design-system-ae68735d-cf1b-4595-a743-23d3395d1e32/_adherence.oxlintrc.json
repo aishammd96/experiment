@@ -1,0 +1,268 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/brand/**",
+              "components/core/**",
+              "components/navigation/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Cormorant Garamond|Tinos|Inter))/i]",
+        "message": "Font not provided by the design system. Available: Cormorant Garamond, Tinos, Inter."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|size|disabled|onClick|type|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, variant, size, disabled, onClick, type."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit|reset)$/]",
+        "message": "<Button> type must be one of 'button' | 'submit' | 'reset'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Footer'] > JSXAttribute > JSXIdentifier[name!=/^(?:heading|body|email|key|ref|className|style|children)$/]",
+        "message": "<Footer> doesn't accept that prop. Declared props: heading, body, email."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Link'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|href|active|key|ref|className|style|children)$/]",
+        "message": "<Link> doesn't accept that prop. Declared props: children, href, active."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|key|ref|className|style|children)$/]",
+        "message": "<Logo> doesn't accept that prop. Declared props: name, size."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MetaField'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|value|key|ref|className|style|children)$/]",
+        "message": "<MetaField> doesn't accept that prop. Declared props: label, value."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProjectCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|tags|image|key|ref|className|style|children)$/]",
+        "message": "<ProjectCard> doesn't accept that prop. Declared props: title, tags, image."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: children."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "Footer": {
+        "replaces": []
+      },
+      "Link": {
+        "replaces": []
+      },
+      "Logo": {
+        "replaces": []
+      },
+      "MetaField": {
+        "replaces": []
+      },
+      "ProjectCard": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--action-primary",
+      "--action-primary-active",
+      "--action-primary-hover",
+      "--black",
+      "--border-divider",
+      "--border-hairline",
+      "--butter-100",
+      "--container-max",
+      "--coral-300",
+      "--coral-500",
+      "--coral-600",
+      "--coral-700",
+      "--coral-on-dark",
+      "--coral-on-light",
+      "--cream-100",
+      "--cream-200",
+      "--cream-50",
+      "--focus-ring",
+      "--font-accent",
+      "--font-body",
+      "--font-display",
+      "--navy-600",
+      "--navy-700",
+      "--navy-800",
+      "--navy-900",
+      "--navy-950",
+      "--radius-badge",
+      "--radius-card",
+      "--sand-200",
+      "--shadow-color",
+      "--shadow-mobile-nav",
+      "--shadow-navbar",
+      "--slate-500",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-badge",
+      "--surface-card-placeholder",
+      "--surface-footer",
+      "--surface-inverse",
+      "--surface-media-placeholder",
+      "--surface-page",
+      "--text-accent-on-dark",
+      "--text-accent-on-light",
+      "--text-body",
+      "--text-body-italic",
+      "--text-body-label",
+      "--text-body-lg",
+      "--text-body-md",
+      "--text-body-strong",
+      "--text-display-lg",
+      "--text-display-md",
+      "--text-display-sm",
+      "--text-display-xl",
+      "--text-eyebrow-letterspace",
+      "--text-heading",
+      "--text-hero",
+      "--text-inverse",
+      "--text-label",
+      "--text-muted",
+      "--text-name",
+      "--text-nav-link",
+      "--text-on-badge",
+      "--white"
+    ],
+    "tokenKinds": {
+      "--navy-950": "color",
+      "--navy-900": "color",
+      "--navy-800": "color",
+      "--navy-700": "color",
+      "--slate-500": "color",
+      "--cream-50": "color",
+      "--butter-100": "color",
+      "--sand-200": "color",
+      "--coral-300": "color",
+      "--coral-500": "color",
+      "--coral-600": "color",
+      "--coral-700": "color",
+      "--white": "color",
+      "--black": "color",
+      "--text-heading": "font",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-label": "font",
+      "--text-on-badge": "font",
+      "--text-inverse": "font",
+      "--text-accent-on-light": "font",
+      "--text-accent-on-dark": "font",
+      "--surface-page": "color",
+      "--surface-inverse": "color",
+      "--surface-badge": "color",
+      "--surface-media-placeholder": "color",
+      "--action-primary": "color",
+      "--action-primary-hover": "color",
+      "--action-primary-active": "color",
+      "--focus-ring": "color",
+      "--border-hairline": "color",
+      "--border-divider": "color",
+      "--coral-on-light": "color",
+      "--coral-on-dark": "color",
+      "--text-body-strong": "font",
+      "--text-body-label": "font",
+      "--surface-footer": "color",
+      "--surface-card-placeholder": "color",
+      "--navy-600": "color",
+      "--cream-100": "color",
+      "--cream-200": "color",
+      "--shadow-color": "shadow",
+      "--font-display": "font",
+      "--font-accent": "font",
+      "--font-body": "font",
+      "--text-hero": "font",
+      "--text-display-xl": "font",
+      "--text-display-lg": "font",
+      "--text-display-md": "font",
+      "--text-display-sm": "font",
+      "--text-name": "font",
+      "--text-body-lg": "font",
+      "--text-body-md": "font",
+      "--text-body-italic": "font",
+      "--text-nav-link": "font",
+      "--text-eyebrow-letterspace": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--radius-badge": "radius",
+      "--radius-card": "radius",
+      "--shadow-navbar": "shadow",
+      "--shadow-mobile-nav": "shadow",
+      "--container-max": "spacing"
+    },
+    "fontFamilies": [
+      "Cormorant Garamond",
+      "Inter",
+      "Tinos"
+    ]
+  }
+}

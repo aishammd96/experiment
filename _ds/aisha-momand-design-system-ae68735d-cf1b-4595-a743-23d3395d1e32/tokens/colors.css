@@ -1,0 +1,112 @@
+/* Token architecture: two tiers.
+   1. PRIMITIVES — raw values, named by hue + step (50 lightest → 950 darkest). Never used directly in components.
+   2. SEMANTIC   — role-based aliases (brand-*, text-*, surface-*, action-*, border-*, status-*). Components use ONLY these.
+   Refined 2026: neutral-first, desaturated navy/coral for an enterprise-calm feel; brand hues unchanged, values tuned. */
+:root{
+/* ── Primitives: brand ── */
+--navy-950:#0d1a3a;
+--navy-900:#1b3374;
+--navy-800:#182c60;
+--navy-700:#38455c;
+--coral-200:#ffc4bd;
+--coral-300:#ff9c92;
+--coral-500:#ee6a5c;
+--coral-600:#e05c4e;
+--coral-700:#c14538;
+/* ── Primitives: neutral scale (cool, desaturated — replaces flat slate/sand) ── */
+--gray-25:#fbfaf7;
+--gray-50:#f6f4ee;
+--gray-100:#ede9df;
+--gray-200:#ddd8cb;
+--gray-300:#c3bdae;
+--gray-500:#5c6470;
+--gray-700:#3a4250;
+--white:#ffffff;
+--black:#000000;
+/* Legacy names kept for compatibility (map onto refined scale) */
+--cream-50:var(--gray-25);
+--butter-100:#fbeec3;
+--sand-200:var(--gray-200);
+--slate-500:var(--gray-500);
+--cream-100:#fdf6df;
+--cream-200:#f4e6b8;
+--navy-600:var(--gray-700);
+/* ── Semantic: brand ── */
+--brand-primary:var(--navy-900);
+--brand-accent:var(--coral-500);
+--brand-accent-hover:var(--coral-600);
+--brand-accent-active:var(--coral-700);
+/* ── Semantic: text/content ── */
+--text-heading:var(--navy-900);
+--text-body:var(--gray-700);
+--text-muted:var(--gray-500);
+--text-disabled:var(--gray-300);
+--text-label:var(--gray-700);
+--text-on-badge:var(--navy-900);
+--text-inverse:var(--white);
+--text-inverse-muted:rgba(255,255,255,0.7);
+--text-accent-on-light:var(--coral-700); /* AA-safe coral on cream/white */
+--text-accent-on-dark:var(--coral-300);  /* AA-safe coral on navy */
+/* ── Semantic: surface (layered, tinted-neutral) ── */
+--surface-page:var(--gray-25);
+--surface-raised:var(--white);
+--surface-elevated:var(--gray-50);
+--surface-highlight:var(--butter-100);
+--surface-selected:rgba(27,51,116,0.06);
+--surface-inverse:var(--navy-900);
+--surface-badge:var(--butter-100);
+--surface-media-placeholder:var(--gray-200);
+--surface-navbar-glass:color-mix(in oklch, var(--surface-page) 70%, transparent);
+/* ── Semantic: interaction ── */
+--action-primary:var(--brand-accent);
+--action-primary-hover:var(--brand-accent-hover);
+--action-primary-active:var(--brand-accent-active);
+--action-secondary-hover:rgba(27,51,116,0.06);
+--action-secondary-active:rgba(27,51,116,0.12);
+--action-disabled-bg:var(--gray-100);
+--action-disabled-fg:var(--gray-300);
+--focus-ring:var(--brand-accent-active);
+/* ── Semantic: border ── */
+--border-hairline:rgba(255,255,255,0.2);
+--border-divider:rgba(27,51,116,0.14);
+--border-subtle:var(--gray-200);
+--border-interactive:var(--navy-900);
+/* ── Semantic: status (added for future forms/alerts — not yet used in the portfolio UI) ── */
+--status-success:#1f8a5f;
+--status-success-bg:#e6f4ee;
+--status-warning:#b6790a;
+--status-warning-bg:#fbf0dd;
+--status-error:var(--coral-700);
+--status-error-bg:#fbeae7;
+--status-info:var(--navy-800);
+--status-info-bg:#eaeef7;
+/* ── Signature: atmospheric / lab accents (2026 edge pass — additive, brand hues unchanged) ── */
+--ink-950:#0d1526; /* near-black navy, for premium dark surfaces */
+--ink-900:#13203c;
+--ink-800:#1a2c52;
+--coral-glow:#ff8577; /* lifted, luminous coral for glow/highlight moments only */
+--gradient-lab:linear-gradient(135deg,var(--navy-900) 0%,var(--navy-800) 45%,var(--coral-500) 100%);
+--gradient-dark-atmosphere:radial-gradient(120% 120% at 20% -10%,var(--ink-800) 0%,var(--ink-950) 60%);
+--glow-coral:0 0 40px rgba(255,133,119,0.35);
+/* ── Semantic: dark mode surfaces (premium, richer-than-black) ── */
+--surface-dark-page:var(--ink-950);
+--surface-dark-raised:var(--ink-900);
+--surface-dark-elevated:var(--ink-800);
+--text-dark-heading:var(--white);
+--text-dark-body:rgba(255,255,255,0.72);
+--border-dark-hairline:rgba(255,255,255,0.12);
+/* ── Semantic: data visualization (distinct, colour-blind-considerate, ordered by hue not just lightness) ── */
+--viz-1:var(--navy-900);
+--viz-2:var(--coral-500);
+--viz-3:#8a6d3b; /* warm ochre — stays in the brand's warm register */;
+--viz-4:#2f8f7a; /* teal — pairs with navy without competing with coral */
+--viz-5:var(--gray-500);
+/* ── Deprecated aliases (compat only — do not use in new work) ── */
+--coral-on-light:var(--coral-700);
+--coral-on-dark:var(--coral-300);
+--text-body-strong:var(--text-muted);
+--text-body-label:var(--text-label);
+--surface-footer:var(--surface-inverse);
+--surface-card-placeholder:var(--surface-media-placeholder);
+--shadow-color:rgba(13,26,58,0.5);
+}

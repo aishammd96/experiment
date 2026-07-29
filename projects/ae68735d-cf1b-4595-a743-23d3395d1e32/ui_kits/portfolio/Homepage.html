@@ -1,0 +1,98 @@
+<!-- @dsCard group="Screens" viewport="1440x900" subtitle="Homepage: hero, selected works grid, footer" -->
+<!doctype html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--surface-page)}a{color:var(--text-accent-on-light)}a:hover{color:var(--coral-600)}.skip-link{position:absolute;left:-9999px;top:0;background:var(--navy-900);color:var(--cream-50);padding:12px 20px;z-index:100;font:700 16px var(--font-body)}.skip-link:focus{left:16px;top:16px}.navbar-noise::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { Logo, Link, Tag, Button, ProjectCard, Footer } = window.AishaMomandDesignSystem_ae6873;
+
+const PROJECTS = [
+  { title: "I designed an end-to-end interface for an enterprise design tool", tags: ["case study","End-to-End Design","Enterprise UX","2025"] },
+  { title: "I built an award-winning AI product concept", tags: ["case study","AI Concept","Hackathon","2025"] },
+  { title: "I redesigned fragmented legacy systems into a single platform", tags: ["case study","Legacy Redesign","Enterprise UX","2024"] },
+  { title: "I researched and redesigned a service experience end to end", tags: ["case study","UX Research","Service Design","2023"] },
+  { title: "I improved usability of a data-heavy workflow app", tags: ["case study","Usability Redesign","Workflow Automation","2022"] },
+  { title: "I developed a concept redesign for a marketplace platform", tags: ["case study","Concept Redesign","Platform UX","2022"] },
+];
+
+function Navbar() {
+  return (
+    <div style={{position:"sticky",top:0,zIndex:10}}>
+      <div className="navbar-noise" style={{position:"relative",background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",display:"flex",justifyContent:"center",padding:"20px 80px",overflow:"hidden"}}>
+        <div style={{maxWidth:"var(--container-max)",width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <Logo size={40} />
+          <nav style={{display:"flex",gap:40,alignItems:"center"}}>
+            <Link active>Work</Link>
+            <Link>About</Link>
+            <Link>Resume</Link>
+            <Link>LinkedIn</Link>
+            <Button variant="primary" size="sm">Contact</Button>
+          </nav>
+        </div>
+      </div>
+      <div style={{height:32,marginTop:-1,background:"linear-gradient(to bottom, color-mix(in oklch, var(--surface-page) 55%, transparent), transparent)",backdropFilter:"blur(6px)",WebkitBackdropFilter:"blur(6px)",maskImage:"linear-gradient(to bottom, black, transparent)",WebkitMaskImage:"linear-gradient(to bottom, black, transparent)",pointerEvents:"none"}}></div>
+    </div>
+  );
+}
+
+function Hero() {
+  return (
+    <div style={{display:"flex",gap:64,alignItems:"center",flexWrap:"wrap",maxWidth:"var(--container-max)",margin:"0 auto",padding:"80px 80px 0"}}>
+      <div style={{display:"flex",flexDirection:"column",gap:60,flex:"1 1 520px",minWidth:0}}>
+        <h1 style={{font:"var(--text-hero)",fontSize:"clamp(64px, 9vw, 145px)",letterSpacing:"-0.055em",margin:0}}><span style={{color:"var(--navy-900)",fontStyle:"normal",fontWeight:500}}>I cut the </span><span style={{color:"var(--coral-500)",fontWeight:500}}>complexity.</span></h1>
+        <div style={{display:"flex",flexDirection:"column",gap:40}}>
+          <h2 style={{font:"var(--text-display-md)",margin:0}}><span style={{color:"var(--navy-900)"}}>Tangled systems? </span><span style={{color:"var(--slate-500)"}}>High-stakes ambiguity?</span></h2>
+          <p style={{margin:0,font:"var(--text-body-lg)",color:"var(--text-body)"}}>I work where people, data, and complexity meet by designing systems people can rely on in high-stakes environments.</p>
+        </div>
+        <div style={{display:"flex",flexWrap:"wrap",gap:16}}>
+          {["product/ux design","enterprise + data","systems design","research"].map((t,i)=><Tag key={i}>{t}</Tag>)}
+        </div>
+      </div>
+      <img src="../../assets/hero-illustration.png" alt="Illustration of a woman cutting through tangled complexity with scissors" style={{width:"clamp(260px, 28vw, 420px)",flexShrink:0,margin:"0 auto"}} />
+    </div>
+  );
+}
+
+function Works() {
+  return (
+    <div style={{maxWidth:"var(--container-max)",margin:"0 auto",padding:"60px 80px"}}>
+      <div style={{borderTop:"1px solid var(--border-divider)",marginBottom:60}}></div>
+      <h2 style={{font:"var(--text-display-md)",color:"var(--navy-900)",margin:"0 0 60px"}}>Selected Works</h2>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:60}}>
+        {PROJECTS.map((p,i)=>(
+          <a key={i} href={p.href || "#"} style={{display:"flex",flexDirection:"column",gap:20,textDecoration:"none"}}>
+            <div style={{height:396,borderRadius:"var(--radius-card)",background:"var(--surface-media-placeholder)",border:"0.56px solid rgba(255,255,255,0.4)"}}></div>
+            <span style={{font:"var(--text-display-sm)",color:"var(--navy-900)"}}>{p.title}</span>
+            <div style={{display:"flex",gap:24,flexWrap:"wrap"}}>{p.tags.map((t,j)=><Tag key={j}>{t}</Tag>)}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <React.Fragment>
+      <Navbar />
+      <main id="main">
+        <Hero />
+        <Works />
+      </main>
+      <Footer />
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

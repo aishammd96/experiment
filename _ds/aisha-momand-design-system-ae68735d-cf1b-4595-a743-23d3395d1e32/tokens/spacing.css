@@ -1,0 +1,16 @@
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:10px;
+--space-4:16px;
+--space-5:20px;
+--space-6:24px;
+--space-7:40px;
+--space-8:60px;
+--space-9:80px;
+--radius-badge:4px;
+--radius-card:14px;
+--shadow-navbar:0px 4px 4px 0px rgba(0,0,0,0.03);
+--shadow-mobile-nav:0px 1px 3px 0px rgba(0,0,0,0.1),0px 1px 2px -1px rgba(0,0,0,0.1);
+--container-max:1280px;
+}

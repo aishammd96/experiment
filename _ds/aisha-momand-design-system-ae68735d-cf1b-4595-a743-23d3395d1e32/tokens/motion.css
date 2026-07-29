@@ -1,0 +1,10 @@
+/* Motion language: calm, precise, no bounce. Two easings, three durations, one signature reveal. */
+:root{
+--ease-out:cubic-bezier(0.22,1,0.36,1); /* @kind other */ /* default: entrances, hovers */
+--ease-in-out:cubic-bezier(0.65,0,0.35,1); /* @kind other */ /* layout shifts, page transitions */
+--duration-fast:120ms; /* @kind other */   /* hover/press feedback */
+--duration-base:240ms; /* @kind other */   /* reveals, fades, color shifts */
+--duration-slow:480ms; /* @kind other */   /* hero/atmospheric entrances only */
+--transition-interactive:color var(--duration-fast) var(--ease-out),background-color var(--duration-fast) var(--ease-out),border-color var(--duration-fast) var(--ease-out),box-shadow var(--duration-base) var(--ease-out),transform var(--duration-fast) var(--ease-out);
+/* Press state: scale(0.98). Hover lift: translateY(-1px) max — restraint over spectacle. */
+}
