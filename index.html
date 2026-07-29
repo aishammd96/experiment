@@ -28,7 +28,7 @@ const { Link, Tag, Button, ProjectCard, Footer } = window.AishaMomandDesignSyste
 function SiteLogo({ size = 40 }) {
   return (
     <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 10 }}>
-      <img src="assets/logo-mark.png" alt="" style={{ width: size, height: size, flexShrink: 0, borderRadius: "50%" }} />
+      <img src="assets/logo-mark.png" alt="" style={{ width: size, height: size, flexShrink: 0, objectFit: "contain" }} />
       <span style={{ font: "var(--text-name)", color: "var(--navy-900)", whiteSpace: "nowrap" }}>Aisha Momand</span>
     </div>
   );
