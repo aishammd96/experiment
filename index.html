@@ -271,6 +271,7 @@ function App() {
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 
 </script>
+<script>(function(){function fixYear(){document.querySelectorAll('footer').forEach(f=>{f.innerHTML=f.innerHTML.replace(/\d{4}(?= AISHA MOMAND)/,new Date().getFullYear());});}setTimeout(fixYear,300);setTimeout(fixYear,1200);})();</script>
 <script>(function(){function mark(){document.querySelectorAll('footer a').forEach(a=>{if(/linkedin/i.test(a.textContent)){a.classList.add('fx-li');a.href="https://www.linkedin.com/in/aisha-momand/";a.target="_blank";a.rel="noopener";}});}setTimeout(mark,300);setTimeout(mark,1200);})();</script>
 </body>
 </html>
