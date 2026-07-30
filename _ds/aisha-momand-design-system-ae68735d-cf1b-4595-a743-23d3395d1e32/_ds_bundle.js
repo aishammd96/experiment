@@ -74,25 +74,31 @@ function Button({
       bgHover: "var(--action-primary-hover)",
       bgActive: "var(--action-primary-active)",
       fg: "var(--cream-50)",
-      border: "transparent"
+      border: "var(--navy-900)",
+      shadow: "var(--navy-900)"
     },
     secondary: {
-      bg: "transparent",
-      bgHover: "var(--action-secondary-hover)",
-      bgActive: "var(--action-secondary-active)",
+      bg: "var(--butter-100)",
+      bgHover: "var(--butter-100)",
+      bgActive: "var(--butter-100)",
       fg: "var(--navy-900)",
-      border: "var(--border-interactive)"
+      border: "var(--navy-900)",
+      shadow: "var(--coral-500)"
     },
     ghost: {
       bg: "transparent",
       bgHover: "var(--action-secondary-hover)",
       bgActive: "var(--action-secondary-active)",
       fg: "var(--navy-900)",
-      border: "transparent"
+      border: "transparent",
+      shadow: "transparent"
     }
   }[variant];
   const bg = disabled ? "var(--action-disabled-bg)" : active ? palette.bgActive : hovered ? palette.bgHover : palette.bg;
   const fg = disabled ? "var(--action-disabled-fg)" : palette.fg;
+  const isOffset = (variant === "primary" || variant === "secondary") && !disabled;
+  const offset = active ? 1 : hovered ? 6 : 4;
+  const shadowColor = variant === "primary" ? (hovered ? "var(--coral-600)" : palette.shadow) : (hovered ? "var(--coral-600)" : palette.shadow);
   return /*#__PURE__*/React.createElement("button", {
     type: type,
     disabled: disabled,
@@ -113,12 +119,13 @@ function Button({
       lineHeight: 1.43,
       background: bg,
       color: fg,
-      border: `1.5px solid ${disabled ? "var(--action-disabled-bg)" : palette.border}`,
+      border: `2px solid ${disabled ? "var(--action-disabled-bg)" : palette.border}`,
       borderRadius: "var(--radius-badge)",
       cursor: disabled ? "not-allowed" : "pointer",
       opacity: disabled ? 0.6 : 1,
-      transition: "var(--transition-interactive)",
-      transform: active && !disabled ? "scale(0.98)" : hovered && !disabled ? "translateY(-1px)" : "none",
+      transition: "transform 220ms cubic-bezier(0.16,1,0.3,1), box-shadow 220ms cubic-bezier(0.16,1,0.3,1), background 220ms ease, border-color 220ms ease",
+      boxShadow: isOffset ? `${offset}px ${offset}px 0 ${shadowColor}` : "none",
+      transform: isOffset ? (active ? "translate(0,0)" : hovered ? "translate(-2px,-2px)" : "translate(0,0)") : (active && !disabled ? "scale(0.98)" : hovered && !disabled ? "translateY(-1px)" : "none"),
       outline: focused ? "2px solid var(--focus-ring)" : "none",
       outlineOffset: 2,
       minHeight: 44,

@@ -1,16 +1,38 @@
 :root{
 --font-display:"Cormorant Garamond",ui-serif,Georgia,"Times New Roman",serif;
---font-accent:"Tinos",ui-serif,Georgia,"Times New Roman",serif;
+--font-accent:"Cormorant Garamond",ui-serif,Georgia,"Times New Roman",serif;
 --font-body:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-/* Display sizes are fluid: clamp(mobile, viewport-scaled, desktop). Mobile floor ≈ 55-70% of desktop. */
---text-hero:italic 600 clamp(64px,9vw,120px)/1 var(--font-accent);
---text-display-xl:700 clamp(40px,5vw,60px)/1 var(--font-display);
---text-display-lg:600 clamp(32px,4vw,48px)/1.08 var(--font-display);
---text-display-md:600 clamp(28px,3vw,36px)/1 var(--font-display);
---text-display-sm:600 clamp(22px,2.4vw,28px)/1.14 var(--font-display);
+/* ── Fluid type scale ────────────────────────────────────────────────────────
+   Every step interpolates linearly between a 375px phone and a 1440px desktop
+   using clamp(min, intercept + slope*vw, max). The intercept/slope are solved
+   so the size is exactly `min` at 375px and exactly `max` at 1440px, which
+   means type keeps growing smoothly through tablet widths instead of sitting
+   pinned at its floor until ~900px.
+
+              375px   1440px
+   h1          40  →   88
+   h2          30  →   44
+   h3          20  →   28
+   body-lg     17  →   20
+   body-md     16  →   18
+   body-sm     15  →   16
+   num-badge   15  →   24
+   The mobile column keeps the same top-down hierarchy as desktop, just tighter. */
+--text-hero:italic 600 clamp(40px,11.8px + 7.51vw,120px)/1 var(--font-accent);
+--text-display-xl:700 clamp(32px,22.1px + 2.63vw,60px)/1 var(--font-display);
+--text-display-lg:600 clamp(28px,21px + 1.88vw,48px)/1.08 var(--font-display);
+--text-display-md:600 clamp(24px,19.8px + 1.13vw,36px)/1.1 var(--font-display);
+--text-display-sm:600 clamp(20px,17.2px + 0.75vw,28px)/1.2 var(--font-display);
 --text-name:700 24px/1.33 var(--font-display);
---text-body-lg:400 20px/1.625 var(--font-body);
---text-body-md:400 18px/1.625 var(--font-body);
+/* Shared page-level scale — one ladder used by every page. */
+--size-h1:clamp(40px,23.1px + 4.51vw,88px);
+--size-h2:clamp(30px,25.1px + 1.32vw,44px);
+--size-h3:clamp(20px,17.2px + 0.75vw,28px);
+--size-body-lg:clamp(17px,15.95px + 0.28vw,20px);
+--size-body-sm:clamp(15px,14.65px + 0.09vw,16px);
+--size-num-badge:clamp(15px,11.8px + 0.85vw,24px);
+--text-body-lg:400 clamp(17px,15.95px + 0.28vw,20px)/1.625 var(--font-body);
+--text-body-md:400 clamp(16px,15.3px + 0.19vw,18px)/1.625 var(--font-body);
 --text-body-italic:italic 400 16px/1.83 var(--font-body);
 --text-label:700 14px/1.07 var(--font-body);
 --text-nav-link:400 14px/1.43 var(--font-body);

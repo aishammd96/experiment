@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play — Aisha Momand</title>
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/colors.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/typography.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/motion.css">
+<link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/_ds_bundle.js"></script>
+<meta name="ext-resource-dependency" content="assets/logo-mark.png" data-resource-id="logo" />
+<style>
+body{margin:0;background:var(--surface-page)}
+a{color:var(--text-accent-on-light)}
+a:hover{color:var(--coral-600)}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--navy-900);color:var(--cream-50);padding:12px 20px;z-index:100;font:700 16px var(--font-body)}
+.skip-link:focus{left:16px;top:16px}
+.navbar-noise::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.logo-link{display:inline-flex;text-decoration:none;position:relative}
+.logo-link img{transition:filter 420ms cubic-bezier(0.16,1,0.3,1),transform 420ms cubic-bezier(0.16,1,0.3,1)}
+.logo-link:hover img{transform:scale(1.04)}
+button{border-radius:10px !important}
+.play-hero{position:relative;overflow:visible}
+.talk-heading{position:relative;z-index:1;font:var(--text-hero);font-style:normal;font-weight:700;font-size:var(--size-h1);line-height:1.05;color:var(--navy-900);margin:0 0 8px}
+.accent-hl{position:relative;display:inline-block}
+.accent-hl::after{content:"";position:absolute;left:0;right:0;bottom:6%;height:14%;background:var(--butter-100);z-index:-1;transform:skewX(-6deg)}
+.status-line{position:relative;z-index:1;display:flex;align-items:center;gap:8px;font:600 13px/1.2 Inter,sans-serif;letter-spacing:0.5px;color:var(--gray-500);margin-bottom:40px}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#5ce38a;display:inline-block;box-shadow:0 0 0 4px rgba(92,227,138,0.2);animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 4px rgba(92,227,138,0.2)}50%{box-shadow:0 0 0 7px rgba(92,227,138,0.08)}}
+.transcript{position:relative;z-index:1;display:flex;flex-direction:column;gap:28px;min-height:280px;margin-bottom:36px}
+.msg-row{display:flex;align-items:flex-start;gap:14px;animation:msgIn 420ms cubic-bezier(0.16,1,0.3,1) both;max-width:100%}
+@keyframes msgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.msg-row.user{flex-direction:row-reverse;text-align:right;margin-left:auto}
+.avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 4px 14px rgba(20,30,50,0.18)}
+.msg-text.bot{font:italic 500 22px/1.5 Georgia,serif;color:var(--navy-900);max-width:560px}
+.msg-text.user{font:700 16px/1.5 Inter,sans-serif;color:#fff;background:linear-gradient(135deg,var(--coral-500),var(--coral-600));padding:10px 20px;border-radius:20px 20px 4px 20px;box-shadow:0 6px 16px rgba(224,92,78,0.3);max-width:420px}
+.who-label{font:700 11px/1.2 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--coral-500);margin-bottom:6px;display:block}
+.typing-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral-500);margin-right:4px;animation:typingBounce 1s infinite}
+.typing-dot:nth-child(2){animation-delay:0.15s}
+.typing-dot:nth-child(3){animation-delay:0.3s}
+@keyframes typingBounce{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-6px);opacity:1}}
+.chip-row{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.chip-btn{border:2px solid var(--navy-900);background:var(--butter-100);border-radius:999px;padding:9px 18px;font:700 13px/1.2 Inter,sans-serif;cursor:pointer;transition:all 220ms cubic-bezier(0.16,1,0.3,1);box-shadow:3px 3px 0 var(--navy-900)}
+.chip-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--coral-500);border-color:var(--coral-500)}
+.chip-btn:active{transform:translate(0,0);box-shadow:1px 1px 0 var(--navy-900)}
+.chat-form{position:relative;z-index:1;display:flex;align-items:center;gap:16px;border-top:2px solid var(--navy-900);padding-top:20px}
+.chat-input{flex:1;border:none;background:transparent;font:italic 500 24px/1.4 Georgia,serif;color:var(--navy-900);padding:6px 0}
+.chat-input::placeholder{color:var(--gray-300)}
+.chat-input:focus{outline:none}
+.send-fab{width:52px;height:52px;border-radius:50%;border:none;background:var(--coral-500);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:transform 220ms cubic-bezier(0.16,1,0.3,1),background 220ms ease;box-shadow:0 8px 20px rgba(224,92,78,0.35)}
+.send-fab:hover{transform:scale(1.08) rotate(8deg);background:var(--coral-600)}
+.send-fab:active{transform:scale(0.95)}
+.cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--text-accent-on-light);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:width 220ms cubic-bezier(0.16,1,0.3,1),height 220ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease}
+.cursor-dot.active{opacity:1}
+.cursor-ring{position:fixed;top:0;left:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-divider);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:width 280ms cubic-bezier(0.16,1,0.3,1),height 280ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease,border-color 280ms cubic-bezier(0.16,1,0.3,1)}
+.cursor-ring.active{opacity:1}
+.cursor-dot.hovering{width:6px;height:6px}
+.cursor-ring.hovering{width:44px;height:44px;border-color:var(--text-accent-on-light)}
+@media (hover:none){.cursor-dot,.cursor-ring{display:none}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div id="root"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<script>(function(){const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');if(!dot||!ring||window.matchMedia('(hover:none)').matches)return;let rx=0,ry=0,tx=0,ty=0;window.addEventListener('mousemove',e=>{dot.classList.add('active');ring.classList.add('active');dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';tx=e.clientX;ty=e.clientY;const el=document.elementFromPoint(e.clientX,e.clientY);const hovering=!!(el&&el.closest('a,button'));dot.classList.toggle('hovering',hovering);ring.classList.toggle('hovering',hovering);});function loop(){rx+=(tx-rx)*0.18;ry+=(ty-ry)*0.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);}loop();})();</script>
+<script type="text/babel" data-presets="react">
+const { Link, Button, Footer } = window.AishaMomandDesignSystem_ae6873;
+
+function SiteLogo({ size = 40 }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 10 }}>
+      <img src="assets/logo-mark.png" alt="" style={{ height: size, width: "auto", flexShrink: 0, display: "block" }} />
+      <span style={{ font: "var(--text-name)", color: "var(--navy-900)", whiteSpace: "nowrap" }}>Aisha Momand</span>
+    </div>
+  );
+}
+
+function useIsMobile() {
+  const [mobile, setMobile] = React.useState(window.innerWidth < 1000);
+  React.useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1000px)");
+    const onChange = () => setMobile(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return mobile;
+}
+
+function MenuIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy-900)" strokeWidth="2" strokeLinecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+  );
+}
+
+function Navbar({ mobile }) {
+  const [open, setOpen] = React.useState(false);
+  if (mobile) {
+    return (
+      <div className="navbar-noise" style={{position:"sticky",top:0,zIndex:10,background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",overflow:"hidden"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 20px"}}>
+          <a href="index.html" className="logo-link"><SiteLogo size={36} /></a>
+          <button aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(o=>!o)} style={{background:"none",border:"none",padding:10,cursor:"pointer",minHeight:44,minWidth:44,display:"inline-flex",alignItems:"center",justifyContent:"center"}}><MenuIcon /></button>
+        </div>
+        {open && (
+          <nav style={{display:"flex",flexDirection:"column",padding:"0 20px 16px",gap:4}}>
+            <Link href="index.html">Work</Link>
+            <Link href="about.html">About</Link>
+            <Link href="resume.html">Resume</Link>
+            <Link href="play.html" active>Play</Link>
+            <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+            <div style={{paddingTop:8}}><Button variant="primary" size="sm" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button></div>
+          </nav>
+        )}
+      </div>
+    );
+  }
+  return (
+    <div style={{position:"sticky",top:0,zIndex:10}}>
+      <div className="navbar-noise" style={{position:"relative",background:"color-mix(in oklch, var(--surface-page) 70%, transparent)",backdropFilter:"blur(16px) saturate(160%)",WebkitBackdropFilter:"blur(16px) saturate(160%)",boxShadow:"var(--shadow-navbar)",display:"flex",justifyContent:"center",padding:"20px 80px",overflow:"hidden"}}>
+        <div style={{maxWidth:"var(--container-max)",width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <a href="index.html" className="logo-link"><SiteLogo size={46} /></a>
+          <nav style={{display:"flex",gap:40,alignItems:"center"}}>
+            <Link href="index.html">Work</Link>
+            <Link href="about.html">About</Link>
+            <Link href="resume.html">Resume</Link>
+            <Link href="play.html" active>Play</Link>
+            <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+            <Button variant="primary" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button>
+          </nav>
+        </div>
+      </div>
+      <div style={{height:32,marginTop:-1,background:"linear-gradient(to bottom, color-mix(in oklch, var(--surface-page) 55%, transparent), transparent)",backdropFilter:"blur(6px)",WebkitBackdropFilter:"blur(6px)",maskImage:"linear-gradient(to bottom, black, transparent)",WebkitMaskImage:"linear-gradient(to bottom, black, transparent)",pointerEvents:"none"}}></div>
+    </div>
+  );
+}
+
+// --- Scripted "AI-sha" persona ---
+// Simple keyword-matched canned responses. No API calls, no external requests.
+const KB = [
+  { keys: ["hi","hello","hey"], a: "Hey! I'm an AI-scripted version of Aisha — ask me about her work, background, or design approach." },
+  { keys: ["work","project","kindex","portfolio"], a: "Aisha's featured project is Kindex — an AI networking assistant that placed 2nd at TechTO's hackathon. Check the 'Work' tab for the case study." },
+  { keys: ["who are you","yourself","what are you"], a: "I'm a playful, scripted stand-in for Aisha Momand — a Product/UX designer who works where people, data, and complexity meet. I'm not a real AI model, just some canned responses for fun on this experiment page!" },
+  { keys: ["design","approach","process","systems"], a: "Aisha designs for enterprise and data-heavy systems, focusing on research, systems thinking, and making complexity feel reliable for users." },
+  { keys: ["resume","cv","experience","background"], a: "You can see Aisha's full resume under the 'Resume' tab in the nav." },
+  { keys: ["contact","email","hire","reach"], a: "Best way to reach Aisha is via the Contact button on the homepage, or LinkedIn." },
+  { keys: ["favorite","hobby","fun","cat"], a: "Off the clock, Aisha likes cats, curly hair care, and clearly — building goofy experimental AI chat pages." },
+  { keys: ["joke"], a: "Why did the UX designer get kicked out of the library? Because they kept testing the users." },
+];
+const FALLBACK = [
+  "I'm just a scripted demo, so I don't quite have an answer for that — try asking about Aisha's work, background, or design process!",
+  "Hmm, that's outside my canned script. Try 'projects', 'design process', or 'resume'.",
+];
+
+function getReply(input) {
+  const lower = input.toLowerCase();
+  for (const entry of KB) {
+    if (entry.keys.some(k => lower.includes(k))) return entry.a;
+  }
+  return FALLBACK[Math.floor(Math.random() * FALLBACK.length)];
+}
+
+const SUGGESTIONS = ["Who are you?", "Tell me about your work", "What's your design process?", "Tell me a joke"];
+
+function ChatBox() {
+  const [messages, setMessages] = React.useState([
+    { role: "bot", text: "Hi, I'm AI-sha — ask me about Aisha's work, background, or design process!" }
+  ]);
+  const [input, setInput] = React.useState("");
+  const [typing, setTyping] = React.useState(false);
+  const scrollRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [messages, typing]);
+
+  function send(text) {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    setMessages(m => [...m, { role: "user", text: trimmed }]);
+    setInput("");
+    setTyping(true);
+    const reply = getReply(trimmed);
+    setTimeout(() => {
+      setTyping(false);
+      setMessages(m => [...m, { role: "bot", text: reply }]);
+    }, 500 + Math.random() * 500);
+  }
+
+  function onSubmit(e) {
+    e.preventDefault();
+    send(input);
+  }
+
+  return (
+    <div className="play-hero">
+      <p className="status-line"><span className="status-dot"></span>Trained on Aisha's work, resume, and case studies</p>
+      <div className="transcript" ref={scrollRef}>
+        {messages.map((m, i) => (
+          <div key={i} className={"msg-row " + (m.role === "user" ? "user" : "bot")}>
+            {m.role === "bot" && <img className="avatar" src="assets/logo_navy_bluebckg.png" alt="" />}
+            <div>
+              <span className="who-label">{m.role === "user" ? "You" : "AI-sha"}</span>
+              <div className={"msg-text " + (m.role === "user" ? "user" : "bot")}>{m.text}</div>
+            </div>
+          </div>
+        ))}
+        {typing && (
+          <div className="msg-row bot">
+            <img className="avatar" src="assets/logo_navy_bluebckg.png" alt="" />
+            <div>
+              <span className="who-label">AI-sha</span>
+              <div className="msg-text bot">
+                <span className="typing-dot"></span><span className="typing-dot"></span><span className="typing-dot"></span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="chip-row">
+        {SUGGESTIONS.map((s, i) => (
+          <button key={i} className="chip-btn" type="button" onClick={() => send(s)}>{s}</button>
+        ))}
+      </div>
+      <form className="chat-form" onSubmit={onSubmit}>
+        <input
+          className="chat-input"
+          type="text"
+          placeholder="Ask AI-sha something..."
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          aria-label="Message"
+        />
+        <button className="send-fab" type="submit" aria-label="Send">&#8594;</button>
+      </form>
+    </div>
+  );
+}
+
+function App() {
+  const mobile = useIsMobile();
+  return (
+    <React.Fragment>
+      <Navbar mobile={mobile} />
+      <main id="main" style={{display:"flex",justifyContent:"center",padding: mobile ? "24px 20px 40px" : "72px 80px 140px"}}>
+        <div style={{maxWidth:760,width:"100%"}}>
+          <h1 className="talk-heading">Talk to <span className="accent-hl" style={{color:"var(--coral-500)",fontStyle:"italic"}}>AI&#8209;sha</span>.</h1>
+          <ChatBox />
+        </div>
+      </main>
+      <Footer />
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
