@@ -141,30 +141,7 @@ function Navbar({ mobile }) {
   );
 }
 
-// --- Scripted "AI-sha" persona ---
-// Simple keyword-matched canned responses. No API calls, no external requests.
-const KB = [
-  { keys: ["hi","hello","hey"], a: "Hey! I'm an AI-scripted version of Aisha — ask me about her work, background, or design approach." },
-  { keys: ["work","project","kindex","portfolio"], a: "Aisha's featured project is Kindex — an AI networking assistant that placed 2nd at TechTO's hackathon. Check the 'Work' tab for the case study." },
-  { keys: ["who are you","yourself","what are you"], a: "I'm a playful, scripted stand-in for Aisha Momand — a Product/UX designer who works where people, data, and complexity meet. I'm not a real AI model, just some canned responses for fun on this experiment page!" },
-  { keys: ["design","approach","process","systems"], a: "Aisha designs for enterprise and data-heavy systems, focusing on research, systems thinking, and making complexity feel reliable for users." },
-  { keys: ["resume","cv","experience","background"], a: "You can see Aisha's full resume under the 'Resume' tab in the nav." },
-  { keys: ["contact","email","hire","reach"], a: "Best way to reach Aisha is via the Contact button on the homepage, or LinkedIn." },
-  { keys: ["favorite","hobby","fun","cat"], a: "Off the clock, Aisha likes cats, curly hair care, and clearly — building goofy experimental AI chat pages." },
-  { keys: ["joke"], a: "Why did the UX designer get kicked out of the library? Because they kept testing the users." },
-];
-const FALLBACK = [
-  "I'm just a scripted demo, so I don't quite have an answer for that — try asking about Aisha's work, background, or design process!",
-  "Hmm, that's outside my canned script. Try 'projects', 'design process', or 'resume'.",
-];
-
-function getReply(input) {
-  const lower = input.toLowerCase();
-  for (const entry of KB) {
-    if (entry.keys.some(k => lower.includes(k))) return entry.a;
-  }
-  return FALLBACK[Math.floor(Math.random() * FALLBACK.length)];
-}
+const CHAT_API = "https://ai-sha-api.aisha-mmd96.workers.dev/chat";
 
 const SUGGESTIONS = ["Who are you?", "Tell me about your work", "What's your design process?", "Tell me a joke"];
 
@@ -180,17 +157,33 @@ function ChatBox() {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, typing]);
 
-  function send(text) {
+  async function send(text) {
     const trimmed = text.trim();
-    if (!trimmed) return;
+    if (!trimmed || typing) return;
+    const history = messages.slice(-6).map(m => ({
+      role: m.role === "bot" ? "assistant" : "user",
+      content: m.text
+    }));
     setMessages(m => [...m, { role: "user", text: trimmed }]);
     setInput("");
     setTyping(true);
-    const reply = getReply(trimmed);
-    setTimeout(() => {
+    try {
+      const response = await fetch(CHAT_API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: trimmed, history })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Request failed");
+      setMessages(m => [...m, { role: "bot", text: data.reply }]);
+    } catch (error) {
+      setMessages(m => [...m, {
+        role: "bot",
+        text: "I'm taking a quick pause right now. Please try that again in a moment."
+      }]);
+    } finally {
       setTyping(false);
-      setMessages(m => [...m, { role: "bot", text: reply }]);
-    }, 500 + Math.random() * 500);
+    }
   }
 
   function onSubmit(e) {
@@ -225,7 +218,7 @@ function ChatBox() {
       </div>
       <div className="chip-row">
         {SUGGESTIONS.map((s, i) => (
-          <button key={i} className="chip-btn" type="button" onClick={() => send(s)}>{s}</button>
+          <button key={i} className="chip-btn" type="button" disabled={typing} onClick={() => send(s)}>{s}</button>
         ))}
       </div>
       <form className="chat-form" onSubmit={onSubmit}>
@@ -235,9 +228,10 @@ function ChatBox() {
           placeholder="Ask AI-sha something..."
           value={input}
           onChange={e => setInput(e.target.value)}
+          disabled={typing}
           aria-label="Message"
         />
-        <button className="send-fab" type="submit" aria-label="Send">&#8594;</button>
+        <button className="send-fab" type="submit" disabled={typing} aria-label="Send">&#8594;</button>
       </form>
     </div>
   );
