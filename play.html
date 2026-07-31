@@ -223,33 +223,33 @@ function cleanReply(value) {
 
 function deriveInsight(question, answer) {
   const lower = question.toLowerCase();
-  let understood = "You asked a general question about Aisha and her portfolio.";
+  let understood = "You asked a general question about me and my portfolio.";
   let sources = ["Portfolio overview"];
   let confidence = "medium";
 
   if (/(work|project|case study|kindex)/.test(lower)) {
-    understood = "You asked for an overview of Aisha's work and the projects that best represent it.";
+    understood = "You asked for an overview of my work and the projects that best represent it.";
     sources = ["Selected work", "Kindex case study"];
     confidence = "high";
   } else if (/(process|approach|design|research)/.test(lower)) {
-    understood = "You asked how Aisha approaches design, research, and complex product problems.";
+    understood = "You asked how I approach design, research, and complex product problems.";
     sources = ["Design process", "About Aisha"];
     confidence = "high";
   } else if (/(resume|experience|background|career)/.test(lower)) {
-    understood = "You asked about Aisha's professional background and experience.";
+    understood = "You asked about my professional background and experience.";
     sources = ["Resume", "About Aisha"];
     confidence = "high";
   } else if (/(who are you|about|yourself)/.test(lower)) {
-    understood = "You asked who AI-sha represents and how it relates to Aisha's portfolio.";
+    understood = "You asked who I am and how AI-sha relates to my portfolio.";
     sources = ["About Aisha", "Portfolio overview"];
     confidence = "high";
   }
 
   let linkReason = "No specific portfolio link was needed for this answer.";
-  if (answer.includes("#work")) linkReason = "Selected work is the most direct place to explore the projects mentioned.";
+  if (answer.includes("#work")) linkReason = "My selected work is the most direct place to explore the projects I mentioned.";
   else if (answer.includes("kindex.html")) linkReason = "The Kindex case study directly supports the project details in this answer.";
-  else if (answer.includes("resume.html")) linkReason = "The resume provides the fullest view of Aisha's experience.";
-  else if (answer.includes("about.html")) linkReason = "The About page adds the most relevant personal and professional context.";
+  else if (answer.includes("resume.html")) linkReason = "My resume provides the fullest view of my experience.";
+  else if (answer.includes("about.html")) linkReason = "My About page adds the most relevant personal and professional context.";
 
   return { understood, sources, linkReason, confidence };
 }
@@ -264,7 +264,7 @@ function ThinkingDetails({ elapsed, active = false, insight, retrying = false })
         <div className="answer-insight">
           <div className="insight-block">
             <span className="insight-label">Understood</span>
-            <span className="insight-value">{insight?.understood || "You asked for information related to Aisha's portfolio."}</span>
+            <span className="insight-value">{insight?.understood || "You asked for information related to my portfolio."}</span>
           </div>
           <div className="insight-block">
             <span className="insight-label">Portfolio evidence used</span>
@@ -292,7 +292,7 @@ function ThinkingDetails({ elapsed, active = false, insight, retrying = false })
       <summary>{`${retrying ? "Retrying connection" : "Working"} · ${elapsed.toFixed(1)}s`}</summary>
       <ol>
         <li className={active && stage === 0 ? "active" : ""}>Reading your question</li>
-        <li className={active && stage === 1 ? "active" : ""}>Checking Aisha's portfolio context</li>
+        <li className={active && stage === 1 ? "active" : ""}>Checking my portfolio context</li>
         <li className={active && stage === 2 ? "active" : ""}>Composing a useful answer</li>
       </ol>
       <p className="thinking-note">Live progress while AI-sha prepares the answer.</p>
@@ -302,7 +302,7 @@ function ThinkingDetails({ elapsed, active = false, insight, retrying = false })
 
 function ChatBox() {
   const [messages, setMessages] = React.useState([
-    { role: "bot", text: "Hi, I'm AI-sha — ask me about Aisha's work, background, or design process!" }
+    { role: "bot", text: "Hey, I'm AI-sha. Ask me about my work, how I approach design, or what I'm like to collaborate with." }
   ]);
   const [input, setInput] = React.useState("");
   const [typing, setTyping] = React.useState(false);
@@ -405,7 +405,7 @@ function ChatBox() {
 
   return (
     <div className="play-hero">
-      <p className="status-line"><span className="status-dot"></span>Trained on Aisha's work, resume, and case studies</p>
+      <p className="status-line"><span className="status-dot"></span>Built from my work, resume, and case studies</p>
       <div className="transcript" ref={scrollRef}>
         {messages.map((m, i) => (
           <div key={i} className={"msg-row " + (m.role === "user" ? "user" : "bot")}>
