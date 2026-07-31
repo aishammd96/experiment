@@ -75,6 +75,8 @@ AI endpoint:
 
 The Cloudflare Worker is named `ai-sha-api` and uses Workers AI with `@cf/meta/llama-3.2-3b-instruct`.
 
+Allowed browser origins must include `https://www.aishamomand.com`, `https://aishamomand.com`, the legacy GitHub Pages origin, and the local port `8124` origins. Origin values are normalized before CORS checks. If the production domain changes, update the Worker allowlist at the same time.
+
 Supported request modes:
 
 - Default chat: `{ message, history }`
