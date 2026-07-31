@@ -217,11 +217,12 @@ function Navbar({ mobile }) {
 const CHAT_API = "https://ai-sha-api.aisha-mmd96.workers.dev/chat";
 
 const CONTACT_PROMPT = "I want to contact you";
+const CUSTOM_TOPIC = "Something else";
 const SUGGESTIONS = ["Tell me about your work", "What's your design process?", CONTACT_PROMPT];
 const CONTACT_COPY = {
   name: { prompt: "Absolutely—I’ll help you shape a thoughtful note. Let’s start with your first and last name.", placeholder: "Type your first and last name…" },
   email: { prompt: "What email should I include so I can reply?", placeholder: "Type your email…" },
-  topic: { prompt: "What are you reaching out about?", placeholder: "Choose one or write your own…", suggestions: ["Project or collaboration", "Role or opportunity", "Portfolio question"] },
+  topic: { prompt: "What are you reaching out about?", placeholder: "Choose one or write your own…", suggestions: ["Project or collaboration", "Role or opportunity", "Portfolio question", CUSTOM_TOPIC] },
   message: { prompt: "Tell me a little about what you’d like to discuss. Rough notes are perfect—I’ll polish them.", placeholder: "Share the context in your own words…" },
   timing: { prompt: "And what does the timing look like?", placeholder: "Add timing or choose a suggestion…", suggestions: ["No rush", "Within the next month", "As soon as possible"] }
 };
@@ -653,6 +654,13 @@ function ChatBox() {
 
   function useSuggestion(suggestion) {
     if (contact && contact.step !== "preview") {
+      if (contact.step === "topic" && suggestion === CUSTOM_TOPIC) {
+        setContact(current => ({ ...current, customTopic: true }));
+        setInput("");
+        setComposerHint("Tell me what you’re reaching out about in your own words.");
+        window.setTimeout(() => inputRef.current?.focus(), 0);
+        return;
+      }
       answerContact(suggestion);
     } else if (suggestion === CONTACT_PROMPT) {
       startContact();
@@ -662,7 +670,9 @@ function ChatBox() {
   }
 
   const placeholder = contact && contact.step !== "preview"
-    ? CONTACT_COPY[contact.step].placeholder
+    ? (contact.step === "topic" && contact.customTopic
+      ? "Describe what you’re reaching out about…"
+      : CONTACT_COPY[contact.step].placeholder)
     : "Message AI-sha…";
 
   return (
