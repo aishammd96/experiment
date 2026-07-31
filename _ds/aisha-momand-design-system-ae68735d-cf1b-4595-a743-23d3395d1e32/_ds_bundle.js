@@ -288,7 +288,8 @@ function CopyrightIcon() {
 function Footer({
   heading = "Let\u2019s connect and build clarity.",
   body = "Whether you have a complex system to untangle or a new product to launch, I can help you find the clarity in the noise.",
-  email = "aisha.momand1@gmail.com",
+  connectHref = "play.html",
+  linkedinHref = "https://www.linkedin.com/in/aisha-momand/",
   compact = false
 }) {
   const c = compact;
@@ -333,7 +334,7 @@ function Footer({
       gap: 12
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "#",
+    href: connectHref,
     style: {
       font: c ? "500 16px/1.6 var(--font-body)" : "500 20px/1.6 var(--font-body)",
       color: "var(--text-accent-on-dark)",
@@ -341,8 +342,10 @@ function Footer({
       alignItems: "center",
       gap: 6
     }
-  }, "linkedin ", /*#__PURE__*/React.createElement(ArrowIcon, null)), /*#__PURE__*/React.createElement("a", {
-    href: `mailto:${email}`,
+  }, "let\u2019s connect ", /*#__PURE__*/React.createElement(ArrowIcon, null)), /*#__PURE__*/React.createElement("a", {
+    href: linkedinHref,
+    target: "_blank",
+    rel: "noopener",
     style: {
       font: c ? "500 16px/1.6 var(--font-body)" : "500 20px/1.6 var(--font-body)",
       color: "var(--text-accent-on-dark)",
@@ -350,7 +353,7 @@ function Footer({
       alignItems: "center",
       gap: 6
     }
-  }, email, " ", /*#__PURE__*/React.createElement(ArrowIcon, null)))), /*#__PURE__*/React.createElement("div", {
+  }, "linkedin ", /*#__PURE__*/React.createElement(ArrowIcon, null)))), /*#__PURE__*/React.createElement("div", {
     style: {
       borderTop: "0.56px solid var(--border-hairline)",
       padding: c ? "40px 0 0" : "60px 0",
