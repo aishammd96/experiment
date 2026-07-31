@@ -108,6 +108,7 @@ Sequence:
 7. Visitor explicitly presses “Send to Aisha”
 
 Only the newest set of contact suggestion buttons should remain visible.
+A “Cancel contact” action must remain available at every contact step, including the final draft. Cancelling returns the visitor to the regular AI-sha conversation and restores the three starter prompts.
 
 Email delivery:
 
@@ -134,7 +135,7 @@ Before publishing:
 3. Confirm the transcript scrolls without elongating the page.
 4. Confirm long input wraps and the composer grows only to its maximum height.
 5. Test all three starter prompts.
-6. Test the contact message, timing choice, and editable final draft.
+6. Test the contact message, timing choice, editable final draft, and cancellation from both an early step and the final draft.
 7. Do not send a real test email unless explicitly requested.
 8. Stage only files related to the requested change.
 9. Push `main` to publish through GitHub Pages.
