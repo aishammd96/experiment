@@ -24,11 +24,14 @@ a:hover{color:var(--coral-600)}
 .logo-link{display:inline-flex;text-decoration:none;position:relative}
 .logo-link img{transition:filter 420ms cubic-bezier(0.16,1,0.3,1),transform 420ms cubic-bezier(0.16,1,0.3,1)}
 .logo-link:hover img{transform:scale(1.04)}
-.play-hero{position:relative;display:grid;grid-template-rows:minmax(430px,1fr) auto;min-height:min(720px,calc(100vh - 230px))}
-.talk-heading{position:relative;z-index:1;font:var(--text-hero);font-style:normal;font-weight:700;font-size:var(--size-h1);line-height:1.05;color:var(--navy-900);margin:0}
+.site-shell{display:flex;flex-direction:column;height:100dvh;min-height:620px}
+.play-main{box-sizing:border-box;display:flex;justify-content:center;flex:1;min-height:0;padding:22px 80px 42px}
+.play-layout{display:grid;grid-template-rows:auto minmax(0,1fr);width:100%;max-width:var(--container-max);min-height:0}
+.play-hero{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0}
+.talk-heading{position:relative;z-index:1;font:700 var(--size-h1)/1.02 var(--font-display);color:var(--navy-900);margin:0}
 .accent-hl{position:relative;display:inline-block}
 .accent-hl::after{content:"";position:absolute;left:0;right:0;bottom:6%;height:14%;background:var(--butter-100);z-index:-1;transform:skewX(-6deg)}
-.transcript{position:relative;z-index:1;display:flex;flex-direction:column;gap:38px;height:clamp(430px,58vh,680px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:42px max(20px,calc((100% - 900px)/2)) 56px;scroll-behavior:smooth}
+.transcript{position:relative;z-index:1;display:flex;flex-direction:column;gap:38px;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:30px max(20px,calc((100% - 900px)/2)) 34px;scroll-behavior:smooth}
 .transcript::-webkit-scrollbar{width:8px}
 .transcript::-webkit-scrollbar-track{background:transparent}
 .transcript::-webkit-scrollbar-thumb{background:var(--navy-900);border:2px solid var(--surface-page)}
@@ -37,7 +40,7 @@ a:hover{color:var(--coral-600)}
 @keyframes msgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .msg-row.user{flex-direction:row-reverse;text-align:right;margin-left:auto}
 .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 4px 14px rgba(20,30,50,0.18)}
-.msg-text.bot{font:italic 500 22px/1.55 Georgia,serif;color:var(--navy-900);max-width:790px;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
+.msg-text.bot{font:500 17px/1.7 var(--font-body);color:var(--navy-900);max-width:790px;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
 .msg-text.user{font:700 16px/1.5 Inter,sans-serif;color:#fff;background:linear-gradient(135deg,var(--coral-500),var(--coral-600));padding:10px 20px;border-radius:20px 20px 4px 20px;box-shadow:0 6px 16px rgba(224,92,78,0.3);max-width:560px;overflow-wrap:anywhere;word-break:break-word}
 .portfolio-link{display:flex;align-items:center;gap:12px;box-sizing:border-box;width:min(390px,100%);margin:18px 0 4px;padding:11px 12px;border:1.5px solid rgba(24,55,122,.42);border-radius:6px;background:rgba(255,255,255,.42);color:var(--navy-900);font-family:Inter,sans-serif;font-style:normal;text-decoration:none;transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease}
 .portfolio-link:hover{color:var(--navy-900);background:rgba(255,242,193,.64);border-color:var(--navy-900);transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--navy-900)}
@@ -96,7 +99,7 @@ a:hover{color:var(--coral-600)}
 .contact-error{color:#a32f24;font-weight:700}
 .chat-dock{position:relative;z-index:2;padding:18px max(20px,calc((100% - 900px)/2)) 4px;background:linear-gradient(to bottom,transparent 0,var(--surface-page) 28%)}
 .chat-form{display:flex;align-items:flex-end;gap:14px;border:0;border-top:2px solid var(--navy-900);background:transparent;padding:14px 0 0}
-.chat-input{flex:1;box-sizing:border-box;min-height:46px;max-height:148px;overflow-y:auto;resize:none;border:none;background:transparent;font:italic 500 22px/1.4 Georgia,serif;color:var(--navy-900);padding:7px 0;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
+.chat-input{flex:1;box-sizing:border-box;min-height:46px;max-height:148px;overflow-y:auto;resize:none;border:none;background:transparent;font:500 17px/1.5 var(--font-body);color:var(--navy-900);padding:7px 0;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
 .chat-input::placeholder{color:var(--gray-300)}
 .chat-input:focus{outline:none}
 .send-fab{width:48px;height:48px;border-radius:2px;border:2px solid var(--navy-900);background:var(--coral-500);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:transform 180ms ease,box-shadow 180ms ease,background 180ms ease;box-shadow:3px 3px 0 var(--navy-900)}
@@ -111,10 +114,14 @@ a:hover{color:var(--coral-600)}
 .cursor-dot.hovering{width:6px;height:6px}
 .cursor-ring.hovering{width:44px;height:44px;border-color:var(--text-accent-on-light)}
 @media (hover:none){.cursor-dot,.cursor-ring{display:none}}
+@media (max-width:999px){
+  .site-shell{min-height:560px}
+  .play-main{padding:18px 20px 28px}
+}
 @media (max-width:700px){
-  .play-hero{min-height:calc(100vh - 190px);grid-template-rows:minmax(420px,1fr) auto}
-  .transcript{height:58vh;min-height:420px;padding:28px 0 38px;gap:30px}
-  .msg-text.bot{font-size:18px;line-height:1.55;max-width:100%}
+  .talk-heading{font-size:clamp(38px,12.3vw,52px);line-height:.92}
+  .transcript{padding:24px 0 26px;gap:30px}
+  .msg-text.bot{font-size:16px;line-height:1.65;max-width:100%}
   .avatar{width:38px;height:38px}
   .portfolio-link{width:100%;margin-top:14px;padding:9px 10px;gap:10px}
   .link-mark{width:34px;height:34px;flex-basis:34px}
@@ -128,7 +135,7 @@ a:hover{color:var(--coral-600)}
   .contact-primary,.contact-secondary{width:100%}
   .chat-dock{padding:16px 0 0}
   .chat-form{padding-top:12px}
-  .chat-input{font-size:18px}
+  .chat-input{font-size:16px}
 }
 </style>
 </head>
@@ -716,13 +723,15 @@ function App() {
   const mobile = useIsMobile();
   return (
     <React.Fragment>
-      <Navbar mobile={mobile} />
-      <main id="main" style={{display:"flex",justifyContent:"center",padding: mobile ? "24px 20px 48px" : "34px 48px 90px"}}>
-        <div style={{maxWidth:1280,width:"100%"}}>
-          <h1 className="talk-heading">Connect with <span className="accent-hl" style={{color:"var(--coral-500)",fontStyle:"italic"}}>AI&#8209;sha</span></h1>
-          <ChatBox />
-        </div>
-      </main>
+      <div className="site-shell">
+        <Navbar mobile={mobile} />
+        <main id="main" className="play-main">
+          <div className="play-layout">
+            <h1 className="talk-heading">Connect with <span className="accent-hl" style={{color:"var(--coral-500)",fontStyle:"italic"}}>AI&#8209;sha</span></h1>
+            <ChatBox />
+          </div>
+        </main>
+      </div>
       <Footer />
     </React.Fragment>
   );
