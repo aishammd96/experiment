@@ -28,7 +28,9 @@ a:hover{color:var(--coral-600)}
 .play-main{box-sizing:border-box;display:flex;justify-content:center;flex:1;min-height:0;padding:22px 80px 42px}
 .play-layout{display:grid;grid-template-rows:auto minmax(0,1fr);width:100%;max-width:var(--container-max);min-height:0}
 .play-hero{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0}
-.talk-heading{position:relative;z-index:1;font:700 var(--size-h1)/1.02 var(--font-display);color:var(--navy-900);margin:0}
+.talk-heading{position:relative;z-index:1;max-height:120px;overflow:hidden;margin:0;text-align:center;font:700 var(--size-h1)/1.02 var(--font-display);color:var(--navy-900);opacity:1;transform:translateY(0);transition:max-height 360ms cubic-bezier(0.16,1,0.3,1),opacity 220ms ease,transform 360ms cubic-bezier(0.16,1,0.3,1)}
+.play-layout.is-chatting .talk-heading{max-height:0;opacity:0;transform:translateY(-18px);pointer-events:none}
+.play-layout.is-chatting .transcript{padding-top:10px}
 .accent-hl{position:relative;display:inline-block}
 .accent-hl::after{content:"";position:absolute;left:0;right:0;bottom:6%;height:14%;background:var(--butter-100);z-index:-1;transform:skewX(-6deg)}
 .transcript{position:relative;z-index:1;display:flex;flex-direction:column;gap:38px;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:30px max(20px,calc((100% - 900px)/2)) 34px;scroll-behavior:smooth}
@@ -395,7 +397,7 @@ function ContactDraft({ details, draft, setDraft, sending, error, onSend, onRest
   );
 }
 
-function ChatBox() {
+function ChatBox({ onConversationStart }) {
   const [messages, setMessages] = React.useState([
     {
       role: "bot",
@@ -437,6 +439,7 @@ function ChatBox() {
 
   function startContact() {
     if (typing) return;
+    onConversationStart();
     const firstStep = CONTACT_COPY.name;
     setMessages(current => [
       ...current,
@@ -664,6 +667,7 @@ function ChatBox() {
   async function send(text) {
     const trimmed = text.trim();
     if (!trimmed || typing) return;
+    onConversationStart();
     if (contact && contact.step !== "preview") {
       answerContact(trimmed);
       return;
@@ -869,14 +873,15 @@ function ChatBox() {
 
 function App() {
   const mobile = useIsMobile();
+  const [conversationStarted, setConversationStarted] = React.useState(false);
   return (
     <React.Fragment>
       <div className="site-shell">
         <Navbar mobile={mobile} />
         <main id="main" className="play-main">
-          <div className="play-layout">
+          <div className={"play-layout" + (conversationStarted ? " is-chatting" : "")}>
             <h1 className="talk-heading">Connect with <span className="accent-hl" style={{color:"var(--coral-500)",fontStyle:"italic"}}>AI&#8209;sha</span></h1>
-            <ChatBox />
+            <ChatBox onConversationStart={() => setConversationStarted(true)} />
           </div>
         </main>
       </div>
