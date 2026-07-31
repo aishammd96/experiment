@@ -40,8 +40,8 @@ button{border-radius:10px !important}
 @keyframes msgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .msg-row.user{flex-direction:row-reverse;text-align:right;margin-left:auto}
 .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 4px 14px rgba(20,30,50,0.18)}
-.msg-text.bot{font:italic 500 22px/1.5 Georgia,serif;color:var(--navy-900);max-width:560px}
-.msg-text.user{font:700 16px/1.5 Inter,sans-serif;color:#fff;background:linear-gradient(135deg,var(--coral-500),var(--coral-600));padding:10px 20px;border-radius:20px 20px 4px 20px;box-shadow:0 6px 16px rgba(224,92,78,0.3);max-width:420px}
+.msg-text.bot{font:italic 500 22px/1.5 Georgia,serif;color:var(--navy-900);max-width:560px;overflow-wrap:anywhere;word-break:break-word}
+.msg-text.user{font:700 16px/1.5 Inter,sans-serif;color:#fff;background:linear-gradient(135deg,var(--coral-500),var(--coral-600));padding:10px 20px;border-radius:20px 20px 4px 20px;box-shadow:0 6px 16px rgba(224,92,78,0.3);max-width:420px;overflow-wrap:anywhere;word-break:break-word}
 .portfolio-link{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;margin:12px 8px 2px 0;padding:10px 14px;border:2px solid var(--navy-900);border-radius:8px;background:var(--butter-100);box-shadow:4px 4px 0 var(--navy-900);color:var(--navy-900);font:800 12px/1.2 Inter,sans-serif;letter-spacing:.35px;text-decoration:none;text-transform:uppercase;transition:transform 180ms ease,box-shadow 180ms ease,background 180ms ease}
 .portfolio-link:hover{color:var(--navy-900);background:#fff;transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--coral-500)}
 .portfolio-link::after{content:"↗";font-size:16px;line-height:1}
@@ -72,8 +72,8 @@ button{border-radius:10px !important}
 .chip-btn{border:2px solid var(--navy-900);background:var(--butter-100);border-radius:999px;padding:9px 18px;font:700 13px/1.2 Inter,sans-serif;cursor:pointer;transition:all 220ms cubic-bezier(0.16,1,0.3,1);box-shadow:3px 3px 0 var(--navy-900)}
 .chip-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--coral-500);border-color:var(--coral-500)}
 .chip-btn:active{transform:translate(0,0);box-shadow:1px 1px 0 var(--navy-900)}
-.chat-form{position:relative;z-index:1;display:flex;align-items:center;gap:16px;border-top:2px solid var(--navy-900);padding-top:20px}
-.chat-input{flex:1;border:none;background:transparent;font:italic 500 24px/1.4 Georgia,serif;color:var(--navy-900);padding:6px 0}
+.chat-form{position:relative;z-index:1;display:flex;align-items:flex-end;gap:16px;border-top:2px solid var(--navy-900);padding-top:20px}
+.chat-input{flex:1;box-sizing:border-box;min-height:46px;max-height:148px;overflow-y:auto;resize:none;border:none;background:transparent;font:italic 500 24px/1.4 Georgia,serif;color:var(--navy-900);padding:6px 0;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
 .chat-input::placeholder{color:var(--gray-300)}
 .chat-input:focus{outline:none}
 .send-fab{width:52px;height:52px;border-radius:50%;border:none;background:var(--coral-500);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:transform 220ms cubic-bezier(0.16,1,0.3,1),background 220ms ease;box-shadow:0 8px 20px rgba(224,92,78,0.35)}
@@ -308,6 +308,7 @@ function ChatBox() {
   const [typing, setTyping] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(0);
   const scrollRef = React.useRef(null);
+  const inputRef = React.useRef(null);
   const startedAt = React.useRef(0);
 
   React.useEffect(() => {
@@ -331,6 +332,7 @@ function ChatBox() {
     }));
     setMessages(m => [...m, { role: "user", text: trimmed }]);
     setInput("");
+    if (inputRef.current) inputRef.current.style.height = "46px";
     startedAt.current = performance.now();
     setElapsed(0);
     setTyping(true);
@@ -369,6 +371,20 @@ function ChatBox() {
     send(input);
   }
 
+  function onInputChange(e) {
+    setInput(e.target.value);
+    e.target.style.height = "46px";
+    e.target.style.height = Math.min(e.target.scrollHeight, 148) + "px";
+    e.target.style.overflowY = e.target.scrollHeight > 148 ? "auto" : "hidden";
+  }
+
+  function onInputKeyDown(e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      send(input);
+    }
+  }
+
   return (
     <div className="play-hero">
       <p className="status-line"><span className="status-dot"></span>Trained on Aisha's work, resume, and case studies</p>
@@ -402,15 +418,18 @@ function ChatBox() {
         ))}
       </div>
       <form className="chat-form" onSubmit={onSubmit}>
-        <input
+        <textarea
+          ref={inputRef}
           className="chat-input"
-          type="text"
+          rows="1"
+          maxLength="800"
           placeholder="Ask AI-sha something..."
           value={input}
-          onChange={e => setInput(e.target.value)}
+          onChange={onInputChange}
+          onKeyDown={onInputKeyDown}
           disabled={typing}
           aria-label="Message"
-        />
+        ></textarea>
         <button className="send-fab" type="submit" disabled={typing} aria-label="Send">&#8594;</button>
       </form>
     </div>
