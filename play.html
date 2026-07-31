@@ -32,34 +32,41 @@ button{border-radius:10px !important}
 .status-line{position:relative;z-index:1;display:flex;align-items:center;gap:8px;font:600 13px/1.2 Inter,sans-serif;letter-spacing:0.5px;color:var(--gray-500);margin-bottom:40px}
 .status-dot{width:8px;height:8px;border-radius:50%;background:#5ce38a;display:inline-block;box-shadow:0 0 0 4px rgba(92,227,138,0.2);animation:pulseDot 2s ease-in-out infinite}
 @keyframes pulseDot{0%,100%{box-shadow:0 0 0 4px rgba(92,227,138,0.2)}50%{box-shadow:0 0 0 7px rgba(92,227,138,0.08)}}
-.transcript{position:relative;z-index:1;display:flex;flex-direction:column;gap:28px;height:clamp(320px,48vh,460px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:20px 18px 24px 4px;margin-bottom:28px;border-top:2px solid var(--navy-900);border-bottom:2px solid var(--navy-900);scroll-behavior:smooth}
+.transcript{position:relative;z-index:1;display:flex;flex-direction:column;gap:36px;height:clamp(320px,48vh,460px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:28px 24px 30px 6px;margin-bottom:28px;border-top:2px solid var(--navy-900);border-bottom:2px solid var(--navy-900);scroll-behavior:smooth}
 .transcript::-webkit-scrollbar{width:10px}
 .transcript::-webkit-scrollbar-track{background:var(--butter-100);border-left:2px solid var(--navy-900)}
 .transcript::-webkit-scrollbar-thumb{background:var(--coral-500);border:2px solid var(--navy-900)}
-.msg-row{display:flex;align-items:flex-start;gap:14px;animation:msgIn 420ms cubic-bezier(0.16,1,0.3,1) both;max-width:100%}
+.msg-row{display:flex;align-items:flex-start;gap:16px;animation:msgIn 420ms cubic-bezier(0.16,1,0.3,1) both;max-width:100%}
+.msg-row>div{min-width:0}
 @keyframes msgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .msg-row.user{flex-direction:row-reverse;text-align:right;margin-left:auto}
 .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 4px 14px rgba(20,30,50,0.18)}
-.msg-text.bot{font:italic 500 22px/1.5 Georgia,serif;color:var(--navy-900);max-width:560px;overflow-wrap:anywhere;word-break:break-word}
+.msg-text.bot{font:italic 500 22px/1.58 Georgia,serif;color:var(--navy-900);max-width:590px;overflow-wrap:anywhere;word-break:break-word}
 .msg-text.user{font:700 16px/1.5 Inter,sans-serif;color:#fff;background:linear-gradient(135deg,var(--coral-500),var(--coral-600));padding:10px 20px;border-radius:20px 20px 4px 20px;box-shadow:0 6px 16px rgba(224,92,78,0.3);max-width:420px;overflow-wrap:anywhere;word-break:break-word}
-.portfolio-link{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;margin:12px 8px 2px 0;padding:10px 14px;border:2px solid var(--navy-900);border-radius:8px;background:var(--butter-100);box-shadow:4px 4px 0 var(--navy-900);color:var(--navy-900);font:800 12px/1.2 Inter,sans-serif;letter-spacing:.35px;text-decoration:none;text-transform:uppercase;transition:transform 180ms ease,box-shadow 180ms ease,background 180ms ease}
-.portfolio-link:hover{color:var(--navy-900);background:#fff;transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--coral-500)}
-.portfolio-link::after{content:"↗";font-size:16px;line-height:1}
+.portfolio-link{display:flex;align-items:center;gap:12px;box-sizing:border-box;width:min(390px,100%);margin:18px 0 4px;padding:11px 12px;border:1.5px solid rgba(24,55,122,.42);border-radius:6px;background:rgba(255,255,255,.42);color:var(--navy-900);font-family:Inter,sans-serif;font-style:normal;text-decoration:none;transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease}
+.portfolio-link:hover{color:var(--navy-900);background:rgba(255,242,193,.64);border-color:var(--navy-900);transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--navy-900)}
+.link-mark{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border:1.5px solid var(--navy-900);border-radius:4px;background:var(--butter-100);font:900 17px/1 Inter,sans-serif}
+.link-copy{display:grid;gap:3px;min-width:0;flex:1}
+.link-copy strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:750 13px/1.2 Inter,sans-serif;letter-spacing:.1px}
+.link-copy small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--gray-500);font:500 11px/1.2 Inter,sans-serif}
+.link-open{flex-shrink:0;border-left:1px solid rgba(24,55,122,.25);padding-left:11px;font:750 11px/1 Inter,sans-serif;letter-spacing:.3px;text-transform:uppercase}
 .who-label{font:700 11px/1.2 Inter,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--coral-500);margin-bottom:6px;display:block}
 .typing-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral-500);margin-right:4px;animation:typingBounce 1s infinite}
 .typing-dot:nth-child(2){animation-delay:0.15s}
 .typing-dot:nth-child(3){animation-delay:0.3s}
 @keyframes typingBounce{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-6px);opacity:1}}
-.thinking-panel{margin-top:12px;max-width:520px;border:2px solid var(--navy-900);border-radius:8px;background:rgba(255,255,255,.55);box-shadow:3px 3px 0 var(--butter-100);font:600 12px/1.45 Inter,sans-serif;color:var(--gray-500)}
-.thinking-panel summary{display:flex;align-items:center;gap:8px;padding:9px 12px;cursor:pointer;list-style:none;color:var(--navy-900);font-weight:800;letter-spacing:.2px}
+.thinking-panel{margin:0 0 10px;max-width:560px;border:0;background:transparent;font:600 12px/1.45 Inter,sans-serif;color:var(--gray-500)}
+.thinking-panel summary{display:flex;align-items:center;gap:7px;width:max-content;max-width:100%;padding:2px 0 7px;cursor:pointer;list-style:none;color:var(--gray-500);font-weight:650;letter-spacing:.1px;transition:color 180ms ease}
+.thinking-panel summary:hover{color:var(--navy-900)}
 .thinking-panel summary::-webkit-details-marker{display:none}
-.thinking-panel summary::before{content:"+";display:grid;place-items:center;width:18px;height:18px;border:1.5px solid var(--navy-900);background:var(--butter-100);font:900 14px/1 Inter,sans-serif}
-.thinking-panel[open] summary::before{content:"−"}
-.thinking-panel ol{margin:0;padding:2px 18px 12px 42px}
+.thinking-panel summary::before{content:"+";display:grid;place-items:center;width:16px;height:16px;border:1.5px solid currentColor;border-radius:2px;background:transparent;font:850 12px/1 Inter,sans-serif}
+.thinking-panel[open] summary{color:var(--navy-900)}
+.thinking-panel[open] summary::before{content:"−";background:var(--butter-100)}
+.thinking-panel ol{margin:3px 0 0 7px;padding:8px 12px 10px 28px;border-left:2px solid var(--navy-900);background:rgba(255,255,255,.3)}
 .thinking-panel li{padding:2px 0}
 .thinking-panel li.active{color:var(--coral-600);font-weight:800}
-.thinking-note{margin:0;padding:0 12px 12px;color:var(--gray-500);font-size:11px}
-.answer-insight{display:grid;gap:12px;padding:4px 12px 14px}
+.thinking-note{margin:0 0 0 7px;padding:0 12px 10px 14px;border-left:2px solid var(--navy-900);color:var(--gray-500);font-size:11px}
+.answer-insight{display:grid;gap:12px;margin-left:7px;padding:10px 14px 8px;border-left:2px solid var(--navy-900);background:rgba(255,255,255,.3)}
 .insight-block{display:grid;gap:4px}
 .insight-label{font:800 10px/1.2 Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--coral-600)}
 .insight-value{font:600 12px/1.45 Inter,sans-serif;color:var(--navy-900)}
@@ -88,9 +95,11 @@ button{border-radius:10px !important}
 .cursor-ring.hovering{width:44px;height:44px;border-color:var(--text-accent-on-light)}
 @media (hover:none){.cursor-dot,.cursor-ring{display:none}}
 @media (max-width:700px){
-  .transcript{height:min(54vh,430px);min-height:320px;padding:16px 12px 20px 2px;gap:22px}
-  .msg-text.bot{font-size:18px;line-height:1.45;max-width:100%}
-  .portfolio-link{font-size:11px}
+  .transcript{height:min(54vh,430px);min-height:320px;padding:22px 12px 24px 2px;gap:30px}
+  .msg-text.bot{font-size:18px;line-height:1.55;max-width:100%}
+  .portfolio-link{width:100%;margin-top:14px;padding:9px 10px;gap:10px}
+  .link-mark{width:34px;height:34px;flex-basis:34px}
+  .link-open{font-size:10px;padding-left:9px}
 }
 </style>
 </head>
@@ -191,9 +200,17 @@ function MessageContent({ text }) {
         if (!part.match(/^https?:\/\//)) return <React.Fragment key={i}>{part}</React.Fragment>;
         const href = part.replace(/[),.!?;:]+$/, "");
         const punctuation = part.slice(href.length);
+        const label = linkLabel(href);
         return (
           <React.Fragment key={i}>
-            <a className="portfolio-link" href={href} target="_blank" rel="noopener">{linkLabel(href)}</a>
+            <a className="portfolio-link" href={href} target="_blank" rel="noopener" aria-label={`${label} — opens in a new tab`}>
+              <span className="link-mark" aria-hidden="true">↗</span>
+              <span className="link-copy">
+                <strong>{label}</strong>
+                <small>aishammd96.github.io</small>
+              </span>
+              <span className="link-open">Open ↗</span>
+            </a>
             {punctuation}
           </React.Fragment>
         );
@@ -412,8 +429,8 @@ function ChatBox() {
             {m.role === "bot" && <img className="avatar" src="assets/logo_navy_bluebckg.png" alt="" />}
             <div>
               <span className="who-label">{m.role === "user" ? "You" : "AI-sha"}</span>
-              <div className={"msg-text " + (m.role === "user" ? "user" : "bot")}><MessageContent text={m.text} /></div>
               {m.role === "bot" && m.elapsed != null && <ThinkingDetails elapsed={m.elapsed} insight={m.insight} />}
+              <div className={"msg-text " + (m.role === "user" ? "user" : "bot")}><MessageContent text={m.text} /></div>
             </div>
           </div>
         ))}
@@ -422,10 +439,10 @@ function ChatBox() {
             <img className="avatar" src="assets/logo_navy_bluebckg.png" alt="" />
             <div>
               <span className="who-label">AI-sha</span>
+              <ThinkingDetails elapsed={elapsed} active retrying={retrying} />
               <div className="msg-text bot">
                 <span className="typing-dot"></span><span className="typing-dot"></span><span className="typing-dot"></span>
               </div>
-              <ThinkingDetails elapsed={elapsed} active retrying={retrying} />
             </div>
           </div>
         )}
