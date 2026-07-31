@@ -202,6 +202,25 @@ function MessageContent({ text }) {
   );
 }
 
+function cleanReply(value) {
+  let text = String(value || "").trim();
+
+  if (text.startsWith("{")) {
+    try {
+      const parsed = JSON.parse(text);
+      if (parsed?.reply) return cleanReply(parsed.reply);
+    } catch (_) {}
+  }
+
+  const metadataStart = text.search(/\s*\{\s*"(?:reply|understood|sources|linkReason|confidence)"\s*:/);
+  if (metadataStart > 0) text = text.slice(0, metadataStart);
+
+  const fencedMetadata = text.search(/\s*```(?:json)?\s*\{/i);
+  if (fencedMetadata > 0) text = text.slice(0, fencedMetadata);
+
+  return text.trim().replace(/^["']|["']$/g, "");
+}
+
 function deriveInsight(question, answer) {
   const lower = question.toLowerCase();
   let understood = "You asked a general question about Aisha and her portfolio.";
@@ -324,14 +343,15 @@ function ChatBox() {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Request failed");
       const responseTime = (performance.now() - startedAt.current) / 1000;
+      const reply = cleanReply(data.reply);
       const genericInsight = !data.insight || data.insight.sources?.[0] === "Portfolio context";
-      const insight = genericInsight ? deriveInsight(trimmed, data.reply) : {
+      const insight = genericInsight ? deriveInsight(trimmed, reply) : {
         ...data.insight,
-        linkReason: /https?:\/\//.test(data.reply)
+        linkReason: /https?:\/\//.test(reply)
           ? data.insight.linkReason
           : "No specific portfolio link was needed for this answer."
       };
-      setMessages(m => [...m, { role: "bot", text: data.reply, elapsed: responseTime, insight }]);
+      setMessages(m => [...m, { role: "bot", text: reply, elapsed: responseTime, insight }]);
     } catch (error) {
       const responseTime = (performance.now() - startedAt.current) / 1000;
       setMessages(m => [...m, {
