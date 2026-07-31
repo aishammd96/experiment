@@ -218,12 +218,15 @@ const CHAT_API = "https://ai-sha-api.aisha-mmd96.workers.dev/chat";
 
 const CONTACT_PROMPT = "I want to contact you";
 const CUSTOM_TOPIC = "Something else";
+const USE_POLISHED = "Use this version";
+const REVISE_POLISHED = "Revise it";
 const SUGGESTIONS = ["Tell me about your work", "What's your design process?", CONTACT_PROMPT];
 const CONTACT_COPY = {
   name: { prompt: "Absolutely—I’ll help you shape a thoughtful note. Let’s start with your first and last name.", placeholder: "Type your first and last name…" },
   email: { prompt: "What email should I include so I can reply?", placeholder: "Type your email…" },
   topic: { prompt: "What are you reaching out about?", placeholder: "Choose one or write your own…", suggestions: ["Project or collaboration", "Role or opportunity", "Portfolio question", CUSTOM_TOPIC] },
   message: { prompt: "Tell me a little about what you’d like to discuss. Rough notes are perfect—I’ll polish them.", placeholder: "Share the context in your own words…" },
+  polish: { prompt: "Tell me what you’d like changed, or paste a new version.", placeholder: "Ask for a change or paste new notes…" },
   timing: { prompt: "And what does the timing look like?", placeholder: "Add timing or choose a suggestion…", suggestions: ["No rush", "Within the next month", "As soon as possible"] }
 };
 
@@ -450,7 +453,22 @@ function ChatBox() {
     window.setTimeout(() => inputRef.current?.focus(), 0);
   }
 
-  function answerContact(text) {
+  async function polishContactMessage(message, previous = "") {
+    const response = await fetch(CHAT_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        mode: "polish_contact",
+        message,
+        previous
+      })
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "Could not polish the message");
+    return cleanReply(data.reply);
+  }
+
+  async function answerContact(text) {
     const trimmed = text.trim();
     if (!trimmed || !contact || contact.step === "preview") return;
 
@@ -464,25 +482,96 @@ function ChatBox() {
       return;
     }
 
+    if (contact.step === "message" && trimmed.length > 520) {
+      setComposerHint("Keep the rough notes under 520 characters so I can polish everything without losing details.");
+      return;
+    }
+
+    if (contact.step === "polish" && trimmed.length > 200) {
+      setComposerHint("Keep revision guidance under 200 characters, or paste a shorter replacement note.");
+      return;
+    }
+
+    if (contact.step === "polish") {
+      setMessages(current => [...current, { role: "user", text: trimmed, contact: true }]);
+      resetComposer();
+      startedAt.current = performance.now();
+      setElapsed(0);
+      setTyping(true);
+      setComposerHint("");
+      try {
+        const polishedMessage = await polishContactMessage(trimmed, contact.details.polishedMessage);
+        const details = { ...contact.details, polishedMessage };
+        setContact({ step: "polish", details });
+        setMessages(current => [...current, {
+          role: "bot",
+          text: `Here’s a revised version:\n\n“${polishedMessage}”\n\nWould you like to use this version, or revise it again?`,
+          contact: true,
+          contactStep: "polish",
+          suggestions: [USE_POLISHED, REVISE_POLISHED],
+          suggestionType: "contact"
+        }]);
+      } catch (_) {
+        setMessages(current => [...current, {
+          role: "bot",
+          text: "I couldn’t polish that just yet. Your notes are still here—please try the revision once more.",
+          contact: true
+        }]);
+      } finally {
+        setTyping(false);
+        window.setTimeout(() => inputRef.current?.focus(), 0);
+      }
+      return;
+    }
+
     const details = { ...contact.details, [contact.step]: trimmed };
     const nextStep = {
       name: "email",
       email: "topic",
-      topic: "message",
-      message: "timing"
+      topic: "message"
     }[contact.step];
 
     setMessages(current => [...current, { role: "user", text: trimmed, contact: true }]);
     resetComposer();
 
+    if (contact.step === "message") {
+      setContact({ step: "polish", details });
+      startedAt.current = performance.now();
+      setElapsed(0);
+      setTyping(true);
+      setComposerHint("");
+      try {
+        const polishedMessage = await polishContactMessage(trimmed);
+        const polishedDetails = { ...details, polishedMessage };
+        setContact({ step: "polish", details: polishedDetails });
+        setMessages(current => [...current, {
+          role: "bot",
+          text: `Here’s how I’d polish that:\n\n“${polishedMessage}”\n\nWould you like to use this version, or revise it?`,
+          contact: true,
+          contactStep: "polish",
+          suggestions: [USE_POLISHED, REVISE_POLISHED],
+          suggestionType: "contact"
+        }]);
+      } catch (_) {
+        setContact({ step: "message", details: contact.details });
+        setMessages(current => [...current, {
+          role: "bot",
+          text: "I couldn’t polish that just yet. Your notes haven’t been lost—please send them once more.",
+          contact: true
+        }]);
+      } finally {
+        setTyping(false);
+        window.setTimeout(() => inputRef.current?.focus(), 0);
+      }
+      return;
+    }
+
     if (nextStep) {
       const next = CONTACT_COPY[nextStep];
-      const messageSummary = trimmed.length > 120 ? `${trimmed.slice(0, 117)}…` : trimmed;
       const confirmation = {
         name: `Got it — ${trimmed}. ${next.prompt}`,
         email: `Perfect — I’ll use ${trimmed}. ${next.prompt}`,
-        topic: `Got it — ${trimmed}. ${next.prompt}`,
-        message: `Okay, I’ve captured this: “${messageSummary}” ${next.prompt}`
+        topic: `Got it — ${trimmed}. ${next.prompt}`
       }[contact.step];
       setContact({ step: nextStep, details });
       window.setTimeout(() => {
@@ -504,11 +593,11 @@ function ChatBox() {
       : `\n\nTiming-wise, ${details.timing.charAt(0).toLowerCase()}${details.timing.slice(1)}.`;
     setDraft({
       subject: `${details.topic} — ${details.name}`,
-      body: `Hi Aisha,\n\nI’m ${details.name}, and I’m reaching out about ${details.topic.toLowerCase()}.\n\n${details.message}${timingLine}\n\nWould you be open to a conversation? I’d be happy to share more context and find a time that works for you.\n\nBest,\n${details.name}`
+      body: `Hi Aisha,\n\nI’m ${details.name}, and I’m reaching out about ${details.topic.toLowerCase()}.\n\n${details.polishedMessage || details.message}${timingLine}\n\nWould you be open to a conversation? I’d be happy to share more context and find a time that works for you.\n\nBest,\n${details.name}`
     });
     setMessages(current => [...current, {
       role: "bot",
-      text: `Perfect — ${trimmed}. I’ve turned everything you shared into a complete draft below.`,
+      text: `Perfect — ${trimmed}. I’ve turned everything you approved into a complete draft below.`,
       contact: true
     }]);
     setContact({ step: "preview", details });
@@ -656,6 +745,36 @@ function ChatBox() {
 
   function useSuggestion(suggestion) {
     if (contact && contact.step !== "preview") {
+      if (contact.step === "polish" && suggestion === USE_POLISHED) {
+        const next = CONTACT_COPY.timing;
+        setMessages(current => [
+          ...current,
+          { role: "user", text: USE_POLISHED, contact: true },
+          {
+            role: "bot",
+            text: `Perfect—I’ll use that version. ${next.prompt}`,
+            contact: true,
+            contactStep: "timing",
+            suggestions: next.suggestions,
+            suggestionType: "contact"
+          }
+        ]);
+        setContact(current => ({
+          step: "timing",
+          details: {
+            ...current.details,
+            message: current.details.polishedMessage || current.details.message
+          }
+        }));
+        setComposerHint("");
+        window.setTimeout(() => inputRef.current?.focus(), 0);
+        return;
+      }
+      if (contact.step === "polish" && suggestion === REVISE_POLISHED) {
+        setComposerHint("Tell me what to change—shorter, warmer, more direct, or anything else.");
+        window.setTimeout(() => inputRef.current?.focus(), 0);
+        return;
+      }
       if (contact.step === "topic" && suggestion === CUSTOM_TOPIC) {
         setContact(current => ({ ...current, customTopic: true }));
         setInput("");
@@ -689,7 +808,7 @@ function ChatBox() {
               <div className={"msg-text " + (m.role === "user" ? "user" : "bot")}><MessageContent text={m.text} /></div>
               {m.suggestions && (
                 (m.suggestionType === "initial" && !contact) ||
-                (m.suggestionType === "contact" && m.contactStep === contact?.step)
+                (m.suggestionType === "contact" && m.contactStep === contact?.step && i === messages.length - 1)
               ) && (
                 <div className="suggestion-row" aria-label="Suggested replies">
                   {m.suggestions.map((suggestion, suggestionIndex) => (
