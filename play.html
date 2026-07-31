@@ -79,6 +79,35 @@ button{border-radius:10px !important}
 .chip-btn{border:2px solid var(--navy-900);background:var(--butter-100);border-radius:999px;padding:9px 18px;font:700 13px/1.2 Inter,sans-serif;cursor:pointer;transition:all 220ms cubic-bezier(0.16,1,0.3,1);box-shadow:3px 3px 0 var(--navy-900)}
 .chip-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--coral-500);border-color:var(--coral-500)}
 .chip-btn:active{transform:translate(0,0);box-shadow:1px 1px 0 var(--navy-900)}
+.contact-flow{display:grid;gap:18px;margin-left:60px;padding:20px;border:2px solid var(--navy-900);border-radius:8px;background:rgba(255,255,255,.5);box-shadow:5px 5px 0 var(--butter-100);animation:msgIn 420ms cubic-bezier(0.16,1,0.3,1) both}
+.contact-flow-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.contact-kicker{margin:0 0 4px;color:var(--coral-600);font:800 10px/1.2 Inter,sans-serif;letter-spacing:1.2px;text-transform:uppercase}
+.contact-title{margin:0;color:var(--navy-900);font:700 22px/1.15 Georgia,serif}
+.contact-intro{margin:6px 0 0;color:var(--gray-500);font:500 13px/1.45 Inter,sans-serif}
+.contact-close{display:grid;place-items:center;width:32px;height:32px;flex:0 0 32px;border:1.5px solid var(--navy-900);background:transparent;color:var(--navy-900);font:800 17px/1 Inter,sans-serif;cursor:pointer}
+.contact-close:hover{background:var(--butter-100)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-field{display:grid;gap:6px}
+.contact-field.full{grid-column:1/-1}
+.contact-label{color:var(--navy-900);font:750 11px/1.2 Inter,sans-serif;letter-spacing:.4px;text-transform:uppercase}
+.contact-field input,.contact-field select,.contact-field textarea,.draft-subject,.draft-body{box-sizing:border-box;width:100%;border:1.5px solid var(--navy-900);border-radius:4px;background:rgba(255,255,255,.72);color:var(--navy-900);font:500 14px/1.45 Inter,sans-serif;padding:10px 11px;outline:none;transition:box-shadow 160ms ease,background 160ms ease}
+.contact-field textarea{min-height:92px;resize:vertical}
+.contact-field input:focus,.contact-field select:focus,.contact-field textarea:focus,.draft-subject:focus,.draft-body:focus{background:#fff;box-shadow:3px 3px 0 var(--butter-100)}
+.contact-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.contact-primary,.contact-secondary{border:2px solid var(--navy-900);border-radius:5px;background:var(--butter-100);color:var(--navy-900);padding:10px 14px;font:800 12px/1 Inter,sans-serif;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;transition:transform 160ms ease,box-shadow 160ms ease,background 160ms ease}
+.contact-primary{background:var(--coral-500);color:#fff;box-shadow:3px 3px 0 var(--navy-900)}
+.contact-primary:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--navy-900)}
+.contact-primary:disabled{cursor:wait;opacity:.55;transform:none}
+.contact-secondary{border-width:1.5px;background:transparent}
+.contact-secondary:hover{background:var(--butter-100)}
+.contact-note{margin:0;color:var(--gray-500);font:500 10px/1.4 Inter,sans-serif}
+.draft-stack{display:grid;gap:12px}
+.draft-body{min-height:210px;resize:vertical}
+.contact-success{display:grid;gap:8px;padding:14px;border-left:4px solid var(--coral-500);background:var(--butter-100)}
+.contact-success strong{color:var(--navy-900);font:800 15px/1.2 Inter,sans-serif}
+.contact-success p,.contact-error{margin:0;color:var(--navy-900);font:500 13px/1.45 Inter,sans-serif}
+.contact-error{color:#a32f24;font-weight:700}
+.honey-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
 .chat-form{position:relative;z-index:1;display:flex;align-items:flex-end;gap:16px;border-top:2px solid var(--navy-900);padding-top:20px}
 .chat-input{flex:1;box-sizing:border-box;min-height:46px;max-height:148px;overflow-y:auto;resize:none;border:none;background:transparent;font:italic 500 24px/1.4 Georgia,serif;color:var(--navy-900);padding:6px 0;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
 .chat-input::placeholder{color:var(--gray-300)}
@@ -100,6 +129,11 @@ button{border-radius:10px !important}
   .portfolio-link{width:100%;margin-top:14px;padding:9px 10px;gap:10px}
   .link-mark{width:34px;height:34px;flex-basis:34px}
   .link-open{font-size:10px;padding-left:9px}
+  .contact-flow{margin-left:0;padding:16px;box-shadow:4px 4px 0 var(--butter-100)}
+  .contact-grid{grid-template-columns:1fr}
+  .contact-field.full{grid-column:auto}
+  .contact-actions{align-items:stretch;flex-direction:column-reverse}
+  .contact-primary,.contact-secondary{width:100%}
 }
 </style>
 </head>
@@ -138,6 +172,11 @@ function MenuIcon() {
   );
 }
 
+function openContactFlow() {
+  window.dispatchEvent(new CustomEvent("open-ai-sha-contact"));
+  window.location.hash = "main";
+}
+
 function Navbar({ mobile }) {
   const [open, setOpen] = React.useState(false);
   if (mobile) {
@@ -154,7 +193,7 @@ function Navbar({ mobile }) {
             <Link href="resume.html">Resume</Link>
             <Link href="play.html" active>Play</Link>
             <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
-            <div style={{paddingTop:8}}><Button variant="primary" size="sm" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button></div>
+            <div style={{paddingTop:8}}><Button variant="primary" size="sm" onClick={()=>{setOpen(false);openContactFlow();}}>Contact</Button></div>
           </nav>
         )}
       </div>
@@ -171,7 +210,7 @@ function Navbar({ mobile }) {
             <Link href="resume.html">Resume</Link>
             <Link href="play.html" active>Play</Link>
             <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
-            <Button variant="primary" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button>
+            <Button variant="primary" onClick={openContactFlow}>Contact</Button>
           </nav>
         </div>
       </div>
@@ -182,7 +221,8 @@ function Navbar({ mobile }) {
 
 const CHAT_API = "https://ai-sha-api.aisha-mmd96.workers.dev/chat";
 
-const SUGGESTIONS = ["Who are you?", "Tell me about your work", "What's your design process?", "Tell me about Ora"];
+const CONTACT_PROMPT = "Help me contact Aisha";
+const SUGGESTIONS = ["Who are you?", "Tell me about your work", "What's your design process?", "Tell me about Ora", CONTACT_PROMPT];
 
 function linkLabel(url) {
   if (url.includes("#work")) return "View selected work";
@@ -317,6 +357,164 @@ function ThinkingDetails({ elapsed, active = false, insight, retrying = false })
   );
 }
 
+function ContactFlow({ onClose }) {
+  const [step, setStep] = React.useState("questions");
+  const [sending, setSending] = React.useState(false);
+  const [error, setError] = React.useState("");
+  const [details, setDetails] = React.useState({
+    name: "",
+    email: "",
+    company: "",
+    topic: "Project or collaboration",
+    message: "",
+    timing: "",
+    honey: ""
+  });
+  const [draft, setDraft] = React.useState({ subject: "", body: "" });
+
+  function updateDetail(event) {
+    const { name, value } = event.target;
+    setDetails(current => ({ ...current, [name]: value }));
+  }
+
+  function createDraft(event) {
+    event.preventDefault();
+    const companyLine = details.company.trim() ? ` from ${details.company.trim()}` : "";
+    const timingLine = details.timing.trim() ? `\n\nTiming-wise, ${details.timing.trim()}.` : "";
+    setDraft({
+      subject: `${details.topic} — ${details.name.trim()}`,
+      body: `Hi Aisha,\n\nI’m ${details.name.trim()}${companyLine}. I’m reaching out about ${details.topic.toLowerCase()}.\n\n${details.message.trim()}${timingLine}\n\nWould you be open to a conversation? I’d be happy to share more context and find a time that works for you.\n\nBest,\n${details.name.trim()}`
+    });
+    setError("");
+    setStep("draft");
+  }
+
+  async function sendEmail(event) {
+    event.preventDefault();
+    if (details.honey) {
+      setStep("sent");
+      return;
+    }
+    setSending(true);
+    setError("");
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/aisha.momand1@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: details.name.trim(),
+          email: details.email.trim(),
+          _replyto: details.email.trim(),
+          _subject: draft.subject.trim(),
+          subject: draft.subject.trim(),
+          message: draft.body.trim(),
+          company: details.company.trim() || "Not provided",
+          inquiry_type: details.topic,
+          timing: details.timing.trim() || "Not provided",
+          _template: "table"
+        })
+      });
+      const result = await response.json();
+      if (!response.ok || result.success === "false" || result.success === false) {
+        throw new Error(result.message || "The message could not be sent.");
+      }
+      setStep("sent");
+    } catch (sendError) {
+      setError("That didn’t send just yet. Please try once more, or email me directly at aisha.momand1@gmail.com.");
+    } finally {
+      setSending(false);
+    }
+  }
+
+  return (
+    <section className="contact-flow" aria-label="Contact Aisha">
+      <div className="contact-flow-head">
+        <div>
+          <p className="contact-kicker">Contact, with a little help from AI-sha</p>
+          <h2 className="contact-title">{step === "sent" ? "Message sent." : step === "draft" ? "Here’s a polished first draft." : "Let’s make the first email easier."}</h2>
+          {step === "questions" && <p className="contact-intro">Share the essentials. I’ll shape them into a clear email you can review before anything is sent.</p>}
+          {step === "draft" && <p className="contact-intro">Edit anything you’d like—this should still sound like you.</p>}
+        </div>
+        <button className="contact-close" type="button" onClick={onClose} aria-label="Close contact form">×</button>
+      </div>
+
+      {step === "questions" && (
+        <form onSubmit={createDraft}>
+          <div className="contact-grid">
+            <label className="contact-field">
+              <span className="contact-label">Your name</span>
+              <input name="name" value={details.name} onChange={updateDetail} required maxLength="80" autoComplete="name" />
+            </label>
+            <label className="contact-field">
+              <span className="contact-label">Your email</span>
+              <input name="email" type="email" value={details.email} onChange={updateDetail} required maxLength="120" autoComplete="email" />
+            </label>
+            <label className="contact-field">
+              <span className="contact-label">Company or team <small>(optional)</small></span>
+              <input name="company" value={details.company} onChange={updateDetail} maxLength="100" autoComplete="organization" />
+            </label>
+            <label className="contact-field">
+              <span className="contact-label">What’s this about?</span>
+              <select name="topic" value={details.topic} onChange={updateDetail}>
+                <option>Project or collaboration</option>
+                <option>Role or opportunity</option>
+                <option>Portfolio question</option>
+                <option>Speaking or mentorship</option>
+                <option>Something else</option>
+              </select>
+            </label>
+            <label className="contact-field full">
+              <span className="contact-label">What would you like to discuss?</span>
+              <textarea name="message" value={details.message} onChange={updateDetail} required minLength="20" maxLength="1200" placeholder="A little context, what you need, and why you thought of me..." />
+            </label>
+            <label className="contact-field full">
+              <span className="contact-label">Timing <small>(optional)</small></span>
+              <input name="timing" value={details.timing} onChange={updateDetail} maxLength="160" placeholder="For example: sometime next month, or no rush." />
+            </label>
+            <label className="honey-field" aria-hidden="true">
+              Leave this empty
+              <input name="honey" value={details.honey} onChange={updateDetail} tabIndex="-1" autoComplete="off" />
+            </label>
+          </div>
+          <div className="contact-actions" style={{marginTop:18}}>
+            <p className="contact-note">Nothing is sent until you review the draft.</p>
+            <button className="contact-primary" type="submit">Create my email →</button>
+          </div>
+        </form>
+      )}
+
+      {step === "draft" && (
+        <form className="draft-stack" onSubmit={sendEmail}>
+          <label className="contact-field">
+            <span className="contact-label">Subject</span>
+            <input className="draft-subject" value={draft.subject} onChange={event => setDraft(current => ({ ...current, subject: event.target.value }))} required maxLength="160" />
+          </label>
+          <label className="contact-field">
+            <span className="contact-label">Email</span>
+            <textarea className="draft-body" value={draft.body} onChange={event => setDraft(current => ({ ...current, body: event.target.value }))} required maxLength="4000" />
+          </label>
+          {error && <p className="contact-error" role="alert">{error}</p>}
+          <div className="contact-actions">
+            <button className="contact-secondary" type="button" onClick={() => setStep("questions")}>← Edit answers</button>
+            <button className="contact-primary" type="submit" disabled={sending}>{sending ? "Sending…" : "Send to Aisha →"}</button>
+          </div>
+          <p className="contact-note">Your message is delivered to aisha.momand1@gmail.com. FormSubmit processes the submission for email delivery.</p>
+        </form>
+      )}
+
+      {step === "sent" && (
+        <div className="contact-success" role="status">
+          <strong>It’s on its way to Aisha.</strong>
+          <p>Your email address is included so she can reply directly. Thanks for reaching out.</p>
+        </div>
+      )}
+    </section>
+  );
+}
+
 function ChatBox() {
   const [messages, setMessages] = React.useState([
     { role: "bot", text: "Hey, I'm AI-sha. Ask me about my work, how I approach design, or what I'm like to collaborate with." }
@@ -325,13 +523,14 @@ function ChatBox() {
   const [typing, setTyping] = React.useState(false);
   const [retrying, setRetrying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(0);
+  const [contactOpen, setContactOpen] = React.useState(false);
   const scrollRef = React.useRef(null);
   const inputRef = React.useRef(null);
   const startedAt = React.useRef(0);
 
   React.useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  }, [messages, typing, elapsed]);
+  }, [messages, typing, elapsed, contactOpen]);
 
   React.useEffect(() => {
     if (!typing) return;
@@ -340,6 +539,12 @@ function ChatBox() {
     }, 100);
     return () => window.clearInterval(timer);
   }, [typing]);
+
+  React.useEffect(() => {
+    const openContact = () => setContactOpen(true);
+    window.addEventListener("open-ai-sha-contact", openContact);
+    return () => window.removeEventListener("open-ai-sha-contact", openContact);
+  }, []);
 
   async function send(text) {
     const trimmed = text.trim();
@@ -446,10 +651,11 @@ function ChatBox() {
             </div>
           </div>
         )}
+        {contactOpen && <ContactFlow onClose={() => setContactOpen(false)} />}
       </div>
       <div className="chip-row">
         {SUGGESTIONS.map((s, i) => (
-          <button key={i} className="chip-btn" type="button" disabled={typing} onClick={() => send(s)}>{s}</button>
+          <button key={i} className="chip-btn" type="button" disabled={typing} onClick={() => s === CONTACT_PROMPT ? setContactOpen(true) : send(s)}>{s}</button>
         ))}
       </div>
       <form className="chat-form" onSubmit={onSubmit}>
