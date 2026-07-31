@@ -219,8 +219,8 @@ const CHAT_API = "https://ai-sha-api.aisha-mmd96.workers.dev/chat";
 const CONTACT_PROMPT = "I want to contact you";
 const SUGGESTIONS = ["Tell me about your work", "What's your design process?", CONTACT_PROMPT];
 const CONTACT_COPY = {
-  name: { prompt: "Absolutely—I’ll help you shape a thoughtful note. First, what should I call you?", placeholder: "Type your name…" },
-  email: { prompt: "Nice to meet you. What email should I include so I can reply?", placeholder: "Type your email…" },
+  name: { prompt: "Absolutely—I’ll help you shape a thoughtful note. Let’s start with your first and last name.", placeholder: "Type your first and last name…" },
+  email: { prompt: "What email should I include so I can reply?", placeholder: "Type your email…" },
   topic: { prompt: "What are you reaching out about?", placeholder: "Choose one or write your own…", suggestions: ["Project or collaboration", "Role or opportunity", "Portfolio question"] },
   message: { prompt: "Tell me a little about what you’d like to discuss. Rough notes are perfect—I’ll polish them.", placeholder: "Share the context in your own words…" },
   timing: { prompt: "And what does the timing look like?", placeholder: "Add timing or choose a suggestion…", suggestions: ["No rush", "Within the next month", "As soon as possible"] }
@@ -453,6 +453,11 @@ function ChatBox() {
     const trimmed = text.trim();
     if (!trimmed || !contact || contact.step === "preview") return;
 
+    if (contact.step === "name" && trimmed.split(/\s+/).filter(Boolean).length < 2) {
+      setComposerHint("Please enter both your first and last name.");
+      return;
+    }
+
     if (contact.step === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
       setComposerHint("That email looks incomplete—try something like name@example.com.");
       return;
@@ -471,11 +476,18 @@ function ChatBox() {
 
     if (nextStep) {
       const next = CONTACT_COPY[nextStep];
+      const messageSummary = trimmed.length > 120 ? `${trimmed.slice(0, 117)}…` : trimmed;
+      const confirmation = {
+        name: `Got it — ${trimmed}. ${next.prompt}`,
+        email: `Perfect — I’ll use ${trimmed}. ${next.prompt}`,
+        topic: `Got it — ${trimmed}. ${next.prompt}`,
+        message: `Okay, I’ve captured this: “${messageSummary}” ${next.prompt}`
+      }[contact.step];
       setContact({ step: nextStep, details });
       window.setTimeout(() => {
         setMessages(current => [...current, {
           role: "bot",
-          text: next.prompt,
+          text: confirmation,
           contact: true,
           contactStep: nextStep,
           suggestions: next.suggestions,
@@ -493,6 +505,11 @@ function ChatBox() {
       subject: `${details.topic} — ${details.name}`,
       body: `Hi Aisha,\n\nI’m ${details.name}, and I’m reaching out about ${details.topic.toLowerCase()}.\n\n${details.message}${timingLine}\n\nWould you be open to a conversation? I’d be happy to share more context and find a time that works for you.\n\nBest,\n${details.name}`
     });
+    setMessages(current => [...current, {
+      role: "bot",
+      text: `Perfect — ${trimmed}. I’ve turned everything you shared into a complete draft below.`,
+      contact: true
+    }]);
     setContact({ step: "preview", details });
   }
 
