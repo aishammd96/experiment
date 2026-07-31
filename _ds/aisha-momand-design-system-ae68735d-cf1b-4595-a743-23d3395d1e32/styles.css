@@ -3,3 +3,32 @@
 @import "tokens/typography.css";
 @import "tokens/spacing.css";
 @import "tokens/motion.css";
+
+/* Global design-system footer */
+.ds-footer .ds-footer-link {
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.ds-footer .ds-footer-link svg {
+  display: block !important;
+  transition: transform 180ms ease;
+}
+
+.ds-footer .ds-footer-link::before {
+  content: none !important;
+  display: none !important;
+}
+
+.ds-footer .ds-footer-link:hover {
+  color: var(--text-inverse) !important;
+  transform: translateX(4px);
+}
+
+.ds-footer .ds-footer-link:hover svg {
+  transform: none;
+}
+
+.ds-footer span + span::after {
+  content: none !important;
+  display: none !important;
+}

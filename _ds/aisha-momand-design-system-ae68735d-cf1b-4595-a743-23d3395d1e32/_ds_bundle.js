@@ -285,6 +285,37 @@ function CopyrightIcon() {
     stroke: "none"
   }, "C"));
 }
+// Phosphor Icons (MIT) — Copyright (c) 2020 Phosphor Icons.
+function ConnectIcon() {
+  return /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 256 256",
+    fill: "currentColor",
+    "aria-hidden": "true",
+    style: {
+      flexShrink: 0,
+      display: "block"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M132,20A104.11,104.11,0,0,0,28,124v84a20,20,0,0,0,20,20h84a104,104,0,0,0,0-208Zm0,184H52V124a80,80,0,1,1,80,80Zm-8-76a16,16,0,1,1-16-16A16,16,0,0,1,124,128Zm48,0a16,16,0,1,1-16-16A16,16,0,0,1,172,128Z"
+  }));
+}
+function LinkedInIcon() {
+  return /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 256 256",
+    fill: "currentColor",
+    "aria-hidden": "true",
+    style: {
+      flexShrink: 0,
+      display: "block"
+    }
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M216,20H40A20,20,0,0,0,20,40V216a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V40A20,20,0,0,0,216,20Zm-4,192H44V44H212ZM112,176V120a12,12,0,0,1,21.43-7.41A40,40,0,0,1,192,148v28a12,12,0,0,1-24,0V148a16,16,0,0,0-32,0v28a12,12,0,0,1-24,0ZM96,120v56a12,12,0,0,1-24,0V120a12,12,0,0,1,24,0ZM68,80A16,16,0,1,1,84,96,16,16,0,0,1,68,80Z"
+  }));
+}
 function Footer({
   heading = "Let\u2019s connect and build clarity.",
   body = "Whether you have a complex system to untangle or a new product to launch, I can help you find the clarity in the noise.",
@@ -294,6 +325,7 @@ function Footer({
 }) {
   const c = compact;
   return /*#__PURE__*/React.createElement("footer", {
+    className: "ds-footer",
     style: {
       background: "var(--surface-inverse)",
       padding: c ? "48px 20px" : "60px clamp(20px, 6vw, 80px)",
@@ -334,26 +366,36 @@ function Footer({
       gap: 12
     }
   }, /*#__PURE__*/React.createElement("a", {
+    className: "ds-footer-link",
     href: connectHref,
     style: {
-      font: c ? "500 16px/1.6 var(--font-body)" : "500 20px/1.6 var(--font-body)",
+      font: c ? "800 14px/1.2 var(--font-body)" : "800 17px/1.2 var(--font-body)",
       color: "var(--text-accent-on-dark)",
       display: "inline-flex",
       alignItems: "center",
-      gap: 6
+      gap: 10,
+      width: "max-content",
+      textTransform: "uppercase",
+      letterSpacing: "1.4px",
+      textDecoration: "none"
     }
-  }, "let\u2019s connect ", /*#__PURE__*/React.createElement(ArrowIcon, null)), /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React.createElement(ConnectIcon, null), "Let\u2019s Connect"), /*#__PURE__*/React.createElement("a", {
+    className: "ds-footer-link",
     href: linkedinHref,
     target: "_blank",
     rel: "noopener",
     style: {
-      font: c ? "500 16px/1.6 var(--font-body)" : "500 20px/1.6 var(--font-body)",
+      font: c ? "800 14px/1.2 var(--font-body)" : "800 17px/1.2 var(--font-body)",
       color: "var(--text-accent-on-dark)",
       display: "inline-flex",
       alignItems: "center",
-      gap: 6
+      gap: 10,
+      width: "max-content",
+      textTransform: "uppercase",
+      letterSpacing: "1.4px",
+      textDecoration: "none"
     }
-  }, "linkedin ", /*#__PURE__*/React.createElement(ArrowIcon, null)))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement(LinkedInIcon, null), "LinkedIn"))), /*#__PURE__*/React.createElement("div", {
     style: {
       borderTop: "0.56px solid var(--border-hairline)",
       padding: c ? "40px 0 0" : "60px 0",
@@ -373,7 +415,7 @@ function Footer({
       gap: 6,
       whiteSpace: "nowrap"
     }
-  }, /*#__PURE__*/React.createElement(CopyrightIcon, null), " 2025 AISHA MOMAND"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement(CopyrightIcon, null), " 2026 AISHA MOMAND"), /*#__PURE__*/React.createElement("span", {
     style: {
       font: "400 14px/1.14 var(--font-body)",
       color: "var(--text-inverse)",
