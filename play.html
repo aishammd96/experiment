@@ -542,7 +542,9 @@ function ChatBox() {
       setMessages(current => [...current, {
         role: "bot",
         text: "It’s on its way to me. Thanks for reaching out—I’ll reply to the email you shared.",
-        contact: true
+        contact: true,
+        suggestions: SUGGESTIONS,
+        suggestionType: "initial"
       }]);
       setContact(null);
       setDraft({ subject: "", body: "" });
