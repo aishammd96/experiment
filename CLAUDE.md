@@ -77,10 +77,11 @@ The Cloudflare Worker is named `ai-sha-api` and uses Workers AI with `@cf/meta/l
 
 Allowed browser origins must include `https://www.aishamomand.com`, `https://aishamomand.com`, the legacy GitHub Pages origin, and the local port `8124` origins. Origin values are normalized before CORS checks. If the production domain changes, update the Worker allowlist at the same time.
 
-Supported request modes:
+AI requests used by the site:
 
 - Default chat: `{ message, history }`
-- Contact polishing: `{ mode: "polish_contact", message, previous }`
+
+The guided contact flow does not send the visitor’s message to the AI Worker. It keeps the message in browser state until the visitor reviews the final draft and chooses to send it.
 
 Safety requirements:
 
@@ -88,7 +89,6 @@ Safety requirements:
 - Never invent work, tools, research methods, outcomes, or personal facts.
 - If the portfolio does not document something, say so instead of guessing.
 - Never expose private chain-of-thought. “Why this answer?” shows a concise evidence summary only.
-- Contact polishing must preserve concrete nouns and intent. The Worker has a factual safety filter and conservative fallback to prevent changes such as turning “job” into “project.”
 - External links should render as subtle brutalist link buttons rather than raw URLs.
 
 Verified personal content includes Ora, Aisha’s female cat: clumsy, convinced she is human, interrupts meetings, drinks only from glass cups, gets into tricky situations, and takes up most of the bed.
@@ -102,13 +102,10 @@ Sequence:
 1. First and last name
 2. Reply email
 3. Topic: project/collaboration, role/opportunity, portfolio question, or custom “Something else”
-4. Rough notes
-5. AI-sha returns a polished version
-6. Visitor chooses “Use this version” or “Revise it”
-7. Revisions can repeat until approved
-8. Timing
-9. Full editable subject and email preview
-10. Visitor explicitly presses “Send to Aisha”
+4. Visitor writes the message they want to discuss and is told it can be edited later
+5. Timing
+6. Full editable subject and email preview
+7. Visitor explicitly presses “Send to Aisha”
 
 Only the newest set of contact suggestion buttons should remain visible.
 
@@ -137,7 +134,7 @@ Before publishing:
 3. Confirm the transcript scrolls without elongating the page.
 4. Confirm long input wraps and the composer grows only to its maximum height.
 5. Test all three starter prompts.
-6. Test contact polishing, at least one revision, approval, timing, and the editable draft.
+6. Test the contact message, timing choice, and editable final draft.
 7. Do not send a real test email unless explicitly requested.
 8. Stage only files related to the requested change.
 9. Push `main` to publish through GitHub Pages.
@@ -149,5 +146,6 @@ Before publishing:
 - “Let’s Connect” replaces separate Contact and Play navigation destinations.
 - AI-sha is introduced as a portfolio guide and contact-writing assistant, not as the real Aisha.
 - The Play heading disappears after conversation starts.
+- The contact flow does not polish or rewrite the visitor’s message.
 - The final email remains human-controlled and editable.
 - No decorative blobs.
