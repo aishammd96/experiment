@@ -59,6 +59,15 @@ button{border-radius:10px !important}
 .thinking-panel li{padding:2px 0}
 .thinking-panel li.active{color:var(--coral-600);font-weight:800}
 .thinking-note{margin:0;padding:0 12px 12px;color:var(--gray-500);font-size:11px}
+.answer-insight{display:grid;gap:12px;padding:4px 12px 14px}
+.insight-block{display:grid;gap:4px}
+.insight-label{font:800 10px/1.2 Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--coral-600)}
+.insight-value{font:600 12px/1.45 Inter,sans-serif;color:var(--navy-900)}
+.source-list{display:flex;flex-wrap:wrap;gap:6px}
+.source-tag,.confidence-tag{display:inline-flex;width:max-content;padding:4px 7px;border:1.5px solid var(--navy-900);border-radius:5px;background:var(--butter-100);font:800 10px/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.35px}
+.confidence-tag.high{background:#c9f2d5}
+.confidence-tag.medium{background:var(--butter-100)}
+.confidence-tag.low{background:#ffd7d2}
 .chip-row{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
 .chip-btn{border:2px solid var(--navy-900);background:var(--butter-100);border-radius:999px;padding:9px 18px;font:700 13px/1.2 Inter,sans-serif;cursor:pointer;transition:all 220ms cubic-bezier(0.16,1,0.3,1);box-shadow:3px 3px 0 var(--navy-900)}
 .chip-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--coral-500);border-color:var(--coral-500)}
@@ -193,17 +202,81 @@ function MessageContent({ text }) {
   );
 }
 
-function ThinkingDetails({ elapsed, active = false }) {
+function deriveInsight(question, answer) {
+  const lower = question.toLowerCase();
+  let understood = "You asked a general question about Aisha and her portfolio.";
+  let sources = ["Portfolio overview"];
+  let confidence = "medium";
+
+  if (/(work|project|case study|kindex)/.test(lower)) {
+    understood = "You asked for an overview of Aisha's work and the projects that best represent it.";
+    sources = ["Selected work", "Kindex case study"];
+    confidence = "high";
+  } else if (/(process|approach|design|research)/.test(lower)) {
+    understood = "You asked how Aisha approaches design, research, and complex product problems.";
+    sources = ["Design process", "About Aisha"];
+    confidence = "high";
+  } else if (/(resume|experience|background|career)/.test(lower)) {
+    understood = "You asked about Aisha's professional background and experience.";
+    sources = ["Resume", "About Aisha"];
+    confidence = "high";
+  } else if (/(who are you|about|yourself)/.test(lower)) {
+    understood = "You asked who AI-sha represents and how it relates to Aisha's portfolio.";
+    sources = ["About Aisha", "Portfolio overview"];
+    confidence = "high";
+  }
+
+  let linkReason = "No specific portfolio link was needed for this answer.";
+  if (answer.includes("#work")) linkReason = "Selected work is the most direct place to explore the projects mentioned.";
+  else if (answer.includes("kindex.html")) linkReason = "The Kindex case study directly supports the project details in this answer.";
+  else if (answer.includes("resume.html")) linkReason = "The resume provides the fullest view of Aisha's experience.";
+  else if (answer.includes("about.html")) linkReason = "The About page adds the most relevant personal and professional context.";
+
+  return { understood, sources, linkReason, confidence };
+}
+
+function ThinkingDetails({ elapsed, active = false, insight }) {
   const stage = elapsed < 0.8 ? 0 : elapsed < 1.8 ? 1 : 2;
+  if (!active) {
+    const confidence = insight?.confidence || "medium";
+    return (
+      <details className="thinking-panel">
+        <summary>{`Why this answer? · ${elapsed.toFixed(1)}s`}</summary>
+        <div className="answer-insight">
+          <div className="insight-block">
+            <span className="insight-label">Understood</span>
+            <span className="insight-value">{insight?.understood || "You asked for information related to Aisha's portfolio."}</span>
+          </div>
+          <div className="insight-block">
+            <span className="insight-label">Portfolio evidence used</span>
+            <span className="source-list">
+              {(insight?.sources?.length ? insight.sources : ["Portfolio context"]).map((source, i) => (
+                <span className="source-tag" key={i}>{source}</span>
+              ))}
+            </span>
+          </div>
+          <div className="insight-block">
+            <span className="insight-label">Link choice</span>
+            <span className="insight-value">{insight?.linkReason || "No specific portfolio link was needed for this answer."}</span>
+          </div>
+          <div className="insight-block">
+            <span className="insight-label">Confidence</span>
+            <span className={"confidence-tag " + confidence}>{confidence}</span>
+          </div>
+        </div>
+        <p className="thinking-note">A concise explanation of the answer—not private chain-of-thought.</p>
+      </details>
+    );
+  }
   return (
-    <details className="thinking-panel" open={active}>
-      <summary>{active ? `Working · ${elapsed.toFixed(1)}s` : `Answered in ${elapsed.toFixed(1)}s`}</summary>
+    <details className="thinking-panel" open>
+      <summary>{`Working · ${elapsed.toFixed(1)}s`}</summary>
       <ol>
         <li className={active && stage === 0 ? "active" : ""}>Reading your question</li>
         <li className={active && stage === 1 ? "active" : ""}>Checking Aisha's portfolio context</li>
         <li className={active && stage === 2 ? "active" : ""}>Composing a useful answer</li>
       </ol>
-      <p className="thinking-note">This shows progress, not the model's private internal reasoning.</p>
+      <p className="thinking-note">Live progress while AI-sha prepares the answer.</p>
     </details>
   );
 }
@@ -251,7 +324,14 @@ function ChatBox() {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Request failed");
       const responseTime = (performance.now() - startedAt.current) / 1000;
-      setMessages(m => [...m, { role: "bot", text: data.reply, elapsed: responseTime }]);
+      const genericInsight = !data.insight || data.insight.sources?.[0] === "Portfolio context";
+      const insight = genericInsight ? deriveInsight(trimmed, data.reply) : {
+        ...data.insight,
+        linkReason: /https?:\/\//.test(data.reply)
+          ? data.insight.linkReason
+          : "No specific portfolio link was needed for this answer."
+      };
+      setMessages(m => [...m, { role: "bot", text: data.reply, elapsed: responseTime, insight }]);
     } catch (error) {
       const responseTime = (performance.now() - startedAt.current) / 1000;
       setMessages(m => [...m, {
@@ -279,7 +359,7 @@ function ChatBox() {
             <div>
               <span className="who-label">{m.role === "user" ? "You" : "AI-sha"}</span>
               <div className={"msg-text " + (m.role === "user" ? "user" : "bot")}><MessageContent text={m.text} /></div>
-              {m.role === "bot" && m.elapsed != null && <ThinkingDetails elapsed={m.elapsed} />}
+              {m.role === "bot" && m.elapsed != null && <ThinkingDetails elapsed={m.elapsed} insight={m.insight} />}
             </div>
           </div>
         ))}
