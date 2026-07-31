@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Play — Aisha Momand</title>
+<title>Talk to AI-sha — Aisha Momand</title>
 <link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/colors.css">
 <link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/typography.css">
 <link rel="stylesheet" href="_ds/aisha-momand-design-system-ae68735d-cf1b-4595-a743-23d3395d1e32/tokens/spacing.css">
@@ -25,14 +25,14 @@ a:hover{color:var(--coral-600)}
 .logo-link img{transition:filter 420ms cubic-bezier(0.16,1,0.3,1),transform 420ms cubic-bezier(0.16,1,0.3,1)}
 .logo-link:hover img{transform:scale(1.04)}
 button{border-radius:10px !important}
-.play-hero{position:relative;overflow:visible}
+.play-hero{position:relative;overflow:visible;padding:22px 26px 26px;border:2px solid var(--navy-900);border-radius:8px;background:rgba(255,255,255,.34);box-shadow:10px 10px 0 var(--butter-100)}
 .talk-heading{position:relative;z-index:1;font:var(--text-hero);font-style:normal;font-weight:700;font-size:var(--size-h1);line-height:1.05;color:var(--navy-900);margin:0 0 8px}
 .accent-hl{position:relative;display:inline-block}
 .accent-hl::after{content:"";position:absolute;left:0;right:0;bottom:6%;height:14%;background:var(--butter-100);z-index:-1;transform:skewX(-6deg)}
-.status-line{position:relative;z-index:1;display:flex;align-items:center;gap:8px;font:600 13px/1.2 Inter,sans-serif;letter-spacing:0.5px;color:var(--gray-500);margin-bottom:40px}
+.status-line{position:relative;z-index:1;display:flex;align-items:center;gap:8px;font:600 13px/1.2 Inter,sans-serif;letter-spacing:0.5px;color:var(--gray-500);margin:0 0 20px}
 .status-dot{width:8px;height:8px;border-radius:50%;background:#5ce38a;display:inline-block;box-shadow:0 0 0 4px rgba(92,227,138,0.2);animation:pulseDot 2s ease-in-out infinite}
 @keyframes pulseDot{0%,100%{box-shadow:0 0 0 4px rgba(92,227,138,0.2)}50%{box-shadow:0 0 0 7px rgba(92,227,138,0.08)}}
-.transcript{position:relative;z-index:1;display:flex;flex-direction:column;gap:36px;height:clamp(320px,48vh,460px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:28px 24px 30px 6px;margin-bottom:28px;border-top:2px solid var(--navy-900);border-bottom:2px solid var(--navy-900);scroll-behavior:smooth}
+.transcript{position:relative;z-index:1;display:flex;flex-direction:column;gap:38px;height:clamp(340px,42vh,520px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:34px 40px 38px;margin-bottom:20px;border:2px solid var(--navy-900);border-radius:6px;background:rgba(255,253,247,.6);scroll-behavior:smooth}
 .transcript::-webkit-scrollbar{width:10px}
 .transcript::-webkit-scrollbar-track{background:var(--butter-100);border-left:2px solid var(--navy-900)}
 .transcript::-webkit-scrollbar-thumb{background:var(--coral-500);border:2px solid var(--navy-900)}
@@ -41,8 +41,8 @@ button{border-radius:10px !important}
 @keyframes msgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .msg-row.user{flex-direction:row-reverse;text-align:right;margin-left:auto}
 .avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 4px 14px rgba(20,30,50,0.18)}
-.msg-text.bot{font:italic 500 22px/1.58 Georgia,serif;color:var(--navy-900);max-width:590px;overflow-wrap:anywhere;word-break:break-word}
-.msg-text.user{font:700 16px/1.5 Inter,sans-serif;color:#fff;background:linear-gradient(135deg,var(--coral-500),var(--coral-600));padding:10px 20px;border-radius:20px 20px 4px 20px;box-shadow:0 6px 16px rgba(224,92,78,0.3);max-width:420px;overflow-wrap:anywhere;word-break:break-word}
+.msg-text.bot{font:italic 500 23px/1.58 Georgia,serif;color:var(--navy-900);max-width:820px;overflow-wrap:anywhere;word-break:break-word}
+.msg-text.user{font:700 16px/1.5 Inter,sans-serif;color:#fff;background:linear-gradient(135deg,var(--coral-500),var(--coral-600));padding:10px 20px;border-radius:20px 20px 4px 20px;box-shadow:0 6px 16px rgba(224,92,78,0.3);max-width:560px;overflow-wrap:anywhere;word-break:break-word}
 .portfolio-link{display:flex;align-items:center;gap:12px;box-sizing:border-box;width:min(390px,100%);margin:18px 0 4px;padding:11px 12px;border:1.5px solid rgba(24,55,122,.42);border-radius:6px;background:rgba(255,255,255,.42);color:var(--navy-900);font-family:Inter,sans-serif;font-style:normal;text-decoration:none;transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease}
 .portfolio-link:hover{color:var(--navy-900);background:rgba(255,242,193,.64);border-color:var(--navy-900);transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--navy-900)}
 .link-mark{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border:1.5px solid var(--navy-900);border-radius:4px;background:var(--butter-100);font:900 17px/1 Inter,sans-serif}
@@ -55,7 +55,7 @@ button{border-radius:10px !important}
 .typing-dot:nth-child(2){animation-delay:0.15s}
 .typing-dot:nth-child(3){animation-delay:0.3s}
 @keyframes typingBounce{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-6px);opacity:1}}
-.thinking-panel{margin:0 0 10px;max-width:560px;border:0;background:transparent;font:600 12px/1.45 Inter,sans-serif;color:var(--gray-500)}
+.thinking-panel{margin:0 0 10px;max-width:780px;border:0;background:transparent;font:600 12px/1.45 Inter,sans-serif;color:var(--gray-500)}
 .thinking-panel summary{display:flex;align-items:center;gap:7px;width:max-content;max-width:100%;padding:2px 0 7px;cursor:pointer;list-style:none;color:var(--gray-500);font-weight:650;letter-spacing:.1px;transition:color 180ms ease}
 .thinking-panel summary:hover{color:var(--navy-900)}
 .thinking-panel summary::-webkit-details-marker{display:none}
@@ -75,8 +75,8 @@ button{border-radius:10px !important}
 .confidence-tag.high{background:#c9f2d5}
 .confidence-tag.medium{background:var(--butter-100)}
 .confidence-tag.low{background:#ffd7d2}
-.chip-row{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.chip-btn{border:2px solid var(--navy-900);background:var(--butter-100);border-radius:999px;padding:9px 18px;font:700 13px/1.2 Inter,sans-serif;cursor:pointer;transition:all 220ms cubic-bezier(0.16,1,0.3,1);box-shadow:3px 3px 0 var(--navy-900)}
+.chip-row{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.chip-btn{min-height:48px;border:2px solid var(--navy-900);background:var(--butter-100);border-radius:6px;padding:10px 18px;font:700 13px/1.25 Inter,sans-serif;cursor:pointer;transition:all 220ms cubic-bezier(0.16,1,0.3,1);box-shadow:3px 3px 0 var(--navy-900)}
 .chip-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--coral-500);border-color:var(--coral-500)}
 .chip-btn:active{transform:translate(0,0);box-shadow:1px 1px 0 var(--navy-900)}
 .contact-flow{display:grid;gap:18px;margin-left:60px;padding:20px;border:2px solid var(--navy-900);border-radius:8px;background:rgba(255,255,255,.5);box-shadow:5px 5px 0 var(--butter-100);animation:msgIn 420ms cubic-bezier(0.16,1,0.3,1) both}
@@ -108,8 +108,8 @@ button{border-radius:10px !important}
 .contact-success p,.contact-error{margin:0;color:var(--navy-900);font:500 13px/1.45 Inter,sans-serif}
 .contact-error{color:#a32f24;font-weight:700}
 .honey-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
-.chat-form{position:relative;z-index:1;display:flex;align-items:flex-end;gap:16px;border-top:2px solid var(--navy-900);padding-top:20px}
-.chat-input{flex:1;box-sizing:border-box;min-height:46px;max-height:148px;overflow-y:auto;resize:none;border:none;background:transparent;font:italic 500 24px/1.4 Georgia,serif;color:var(--navy-900);padding:6px 0;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
+.chat-form{position:relative;z-index:1;display:flex;align-items:flex-end;gap:14px;border:2px solid var(--navy-900);border-radius:6px;background:rgba(255,255,255,.68);padding:10px 10px 10px 16px;box-shadow:4px 4px 0 var(--butter-100)}
+.chat-input{flex:1;box-sizing:border-box;min-height:46px;max-height:148px;overflow-y:auto;resize:none;border:none;background:transparent;font:italic 500 22px/1.4 Georgia,serif;color:var(--navy-900);padding:7px 0;overflow-wrap:anywhere;word-break:break-word;white-space:pre-wrap}
 .chat-input::placeholder{color:var(--gray-300)}
 .chat-input:focus{outline:none}
 .send-fab{width:52px;height:52px;border-radius:50%;border:none;background:var(--coral-500);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:transform 220ms cubic-bezier(0.16,1,0.3,1),background 220ms ease;box-shadow:0 8px 20px rgba(224,92,78,0.35)}
@@ -124,11 +124,16 @@ button{border-radius:10px !important}
 .cursor-ring.hovering{width:44px;height:44px;border-color:var(--text-accent-on-light)}
 @media (hover:none){.cursor-dot,.cursor-ring{display:none}}
 @media (max-width:700px){
-  .transcript{height:min(54vh,430px);min-height:320px;padding:22px 12px 24px 2px;gap:30px}
+  .play-hero{padding:14px;border-radius:6px;box-shadow:6px 6px 0 var(--butter-100)}
+  .transcript{height:min(52vh,460px);min-height:340px;padding:22px 14px 26px;gap:30px}
   .msg-text.bot{font-size:18px;line-height:1.55;max-width:100%}
   .portfolio-link{width:100%;margin-top:14px;padding:9px 10px;gap:10px}
   .link-mark{width:34px;height:34px;flex-basis:34px}
   .link-open{font-size:10px;padding-left:9px}
+  .chip-row{grid-template-columns:1fr;gap:9px}
+  .chip-btn{min-height:44px}
+  .chat-form{padding:8px 8px 8px 12px}
+  .chat-input{font-size:19px}
   .contact-flow{margin-left:0;padding:16px;box-shadow:4px 4px 0 var(--butter-100)}
   .contact-grid{grid-template-columns:1fr}
   .contact-field.full{grid-column:auto}
@@ -172,11 +177,6 @@ function MenuIcon() {
   );
 }
 
-function openContactFlow() {
-  window.dispatchEvent(new CustomEvent("open-ai-sha-contact"));
-  window.location.hash = "main";
-}
-
 function Navbar({ mobile }) {
   const [open, setOpen] = React.useState(false);
   if (mobile) {
@@ -191,9 +191,8 @@ function Navbar({ mobile }) {
             <Link href="index.html">Work</Link>
             <Link href="about.html">About</Link>
             <Link href="resume.html">Resume</Link>
-            <Link href="play.html" active>Play</Link>
             <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
-            <div style={{paddingTop:8}}><Button variant="primary" size="sm" onClick={()=>{setOpen(false);openContactFlow();}}>Contact</Button></div>
+            <div style={{paddingTop:8}}><Button variant="primary" size="sm" onClick={()=>setOpen(false)}>Talk to AI-sha</Button></div>
           </nav>
         )}
       </div>
@@ -208,9 +207,8 @@ function Navbar({ mobile }) {
             <Link href="index.html">Work</Link>
             <Link href="about.html">About</Link>
             <Link href="resume.html">Resume</Link>
-            <Link href="play.html" active>Play</Link>
             <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
-            <Button variant="primary" onClick={openContactFlow}>Contact</Button>
+            <Button variant="primary">Talk to AI-sha</Button>
           </nav>
         </div>
       </div>
@@ -221,8 +219,8 @@ function Navbar({ mobile }) {
 
 const CHAT_API = "https://ai-sha-api.aisha-mmd96.workers.dev/chat";
 
-const CONTACT_PROMPT = "Help me contact Aisha";
-const SUGGESTIONS = ["Who are you?", "Tell me about your work", "What's your design process?", "Tell me about Ora", CONTACT_PROMPT];
+const CONTACT_PROMPT = "I want to contact you";
+const SUGGESTIONS = ["Tell me about your work", "What's your design process?", CONTACT_PROMPT];
 
 function linkLabel(url) {
   if (url.includes("#work")) return "View selected work";
@@ -517,7 +515,7 @@ function ContactFlow({ onClose }) {
 
 function ChatBox() {
   const [messages, setMessages] = React.useState([
-    { role: "bot", text: "Hey, I'm AI-sha. Ask me about my work, how I approach design, or what I'm like to collaborate with." }
+    { role: "bot", text: "Hey, I'm AI-sha. Ask me about my work and design process—or I can help you write a thoughtful message to me." }
   ]);
   const [input, setInput] = React.useState("");
   const [typing, setTyping] = React.useState(false);
@@ -539,12 +537,6 @@ function ChatBox() {
     }, 100);
     return () => window.clearInterval(timer);
   }, [typing]);
-
-  React.useEffect(() => {
-    const openContact = () => setContactOpen(true);
-    window.addEventListener("open-ai-sha-contact", openContact);
-    return () => window.removeEventListener("open-ai-sha-contact", openContact);
-  }, []);
 
   async function send(text) {
     const trimmed = text.trim();
@@ -682,8 +674,8 @@ function App() {
   return (
     <React.Fragment>
       <Navbar mobile={mobile} />
-      <main id="main" style={{display:"flex",justifyContent:"center",padding: mobile ? "24px 20px 40px" : "72px 80px 140px"}}>
-        <div style={{maxWidth:760,width:"100%"}}>
+      <main id="main" style={{display:"flex",justifyContent:"center",padding: mobile ? "24px 20px 48px" : "42px 48px 110px"}}>
+        <div style={{maxWidth:1180,width:"100%"}}>
           <h1 className="talk-heading">Talk to <span className="accent-hl" style={{color:"var(--coral-500)",fontStyle:"italic"}}>AI&#8209;sha</span>.</h1>
           <ChatBox />
         </div>

@@ -348,9 +348,8 @@ function Navbar(){
       <Link href="index.html">Work</Link>
       <Link href="about.html">About</Link>
       <Link href="resume.html" active>Resume</Link>
-      <Link href="play.html">Play</Link>
       <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
-      <div style={{paddingTop:8,display:"flex",gap:8,flexWrap:"wrap"}}><Button variant="secondary" size="sm" onClick={()=>window.print()}><span style={{whiteSpace:"nowrap"}}>Download PDF</span></Button><Button variant="primary" size="sm" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button></div>
+      <div style={{paddingTop:8,display:"flex",gap:8,flexWrap:"wrap"}}><Button variant="secondary" size="sm" onClick={()=>window.print()}><span style={{whiteSpace:"nowrap"}}>Download PDF</span></Button><Button variant="primary" size="sm" onClick={()=>{window.location.href="play.html"}}>Talk to AI-sha</Button></div>
     </nav>)}
   </div>);}
   return(<div style={{position:"sticky",top:0,zIndex:10}}>
@@ -361,10 +360,9 @@ function Navbar(){
           <Link href="index.html">Work</Link>
           <Link href="about.html">About</Link>
           <Link href="resume.html" active>Resume</Link>
-          <Link href="play.html">Play</Link>
-      <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
+          <Link href="https://www.linkedin.com/in/aisha-momand/" target="_blank" rel="noopener">LinkedIn</Link>
           <Button variant="secondary" onClick={()=>window.print()}><span style={{whiteSpace:"nowrap"}}>Download PDF</span></Button>
-          <Button variant="primary" onClick={()=>{window.location.href="mailto:aisha.momand1@gmail.com"}}>Contact</Button>
+          <Button variant="primary" onClick={()=>{window.location.href="play.html"}}>Talk to AI-sha</Button>
         </nav>
       </div>
     </div>
