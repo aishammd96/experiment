@@ -254,7 +254,7 @@ function deriveInsight(question, answer) {
   return { understood, sources, linkReason, confidence };
 }
 
-function ThinkingDetails({ elapsed, active = false, insight }) {
+function ThinkingDetails({ elapsed, active = false, insight, retrying = false }) {
   const stage = elapsed < 0.8 ? 0 : elapsed < 1.8 ? 1 : 2;
   if (!active) {
     const confidence = insight?.confidence || "medium";
@@ -289,7 +289,7 @@ function ThinkingDetails({ elapsed, active = false, insight }) {
   }
   return (
     <details className="thinking-panel" open>
-      <summary>{`Working · ${elapsed.toFixed(1)}s`}</summary>
+      <summary>{`${retrying ? "Retrying connection" : "Working"} · ${elapsed.toFixed(1)}s`}</summary>
       <ol>
         <li className={active && stage === 0 ? "active" : ""}>Reading your question</li>
         <li className={active && stage === 1 ? "active" : ""}>Checking Aisha's portfolio context</li>
@@ -306,6 +306,7 @@ function ChatBox() {
   ]);
   const [input, setInput] = React.useState("");
   const [typing, setTyping] = React.useState(false);
+  const [retrying, setRetrying] = React.useState(false);
   const [elapsed, setElapsed] = React.useState(0);
   const scrollRef = React.useRef(null);
   const inputRef = React.useRef(null);
@@ -335,15 +336,31 @@ function ChatBox() {
     if (inputRef.current) inputRef.current.style.height = "46px";
     startedAt.current = performance.now();
     setElapsed(0);
+    setRetrying(false);
     setTyping(true);
     try {
-      const response = await fetch(CHAT_API, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: trimmed, history })
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Request failed");
+      let data;
+      let lastError;
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          const response = await fetch(CHAT_API, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: trimmed, history })
+          });
+          const responseData = await response.json();
+          if (!response.ok) throw new Error(responseData.error || "Request failed");
+          data = responseData;
+          break;
+        } catch (error) {
+          lastError = error;
+          if (attempt === 0) {
+            setRetrying(true);
+            await new Promise(resolve => window.setTimeout(resolve, 650));
+          }
+        }
+      }
+      if (!data) throw lastError || new Error("Request failed");
       const responseTime = (performance.now() - startedAt.current) / 1000;
       const reply = cleanReply(data.reply);
       const genericInsight = !data.insight || data.insight.sources?.[0] === "Portfolio context";
@@ -363,6 +380,7 @@ function ChatBox() {
       }]);
     } finally {
       setTyping(false);
+      setRetrying(false);
     }
   }
 
@@ -407,7 +425,7 @@ function ChatBox() {
               <div className="msg-text bot">
                 <span className="typing-dot"></span><span className="typing-dot"></span><span className="typing-dot"></span>
               </div>
-              <ThinkingDetails elapsed={elapsed} active />
+              <ThinkingDetails elapsed={elapsed} active retrying={retrying} />
             </div>
           </div>
         )}
